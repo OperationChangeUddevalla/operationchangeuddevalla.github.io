@@ -172,7 +172,7 @@ img {
 }
 .orphan__list {
 	columns: 10rem 2;
-	/* column-gap: 7rem; */
+	column-gap: 2rem;
 	/* column-rule: 4px dotted var(--blue); */
 	padding: 1rem 1rem 1rem 2em;
 	border: thin solid var(--blue);
