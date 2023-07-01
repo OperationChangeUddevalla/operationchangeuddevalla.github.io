@@ -104,7 +104,7 @@ img {
 	align-items: end;
 }
 .hero__img {
-	height: 50px;
+	height: 60px;
 }
 .hero__figure {
 	position: relative;
@@ -263,6 +263,10 @@ img {
 @media (max-width: 600px) {
 	:root {
 		font-size: 10px;
+	}
+
+	.hero__img {
+		height: 50px;
 	}
 
 	.gallery__grid {
