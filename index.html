@@ -5,6 +5,8 @@
 	<title>OperationChange Uddevalla</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preload" href="assets/hero-poster.webp" as="image">
+	<link rel="preload" href="style.css" as="style">
 	<link href="style.css" rel="stylesheet">
 	<link rel="icon" type="image/x-icon" href="assets/operation.svg">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +17,24 @@
 </head>
 
 <body>
+	<nav class="nav">
+		<div class="nav__container">
+			<a class="nav__logo" href="index.html">
+				<div class="logo">
+					<img class="logo__img" src="assets/operation.svg" alt="OperationChange Uddevalla Logo">
+					<p class="logo__title">OperationChange</p>
+					<span class="logo__subtitle">Uddevalla</span>
+				</div>
+			</a>
+			<div class="nav__list">
+				<a href="#orphanage">Barnhem</a>
+				<a href="#contact">Kontakt</a>
+				<a href="#operationchange">OperationChange</a>
+				<a href="#gallery">Galleri</a>
+			</div>
+		</div>
+	</nav>
+
 	<main>
 		<a class="scrollup" href="#"><span class="material-symbols-outlined">
 				expand_less
@@ -23,10 +43,10 @@
 		<section class="hero">
 			<div class="hero__overlay">
 				<div class="hero__grid">
-					<div class="hero__grid-item hero__grid-item--center">
-						<img src="assets/operation.svg" alt="">
-						<h1 class="hero__title">OperationChange</h1>
-						<span class="hero__subtitle">Uddevalla</span>
+					<div class="logo hero__logo hero__grid-item hero__grid-item--center">
+						<img class="logo__img" src="assets/operation.svg" alt="OperationChange Uddevalla Logo">
+						<h1 class="logo__title">OperationChange</h1>
+						<span class="logo__subtitle">Uddevalla</span>
 					</div>
 					<div class="hero__grid-item hero__grid-item--bottom">
 						<div class="hero__text">
@@ -64,7 +84,7 @@
 			</figure>
 		</section>
 
-		<section class="section">
+		<section id="orphanage" class="section">
 			<div class="section__text">
 				<header class="section__header">
 					<h2 class="section__title">Dzhulinsky Orphanage House Haivoron</h2>
@@ -134,7 +154,7 @@
 			<img class="section__img" src="assets/orphanage.webp" alt="Dzhulinsky Orphanage House Haivoron">
 		</section>
 
-		<section class="section">
+		<section id="contact" class="section">
 			<div class="section__text">
 				<header class="section__header">
 					<h2 class="section__title">Kontakt</h2>
@@ -165,7 +185,7 @@
 			</div>
 		</section>
 
-		<section class="section">
+		<section id="operationchange" class="section">
 			<div class="section__text">
 				<header class="section__header">
 					<h2 class="section__title">OperationChange</h2>
