@@ -1,3 +1,9 @@
+const menuList = document.getElementById("menu-list");
+const menuButton = document.querySelector(".menu__button");
+menuButton.addEventListener("click", () => {
+	menuList.classList.toggle("menu__list--hidden");
+});
+
 const imagesUkraine = [
 	"AJEU4691.webp",
 	"ATHO1574.webp",
