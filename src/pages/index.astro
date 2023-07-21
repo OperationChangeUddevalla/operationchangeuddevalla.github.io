@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="OperationChange Uddevalla">
+	<section class="relative">
+		<div
+			class="text-center absolute top-0 left-0 p-2 w-full h-full grid grid-rows-hero gap-4 auto-cols-[600px] justify-center items-center [text-shadow:_2px_2px_10px_black]"
+		>
+			<div class="row-start-2">
+				<img
+					class="inline h-20"
+					src="assets/operation.svg"
+					alt="OperationChange Uddevalla Logo"
+				/>
+				<h1 class="text-7xl text-ukraine-blue">OperationChange</h1>
+				<span class="text-3xl text-ukraine-yellow">Uddevalla</span>
+			</div>
+			<div
+				class="flex flex-col gap-4 text-white justify-between row-start-3 h-full"
+			>
+				<div>
+					<p class="text-2xl">
+						Vi är volontärer inom hjälporganisationen
+						<strong>OperationChange</strong> som hjälper gamla och barn på
+						barnhem i Ukraina.
+					</p>
+					<button
+						class="hover:bg-blue-600 mt-4 bg-ukraine-blue text-ukraine-yellow text-2xl py-2 px-4 rounded font-bold"
+					>
+						CTA
+					</button>
+				</div>
+				<div class="flex justify-center gap-4">
+					<a href=""><img class="h-14" src="assets/abf.svg" alt="" /></a>
+					<a href=""><img class="h-14" src="assets/v.svg" alt="" /></a>
+					<a href=""><img class="h-14" src="assets/vp.svg" alt="" /></a>
+					<a href=""><img class="h-14" src="assets/s.svg" alt="" /></a>
+					<a href=""><img class="h-14" src="assets/lo.svg" alt="" /></a>
+				</div>
+			</div>
+		</div>
+		<figure class="relative -z-10 bg-hero-gradient h-screen">
+			<video
+				class="w-full h-full object-cover mix-blend-multiply blur-sm"
+				autoplay
+				loop
+				muted
+				poster="assets/hero-poster.webp"
+			>
+				<source src="assets/hero.mp4" type="video/mp4" />
+			</video>
+		</figure>
+	</section>
+</Layout>
