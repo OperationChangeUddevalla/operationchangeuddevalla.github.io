@@ -74,7 +74,8 @@ img {
 .nav__list a {
 	color: var(--blue);
 }
-.nav__list a:hover {
+.nav__list a:hover,
+.nav__list a:active {
 	color: var(--yellow);
 }
 
@@ -90,8 +91,8 @@ img {
 	text-decoration: none;
 	box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
 }
-.scrollup span {
-	font-size: 2rem;
+.scrollup__icon {
+	width: 2rem;
 }
 
 .logo {
@@ -124,12 +125,16 @@ img {
 	color: white;
 	appearance: none;
 	cursor: pointer;
+	border: thin solid transparent;
+	border-radius: 4px;
 }
-.menu__button:hover {
-	color: var(--yellow);
+.menu__button:hover,
+.menu__button:active {
+	/* color: var(--yellow); */
+	border-color: var(--yellow);
 }
-.menu span {
-	font-size: 4rem;
+.menu__icon {
+	width: 4rem;
 }
 .menu__list {
 	display: flex;
@@ -140,7 +145,8 @@ img {
 .menu__list a {
 	color: white;
 }
-.menu__list a:hover {
+.menu__list a:hover,
+.menu__list a:active {
 	color: var(--yellow);
 }
 .menu__list--hidden {
