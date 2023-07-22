@@ -17,7 +17,7 @@ const videosNames = [
 	"WFEK5798.MP4",
 ];
 
-let currentVideo = 0;
+let videoCurrent = 0;
 
 const videos = document.querySelector(".videos");
 
@@ -29,15 +29,17 @@ const videosLength = videos.querySelector(".videos__length");
 
 videosNames.forEach((videoName, i) => {
 	let video = document.createElement("video");
-	if (i == currentVideo) {
-		videosCurrent.textContent = currentVideo + 1;
+	video.controls = true;
+	if (i == videoCurrent) {
+		videosCurrent.textContent = videoCurrent + 1;
 		videosLength.textContent = videosNames.length;
+
+		video.preload = "metadata";
 		video.classList.add("videos__video");
 	} else {
+		video.preload = "none";
 		video.classList.add("videos__video", "videos__video--hidden");
 	}
-	video.controls = true;
-	video.preload = "metadata";
 
 	let source = document.createElement("source");
 	source.src = `assets/videos/${videoName}`;
@@ -47,32 +49,40 @@ videosNames.forEach((videoName, i) => {
 	videosList.appendChild(video);
 });
 
-function videosToggleHidden(prevVideo, currentVideo) {
-	videosCurrent.textContent = currentVideo + 1;
-	videosListChildren[prevVideo].pause();
-	videosListChildren[prevVideo].classList.add("videos__video--hidden");
-	videosListChildren[currentVideo].classList.remove("videos__video--hidden");
+function videosToggleHidden(videoPrevIndex, videoCurrentIndex) {
+	videosCurrent.textContent = videoCurrentIndex + 1;
+
+	const videoPrev = videosListChildren[videoPrevIndex];
+	videoPrev.pause();
+	videoPrev.classList.add("videos__video--hidden");
+
+	const videoCurrent = videosListChildren[videoCurrentIndex];
+	if (videoCurrent.preload === "none") {
+		videoCurrent.preload = "metadata";
+		videoCurrent.load();
+	}
+	videoCurrent.classList.remove("videos__video--hidden");
 }
 
 const videosButtonPrev = videos.querySelector(".videos__button--prev");
 videosButtonPrev.addEventListener("click", () => {
-	const prevVideo = currentVideo;
-	if (currentVideo - 1 < 0) {
-		currentVideo = videosListChildren.length - 1;
+	const videoPrev = videoCurrent;
+	if (videoCurrent - 1 < 0) {
+		videoCurrent = videosListChildren.length - 1;
 	} else {
-		currentVideo--;
+		videoCurrent--;
 	}
-	videosToggleHidden(prevVideo, currentVideo);
+	videosToggleHidden(videoPrev, videoCurrent);
 });
 const videosButtonNext = videos.querySelector(".videos__button--next");
 videosButtonNext.addEventListener("click", () => {
-	const prevVideo = currentVideo;
-	if (currentVideo + 1 > videosListChildren.length - 1) {
-		currentVideo = 0;
+	const videoPrev = videoCurrent;
+	if (videoCurrent + 1 > videosListChildren.length - 1) {
+		videoCurrent = 0;
 	} else {
-		currentVideo++;
+		videoCurrent++;
 	}
-	videosToggleHidden(prevVideo, currentVideo);
+	videosToggleHidden(videoPrev, videoCurrent);
 });
 
 const imagesUkraine = [
