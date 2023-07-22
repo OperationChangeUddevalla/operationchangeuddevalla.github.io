@@ -4,6 +4,77 @@ menuButton.addEventListener("click", () => {
 	menuList.classList.toggle("menu__list--hidden");
 });
 
+const videosNames = [
+	"PLXH9985.MP4",
+	"DFHG3438.MP4",
+	"ELHW9032.MP4",
+	"GDZO8536.MP4",
+	"MYUW8035.MP4",
+	"PZQR6173.MP4",
+	"QGMV2384.MP4",
+	"TSUM7526.MP4",
+	"VLMB4912.MP4",
+	"WFEK5798.MP4",
+];
+
+let currentVideo = 0;
+
+const videos = document.querySelector(".videos");
+
+const videosList = videos.querySelector(".videos__list");
+const videosListChildren = videosList.children;
+
+const videosCurrent = videos.querySelector(".videos__current");
+const videosLength = videos.querySelector(".videos__length");
+
+videosNames.forEach((videoName, i) => {
+	let video = document.createElement("video");
+	if (i == currentVideo) {
+		videosCurrent.textContent = currentVideo + 1;
+		videosLength.textContent = videosNames.length;
+		video.classList.add("videos__video");
+	} else {
+		video.classList.add("videos__video", "videos__video--hidden");
+	}
+	video.controls = true;
+	video.preload = "metadata";
+
+	let source = document.createElement("source");
+	source.src = `assets/videos/${videoName}`;
+	source.type = "video/mp4";
+
+	video.appendChild(source);
+	videosList.appendChild(video);
+});
+
+function videosToggleHidden(prevVideo, currentVideo) {
+	videosCurrent.textContent = currentVideo + 1;
+	videosListChildren[prevVideo].pause();
+	videosListChildren[prevVideo].classList.add("videos__video--hidden");
+	videosListChildren[currentVideo].classList.remove("videos__video--hidden");
+}
+
+const videosButtonPrev = videos.querySelector(".videos__button--prev");
+videosButtonPrev.addEventListener("click", () => {
+	const prevVideo = currentVideo;
+	if (currentVideo - 1 < 0) {
+		currentVideo = videosListChildren.length - 1;
+	} else {
+		currentVideo--;
+	}
+	videosToggleHidden(prevVideo, currentVideo);
+});
+const videosButtonNext = videos.querySelector(".videos__button--next");
+videosButtonNext.addEventListener("click", () => {
+	const prevVideo = currentVideo;
+	if (currentVideo + 1 > videosListChildren.length - 1) {
+		currentVideo = 0;
+	} else {
+		currentVideo++;
+	}
+	videosToggleHidden(prevVideo, currentVideo);
+});
+
 const imagesUkraine = [
 	"AJEU4691.webp",
 	"ATHO1574.webp",
