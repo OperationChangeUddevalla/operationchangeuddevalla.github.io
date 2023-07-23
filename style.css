@@ -396,7 +396,7 @@ img {
 	color: var(--blue);
 }
 .gallery__nav {
-	overflow: scroll;
+	overflow-x: auto;
 	position: sticky;
 	/* top: var(--nav-height); */
 	top: 0;
