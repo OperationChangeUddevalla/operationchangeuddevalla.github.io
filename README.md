@@ -1,5 +1,5 @@
 # Steg 1
-Logga in genom att klicka på `Sign in`.
+Logga in genom att klicka på `Sign in` knappen uppe i högra hörnet.
 
 ![login](https://github.com/OperationChangeUddevalla/operationchangeuddevalla.github.io/assets/138241731/da40a8d6-d092-432c-9d98-02c8a543b476)
 
