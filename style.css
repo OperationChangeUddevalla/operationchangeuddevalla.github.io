@@ -121,7 +121,7 @@ img {
 .menu {
 	display: flex;
 	align-items: center;
-	gap: 2em;
+	gap: 1em;
 }
 .menu__button {
 	align-self: baseline;
@@ -139,8 +139,10 @@ img {
 }
 .menu__list {
 	display: flex;
-	gap: 1.5em;
+	gap: 2em;
+	flex-wrap: wrap;
 	font-size: 1.2rem;
+	padding-right: 1em;
 	text-shadow: 2px 2px 10px black;
 }
 .menu__list a {
@@ -259,8 +261,11 @@ img {
 	/* font-weight: normal; */
 	text-align: center;
 }
-.section__subtitle {
-	font-size: 3rem;
+.section__content {
+	padding: var(--section-padding);
+	text-align: center;
+	white-space: pre-line;
+	word-break: break-all;
 }
 .section__img {
 	flex-basis: 350px;
@@ -494,6 +499,9 @@ img {
 
 	.menu, .menu__list {
 		flex-direction: column;
+	}
+	.menu__list {
+		gap: 1.5em;
 	}
 
 	.gallery__grid {

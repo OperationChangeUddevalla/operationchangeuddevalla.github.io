@@ -4,6 +4,15 @@ menuButton.addEventListener("click", () => {
 	menuList.classList.toggle("menu__list--hidden");
 });
 
+const sponsor = document.querySelector("#sponsor .section__content");
+fetch("sponsorer.txt").then((res) => res.text()).then((text) => {
+	sponsor.innerHTML = text;
+});
+const trip = document.querySelector("#trip .section__content");
+fetch("senaste-resa.txt").then((res) => res.text()).then((text) => {
+	trip.innerHTML = text;
+});
+
 const videosNames = [
 	"PLXH9985.MP4",
 	"DFHG3438.MP4",
