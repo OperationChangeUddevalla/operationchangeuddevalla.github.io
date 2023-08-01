@@ -4,9 +4,9 @@ Logga in genom att klicka på `Sign in` knappen uppe i högra hörnet.
 ![login](https://github.com/OperationChangeUddevalla/operationchangeuddevalla.github.io/assets/138241731/da40a8d6-d092-432c-9d98-02c8a543b476)
 
 # Steg 2
-Klicka på den här länken om du vill skriva om sponsorerna [sponsorer](https://github.com/OperationChangeUddevalla/operationchangeuddevalla.github.io/edit/main/sponsorer.txt).
+Klicka på den här länken om du vill skriva om sponsorerna ([sponsorer](https://github.com/OperationChangeUddevalla/operationchangeuddevalla.github.io/edit/main/sponsorer.txt)).
 
-Klicka på den här länken om du vill skriva om din senaste resa [senaste resa](https://github.com/OperationChangeUddevalla/operationchangeuddevalla.github.io/edit/main/senaste-resa.txt).
+Klicka på den här länken om du vill skriva om din senaste resa ([senaste resa](https://github.com/OperationChangeUddevalla/operationchangeuddevalla.github.io/edit/main/senaste-resa.txt)).
 
 # Steg 3
 När du klickat på länken så kan du börja skriva i rutan som kom upp.
