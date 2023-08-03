@@ -4,14 +4,21 @@ menuButton.addEventListener("click", () => {
 	menuList.classList.toggle("menu__list--hidden");
 });
 
-const sponsor = document.querySelector("#sponsor .section__content");
-fetch("sponsorer.txt").then((res) => res.text()).then((text) => {
-	sponsor.innerHTML = text;
-});
-const trip = document.querySelector("#trip .section__content");
-fetch("senaste-resa.txt").then((res) => res.text()).then((text) => {
-	trip.innerHTML = text;
-});
+const txt = document.querySelectorAll(".txt");
+async function txtGet() {
+	for (const element of txt) {
+		await fetch(`txt/${element.dataset.txt}.txt`).then(res => {
+			if (res.ok) {
+				return res.text();
+			}
+
+			return element.innerHTML;
+		}).then(text => {
+			element.innerHTML = `<p>${text}</p>`;
+		});
+	}
+}
+txtGet();
 
 const videosNames = [
 	"PLXH9985.MP4",
