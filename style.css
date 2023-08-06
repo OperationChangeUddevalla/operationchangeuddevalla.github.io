@@ -320,11 +320,29 @@ img {
 	font-size: var(--section-font-size);
 }
 
+.press {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	padding: var(--section-padding);
+	font-size: var(--section-font-size);
+	line-height: 1.5em;
+}
+.press__title {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.4rem;
+}
+.press__contact {
+	font-weight: bold;
+}
+
 .txt {
 	white-space: pre-line;
 	/* word-break: break-all; */
 	word-break: normal;
 	overflow-wrap: anywhere;
+	font-size: var(--section-font-size);
 }
 .txt--center {
 	text-align: center;
