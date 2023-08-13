@@ -10,8 +10,8 @@ button {
 }
 
 :root {
-	--blue: #0057b7;
-	--yellow: #ffd700;
+	--blue: #006fc7;
+	--yellow: #f5d41b;
 	--bg: #eee;
 	--section: #f9f9f9;
 	--section-border: medium solid var(--blue);
@@ -106,16 +106,18 @@ img {
 	text-align: center;
 }
 .logo__img {
-	height: 5em;
+	height: 8em;
 }
 .logo__title {
-	font-size: 4em;
-	font-weight: lighter;
-	color: var(--blue);
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	font-size: 1rem;
 }
 .logo__subtitle {
-	font-size: 2em;
-	color: var(--yellow);
+	font-size: 3em;
+	font-weight: lighter;
+	color: var(--blue);
 }
 
 .menu {
@@ -560,11 +562,6 @@ img {
 @media (max-width: 400px) {
 	.contact {
 		grid-template-columns: 1fr;
-	}
-}
-@media (max-width: 350px) {
-	.logo__title {
-		font-size: 3em;
 	}
 }
 @media (max-width: 320px) {
