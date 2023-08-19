@@ -23,7 +23,6 @@ txtGet();
 const videosNames = [
 	"PLXH9985.MP4",
 	"DFHG3438.MP4",
-	"ELHW9032.MP4",
 	"GDZO8536.MP4",
 	"MYUW8035.MP4",
 	"PZQR6173.MP4",
@@ -217,7 +216,6 @@ const imagesUkraine = [
 ];
 
 const imagesDistribution = [
-	"AIFQ9353.webp",
 	"AJQW5527.webp",
 	"AQVX0309.webp",
 	"AVQZ1168.webp",
@@ -396,7 +394,14 @@ function galleryGridCreate(name, images, isLoad = false) {
 		}
 
 		for (let i = start; i < end; i++) {
-			div.appendChild(galleryImageCreate(images[i]));
+			let image = images[i];
+			div.appendChild(galleryImageCreate(image));
+
+			/* await fetch(`assets/gallery/${image}`).then(res => {
+				if (res.ok) {
+					div.appendChild(galleryImageCreate(image));
+				}
+			}); */
 		}
 
 		return isAll;
