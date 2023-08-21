@@ -99,6 +99,7 @@ videosButtonNext.addEventListener("click", () => {
 });
 
 const imagesUkraine = [
+	"8ea224b8-3cf8-478a-bbdd-ad965ebcfecc.webp",
 	"ATHO1574.webp",
 	"AXAA8323.webp",
 	"BNSE1907.webp",
@@ -206,7 +207,24 @@ const imagesUkraine = [
 	"IMG_3304.webp",
 ];
 
+const imagesOrphanage = [
+	"1.webp",
+	"2.webp",
+	"3.webp",
+	"4.webp",
+	"5.webp",
+	"6.webp",
+	"10.webp",
+];
+
 const imagesDistribution = [
+	"7.webp",
+	"8.webp",
+	"9.webp",
+	"11.webp",
+	"12.webp",
+	"13.webp",
+	"14.webp",
 	"AJQW5527.webp",
 	"BWCT7473.webp",
 	"BZZV0741.webp",
@@ -274,6 +292,9 @@ const imagesDistribution = [
 ];
 
 const imagesAnimal = [
+	"16.webp",
+	"17.webp",
+	"18.webp",
 	"PMKJ7935.webp",
 	"TCHC5562.webp",
 ];
@@ -387,6 +408,7 @@ function galleryGridCreate(name, images, isLoad = false) {
 }
 
 galleryGridCreate("OperationChange Utdelning", imagesDistribution, true);
+galleryGridCreate("Barnhem", imagesOrphanage);
 galleryGridCreate("Ukraina", imagesUkraine);
 galleryGridCreate("Djur", imagesAnimal);
 
