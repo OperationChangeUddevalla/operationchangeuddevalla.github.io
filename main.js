@@ -4,22 +4,6 @@ menuButton.addEventListener("click", () => {
 	menuList.classList.toggle("menu__list--hidden");
 });
 
-const txt = document.querySelectorAll(".txt");
-async function txtGet() {
-	for (const element of txt) {
-		await fetch(`txt/${element.dataset.txt}.txt`).then(res => {
-			if (res.ok) {
-				return res.text();
-			}
-
-			return element.innerHTML;
-		}).then(text => {
-			element.innerHTML = `<p>${text}</p>`;
-		});
-	}
-}
-txtGet();
-
 const videosNames = [
 	"PLXH9985.MP4",
 	"DFHG3438.MP4",
