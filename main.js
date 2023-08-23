@@ -265,7 +265,6 @@ const imagesDistribution = [
 	"TNSY0613.webp",
 	"TSAR9373.webp",
 	"VCKZ8824.webp",
-	"VGXW1051.webp",
 	"VRDP4842.webp",
 	"VZGD3765.webp",
 	"WCGN6566.webp",
