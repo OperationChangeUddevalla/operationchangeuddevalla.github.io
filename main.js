@@ -6,6 +6,8 @@ menuButton.addEventListener("click", () => {
 
 const videosNames = [
 	"PLXH9985.MP4",
+	"Video2.MP4",
+	"Video1.MP4",
 	"DFHG3438.MP4",
 	"GDZO8536.MP4",
 	"PZQR6173.MP4",
