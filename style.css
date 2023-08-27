@@ -49,53 +49,6 @@ img {
 	overflow: auto;
 }
 
-.nav {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 99;
-	/* display: flex; */
-	display: none;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: var(--nav-height);
-	box-sizing: border-box;
-	border-bottom: medium solid var(--blue);
-	background-color: var(--section);
-	box-shadow: 0px 5px 20px 5px rgba(0,0,0,0.1);
-}
-.nav__container {
-	flex-grow: 1;
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 1em;
-	max-width: var(--max-width);
-	padding: 1em;
-}
-.nav__logo {
-	flex-grow: 1;
-	font-size: 0.4rem;
-	text-decoration: none;
-}
-.nav__list {
-	flex-grow: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 1em;
-	max-width: var(--max-width);
-	font-size: 1.2rem;
-}
-.nav__list a {
-	color: var(--blue);
-}
-.nav__list a:hover,
-.nav__list a:active {
-	color: var(--yellow);
-}
-
 .scrollup {
 	position: fixed;
 	bottom: 30px;
