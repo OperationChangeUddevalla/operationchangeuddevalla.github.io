@@ -347,13 +347,19 @@ img {
 	font-size: 0.7em;
 }
 
-.trip__title {
-	margin-bottom: 2em;
+.trip__section {
+	max-height: 2000px;
+	overflow-y: scroll;
 }
 .trip__text {
 	text-align: center;
 	font-size: var(--section-font-size);
+	margin-top: 2em;
 	margin-bottom: 1em;
+}
+.trip__date {
+	font-size: 0.9rem;
+	font-weight: bold;
 }
 .trip__gallery {
 	display: grid;
