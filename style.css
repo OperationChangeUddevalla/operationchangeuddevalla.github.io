@@ -1,4 +1,4 @@
-body, figure, h1, h2, h3, p, ul {
+body, figure, h1, h2, h3, h4, p, ul {
 	margin: 0;
 }
 a {
@@ -25,7 +25,7 @@ ul {
 	--section: #f9f9f9;
 	--section-border: medium solid var(--blue);
 	--section-padding: 2em;
-	--section-font-size: 1.2rem;
+	--section-font-size: 1.1rem;
 	--title: var(--yellow);
 	--title-bg: var(--blue);
 	--hero-height: 1000px;
@@ -63,6 +63,10 @@ img {
 }
 .scrollup__icon {
 	width: 2rem;
+}
+
+.bold {
+	font-weight: bold;
 }
 
 .logo {
@@ -224,7 +228,7 @@ img {
 .section__subtitle {
 	text-align: center;
 	font-weight: bold;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 }
 .section__img {
 	flex-basis: 350px;
@@ -293,13 +297,19 @@ img {
 .press {
 	display: flex;
 	flex-direction: column;
-	gap: 2em;
+	gap: 4em;
 	padding: var(--section-padding);
 	font-size: var(--section-font-size);
 	line-height: var(--line-height);
 }
-.press__contact {
-	font-weight: bold;
+.press__message {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+.press__subtitle {
+	font-size: 1.4rem;
+	margin-bottom: 0.2em;
 }
 
 .sponsor {
