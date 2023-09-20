@@ -4,6 +4,13 @@ menuButton.addEventListener("click", () => {
 	menuList.classList.toggle("menu__list--hidden");
 });
 
+const pdfs = document.querySelectorAll(".pdf__object");
+for (const pdf of pdfs) {
+	pdf.addEventListener("error", () => {
+		pdf.parentElement.classList.add("pdf--fallback");
+	});
+}
+
 const videosNames = [
 	"PLXH9985.MP4",
 	"Video2.MP4",
