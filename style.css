@@ -95,6 +95,7 @@ img {
 .menu__button {
 	align-self: baseline;
 	display: flex;
+	flex-shrink: 0;
 	color: white;
 	border: thin solid transparent;
 }
@@ -386,6 +387,9 @@ img {
 	grid-template-columns: repeat(2, 1fr);
 	grid-auto-rows: 500px;
 	gap: 0.5em;
+}
+.trip__gallery--single {
+	grid-template-columns: 1fr;
 }
 .trip__image {
 	object-fit: contain;
