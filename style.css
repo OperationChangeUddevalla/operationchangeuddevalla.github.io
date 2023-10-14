@@ -249,6 +249,18 @@ img {
 .orphan__item {
 	flex-grow: 1;
 }
+.orphan__item--full {
+	width: 100%;
+}
+.orphan__table {
+	border-collapse: collapse;
+	width: 100%;
+}
+.orphan__table td, .orphan__table th {
+	border: thin solid var(--blue);
+	text-align: left;
+	padding: 6px;
+}
 .orphan__list {
 	columns: 10rem 2;
 	column-gap: 2rem;
