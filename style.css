@@ -337,9 +337,10 @@ img {
 .next__trip {
 	display: flex;
 	flex-direction: column;
-	gap: 2em;
+	gap: 1em;
 	padding: var(--section-padding);
 	font-size: var(--section-font-size);
+	text-align: center;
 }
 
 .contact {
