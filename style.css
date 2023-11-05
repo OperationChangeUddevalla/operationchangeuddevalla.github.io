@@ -334,6 +334,14 @@ img {
 	width: 100%;
 }
 
+.next__trip {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	padding: var(--section-padding);
+	font-size: var(--section-font-size);
+}
+
 .contact {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -469,6 +477,9 @@ img {
 .trip__gallery--single {
 	grid-template-columns: 1fr;
 }
+.trip__gallery--next {
+	grid-auto-rows: 400px;
+}
 .trip__item {
 	position: relative;
 	text-align: center;
@@ -490,6 +501,9 @@ img {
 	height: 100%;
 	background-color: var(--bg);
 	box-sizing: border-box;
+}
+.trip__image--cover {
+	object-fit: cover;
 }
 
 .pdf {
