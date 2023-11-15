@@ -330,8 +330,25 @@ img {
 	line-height: var(--line-height);
 	padding: 2em;
 }
-.orphan__swish {
-	width: 100%;
+.orphanage__help {
+	display: flex;
+	justify-content: center;
+	background-color: var(--section);
+	box-shadow: var(--box-shadow);
+	border-left: var(--section-border);
+	border-bottom: var(--section-border);
+	border-right: var(--section-border);
+}
+.orphan__help {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-weight: bold;
+	gap: 2em;
+	max-width: 600px;
+	padding: var(--section-padding);
+	line-height: var(--line-height);
+	font-size: var(--section-font-size);
 }
 
 .next__trip {
