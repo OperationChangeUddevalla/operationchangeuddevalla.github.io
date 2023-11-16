@@ -339,7 +339,7 @@ img {
 	border-bottom: var(--section-border);
 	border-right: var(--section-border);
 }
-.orphan__help {
+.help {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -349,6 +349,11 @@ img {
 	padding: var(--section-padding);
 	line-height: var(--line-height);
 	font-size: var(--section-font-size);
+}
+.help__donate {
+	display: flex;
+	gap: 1em;
+	align-items: center;
 }
 
 .next__trip {
