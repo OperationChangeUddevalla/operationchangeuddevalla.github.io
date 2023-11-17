@@ -65,6 +65,11 @@ img {
 	width: 2rem;
 }
 
+.material-symbols-outlined.done {
+	vertical-align: middle;
+	font-size: 1rem;
+}
+
 .bold {
 	font-weight: bold;
 }
