@@ -65,6 +65,21 @@ img {
 	width: 2rem;
 }
 
+.christmas {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Kalnia', serif;
+	font-size: 3rem;
+	color: #7ec6ff;
+	text-shadow: 2px 2px 10px black;
+}
+.christmas span {
+	font-size: 1rem;
+}
+
 .material-symbols-outlined.done {
 	vertical-align: middle;
 	font-size: 1rem;
