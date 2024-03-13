@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  image: Promise<typeof import("*.webp") | typeof import("*.png")>;
+}
+
+const { title, image } = Astro.props;
+---
+
+<header class="relative h-[40vh]">
+  <div
+    class="absolute left-0 top-0 flex h-full w-full items-center justify-center"
+  >
+    <h1
+      class="text-center font-heading text-5xl text-white text-shadow md:text-7xl"
+    >
+      {title}
+    </h1>
+  </div>
+
+  <figure class="relative -z-10 h-full w-full bg-hero-gradient">
+    <Image
+      loading="eager"
+      class="h-full w-full object-cover mix-blend-multiply blur-sm"
+      src={image}
+      alt=""
+    />
+  </figure>
+</header>

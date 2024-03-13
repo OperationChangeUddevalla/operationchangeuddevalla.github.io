@@ -1,0 +1,49 @@
+---
+import Media from "../components/Media.astro";
+import Section from "../components/Section.astro";
+import TabView from "../components/TabView.astro";
+import type { Tab } from "../components/TabView.astro";
+
+interface Gallery {
+  title: string;
+  assets: { path: string; title?: string; span?: boolean }[];
+}
+
+interface Props {
+  galleries: Gallery[];
+}
+
+const { galleries } = Astro.props;
+
+const t: Tab[] = galleries.map((g, i) => {
+  return { title: g.title, target: i.toString() };
+});
+---
+
+<Section id="gallery" divide={false}>
+  <TabView tabs={t} class="mb-12 border-b border-b-blue-200">
+    {
+      galleries.map((g, i) => (
+        <div data-target={i} class="tab-view flex flex-col gap-16">
+          {g.assets.map((a) => (
+            <div>
+              {a.title && (
+                <p class="mb-4 border-b border-b-slate-200 p-4 text-center">
+                  {a.title}
+                </p>
+              )}
+              <div
+                class="grid auto-rows-[400px] gap-2 md:auto-rows-[500px]"
+                class:list={
+                  a.span ? "grid-cols-1" : "md:grid-cols-2 lg:grid-cols-3"
+                }
+              >
+                <Media path={a.path} />
+              </div>
+            </div>
+          ))}
+        </div>
+      ))
+    }
+  </TabView>
+</Section>

@@ -1,0 +1,21 @@
+[
+  {"type":"directory","name":"media","contents":[
+    {"type":"directory","name":"trips","contents":[
+      {"type":"directory","name":"renovate","contents":[
+        {"type":"file","name":"10.mp4"},
+        {"type":"file","name":"1.mp4"},
+        {"type":"file","name":"1.webp"},
+        {"type":"file","name":"2.mp4"},
+        {"type":"file","name":"3.mp4"},
+        {"type":"file","name":"4.mp4"},
+        {"type":"file","name":"5.mp4"},
+        {"type":"file","name":"6.mp4"},
+        {"type":"file","name":"7.mp4"},
+        {"type":"file","name":"8.mp4"},
+        {"type":"file","name":"9.mp4"}
+      ]}
+    ]}
+  ]}
+,
+  {"type":"report","directories":3,"files":11}
+]

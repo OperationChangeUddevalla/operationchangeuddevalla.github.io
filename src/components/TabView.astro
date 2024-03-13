@@ -1,0 +1,65 @@
+---
+export interface Tab {
+  title: string;
+  target: string;
+}
+
+interface Props {
+  tabs: Tab[];
+  class: string;
+}
+
+const { tabs, class: className } = Astro.props;
+---
+
+<script>
+  class TabView extends HTMLElement {
+    constructor() {
+      super();
+
+      const buttons: NodeListOf<HTMLElement> = this.querySelectorAll("button");
+      const views: NodeListOf<HTMLElement> = this.querySelectorAll(".tab-view");
+
+      function setActiveTab(button: HTMLElement) {
+        buttons.forEach((button) => {
+          button.classList.remove("border-b-2");
+        });
+
+        button.classList.add("border-b-2");
+
+        views.forEach((view) => {
+          if (button.dataset.target === view.dataset.target) {
+            view.classList.remove("hidden");
+          } else {
+            view.classList.add("hidden");
+          }
+        });
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setActiveTab(button);
+        });
+      });
+
+      setActiveTab(buttons[0]);
+    }
+  }
+
+  customElements.define("tab-view", TabView);
+</script>
+
+<tab-view>
+  <ul class={`${className} flex gap-8 p-4 overflow-x-scroll whitespace-nowrap`}>
+    {
+      tabs.map((tab) => (
+        <li>
+          <button data-target={tab.target} class="border-b-ukraine-blue">
+            {tab.title}
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+  <slot />
+</tab-view>

@@ -1,0 +1,35 @@
+---
+interface Props {
+  title?: string;
+  id?: string;
+  bg?: string;
+  divide?: boolean;
+  class?: string;
+}
+
+const { title, id, bg, divide = true, class: className } = Astro.props;
+---
+
+<section id={id} class="px-8 py-32" class:list={bg}>
+  <div
+    class="mx-auto max-w-screen-xl"
+    class:list={[{ "divide-y divide-blue-200": divide }, className]}
+  >
+    <header class="text-5xl">
+      {Astro.slots.has("heading") && <slot name="heading" />}
+      {
+        !Astro.slots.has("heading") && title && (
+          <h2 class="mb-4 text-center font-heading text-ukraine-blue">
+            {title}
+          </h2>
+        )
+      }
+    </header>
+    <slot name="after-header" />
+    <slot name="content">
+      <div class="pt-4 text-xl text-gray-800">
+        <slot />
+      </div>
+    </slot>
+  </div>
+</section>

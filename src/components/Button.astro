@@ -1,0 +1,19 @@
+---
+interface Props {
+  text: string;
+  href?: string;
+  inverse?: boolean;
+}
+
+const { text, href = "#", inverse = false } = Astro.props;
+---
+
+<button
+  class="rounded text-2xl"
+  class:list={[
+    { "bg-ukraine-blue text-white": !inverse },
+    { "bg-white text-ukraine-blue": inverse },
+  ]}
+>
+  <a href={href} class="block px-8 py-4">{text}</a>
+</button>
