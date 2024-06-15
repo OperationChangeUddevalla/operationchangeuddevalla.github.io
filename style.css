@@ -438,6 +438,10 @@ img {
 	align-items: center;
 }
 
+.help__dzhulynka {
+	font-size: 2rem;
+}
+
 .next__trip {
 	display: flex;
 	flex-direction: column;
@@ -960,6 +964,10 @@ img {
 }
 
 @media (max-width: 400px) {
+	.help__donate {
+		flex-direction: column;
+	}
+
 	.contact {
 		grid-template-columns: 1fr;
 	}
