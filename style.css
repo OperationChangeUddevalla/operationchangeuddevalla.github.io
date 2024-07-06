@@ -62,6 +62,19 @@ img {
 	overflow: auto;
 }
 
+.button {
+	background-color: var(--blue);
+	border-radius: 4px;
+	font-size: 1.2rem;
+}
+
+.button a {
+	display: block;
+	padding: 1em;
+	text-decoration: none;
+	color: white;
+}
+
 .scrollup {
 	position: fixed;
 	bottom: 30px;
@@ -420,6 +433,42 @@ img {
 	border-right: var(--section-border);
 }
 
+.orphanage__project {
+	display: grid;
+	grid-template-columns: auto min-content;
+	gap: 1em;
+	padding: var(--section-padding);
+	line-height: var(--line-height);
+	font-size: var(--section-font-size);
+	background-color: var(--section);
+	box-shadow: var(--box-shadow);
+	border-left: var(--section-border);
+	border-bottom: var(--section-border);
+	border-right: var(--section-border);
+}
+
+.orphanage__goal {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.orphanage__quote {
+	color: #656565;
+	font-style: italic;
+}
+
+.orphanage__donate {
+	width: min-content;
+}
+
+.orphanage__mark {
+	background-color: #51a119;
+	padding: 1em;
+	text-align: center;
+	color: white;
+}
+
 .help {
 	display: flex;
 	flex-direction: column;
@@ -472,7 +521,7 @@ img {
 
 .contact {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 	gap: 1em;
 	justify-items: center;
 	align-items: center;
@@ -867,6 +916,10 @@ img {
 
 	.swish {
 		width: 150px;
+	}
+
+	.orphanage__project {
+		grid-template-columns: 1fr;
 	}
 }
 

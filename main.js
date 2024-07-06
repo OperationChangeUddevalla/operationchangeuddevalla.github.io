@@ -12,6 +12,7 @@ for (const pdf of pdfs) {
 }
 
 const videosNames = [
+	"WFEK5798.MP4",
 	"PLXH9985.MP4",
 	"Video2.MP4",
 	"Video1.MP4",
@@ -21,7 +22,6 @@ const videosNames = [
 	"QGMV2384.MP4",
 	"TSUM7526.MP4",
 	"VLMB4912.MP4",
-	"WFEK5798.MP4",
 ];
 
 let videoCurrent = 0;
