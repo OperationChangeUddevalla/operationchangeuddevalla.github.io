@@ -3,69 +3,71 @@ import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
 import Section from "../components/Section.astro";
+import { ID_NEEDS } from "../pages/barnhemmet.astro";
+import { ROUTE_ORPHANAGE } from "../layouts/Layout.astro";
 
 interface Props {
-  bg: string;
-  title: string;
-  loading?: "lazy" | "eager";
+	bg: string;
+	title: string;
+	loading?: "lazy" | "eager";
 }
 
 const { bg, title, loading = "lazy" } = Astro.props;
 ---
 
 <Section bg={bg} title={title}>
-  <div slot="after-header" class="p-4">
-    <Image
-      loading={loading}
-      class="h-80 w-full object-cover"
-      src={import("../assets/orphanage.webp")}
-      alt="Barnhemmet"
-    />
-  </div>
-  <div class="flex flex-col gap-4">
-    <p>
-      Detta barnhem tar hand om fattiga barn i åldrarna 8 till 16 år som har
-      flytt från stridsområden i Ukraina. Byn Dzhulinsky driver barnhemmet på
-      egen hand för att hjälpa utsatta interna flyktingbarn.
-    </p>
-    <p>
-      För närvarande har barnhemmet 31 barn, som alla får boende, mat och
-      undervisning. Byborna samlar in medel till verksamheten utan något
-      statligt stöd. Det råder brist på allt. Byggnaden är gammal och sliten,
-      toaletterna fungerar inte och varmvattenberedaren är gammal, rostig och
-      läcker. Köket är icke fungerande, det finns brist på mat och
-      köksutrustning.
-    </p>
-    <p>
-      Sjuksköterskan som vårdar barnen vid sjukdom har ingen medicin eller
-      medicinsk utrustning. Lärarna har brist på skolmaterial, och barnen har
-      ingen tillgång till madrasser eller sänglinne, inget toalettpapper, inga
-      hygienartiklar och det saknas handdukar.
-    </p>
-    <p>
-      De traumatiserade barnen löper risk för ytterligare trauma i den miljö de
-      befinner sig i. Tack vare personalens uppoffringar kan skolan fortsätta
-      sin verksamhet.
-    </p>
-    <p>
-      Reparationen av barnhemmet öppnar möjligheten att ta hand om ännu fler
-      barn.
-    </p>
-    <p>
-      Vi inom OperationChange Uddevalla gör allt vi kan för att hjälpa dessa
-      barn, men vi behöver er hjälp. Swisha, bidra – alla donationer är
-      välkomna.
-    </p>
-    <p>
-      Följ oss på
-      <Link
-        text="operation-change.org"
-        href="https://www.operation-change.org"
-      />.
-    </p>
-    <div>
-      <Button text="Bidra" href="/orphanage#needs" />
-    </div>
-  </div>
-  <slot />
+	<div slot="after-header" class="p-4">
+		<Image
+			loading={loading}
+			class="h-80 w-full object-cover"
+			src={import("../assets/orphanage.webp")}
+			alt="Barnhemmet"
+		/>
+	</div>
+	<div class="flex flex-col gap-4">
+		<p>
+			Detta barnhem tar hand om fattiga barn i åldrarna 8 till 16 år som har
+			flytt från stridsområden i Ukraina. Byn Dzhulinsky driver barnhemmet på
+			egen hand för att hjälpa utsatta interna flyktingbarn.
+		</p>
+		<p>
+			För närvarande har barnhemmet 31 barn, som alla får boende, mat och
+			undervisning. Byborna samlar in medel till verksamheten utan något
+			statligt stöd. Det råder brist på allt. Byggnaden är gammal och sliten,
+			toaletterna fungerar inte och varmvattenberedaren är gammal, rostig och
+			läcker. Köket är icke fungerande, det finns brist på mat och
+			köksutrustning.
+		</p>
+		<p>
+			Sjuksköterskan som vårdar barnen vid sjukdom har ingen medicin eller
+			medicinsk utrustning. Lärarna har brist på skolmaterial, och barnen har
+			ingen tillgång till madrasser eller sänglinne, inget toalettpapper, inga
+			hygienartiklar och det saknas handdukar.
+		</p>
+		<p>
+			De traumatiserade barnen löper risk för ytterligare trauma i den miljö de
+			befinner sig i. Tack vare personalens uppoffringar kan skolan fortsätta
+			sin verksamhet.
+		</p>
+		<p>
+			Reparationen av barnhemmet öppnar möjligheten att ta hand om ännu fler
+			barn.
+		</p>
+		<p>
+			Vi inom OperationChange Uddevalla gör allt vi kan för att hjälpa dessa
+			barn, men vi behöver er hjälp. Swisha, bidra – alla donationer är
+			välkomna.
+		</p>
+		<p>
+			Följ oss på
+			<Link
+				text="operation-change.org"
+				href="https://www.operation-change.org"
+			/>.
+		</p>
+		<div>
+			<Button text="Bidra" href={`${ROUTE_ORPHANAGE}#${ID_NEEDS}`} />
+		</div>
+	</div>
+	<slot />
 </Section>

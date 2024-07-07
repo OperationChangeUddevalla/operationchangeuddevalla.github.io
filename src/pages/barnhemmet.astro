@@ -1,11 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout, { ID_CONTACT } from "../layouts/Layout.astro";
 import { Nav } from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import SectionOrphanage from "../components/SectionOrphanage.astro";
 import TabView, { type Tab } from "../components/TabView.astro";
+
+export const ID_NEEDS = "behov";
 
 enum Need {
 	Essential = "Nödvändigt",
@@ -52,11 +54,11 @@ const tabs: Tab[] = Object.values(Need).map((n, i) => {
 			</div>
 		</SectionOrphanage>
 
-		<Section id="needs" title="Behov">
+		<Section id={ID_NEEDS} title="Behov">
 			<div slot="after-header" class="py-4 text-center text-xl">
 				<p>Det finns ett stort behov av följande saker.</p>
 				<p class="mb-4">Stort tack för din hjälp!</p>
-				<Button text="Kontakta" href="#contact" />
+				<Button text="Kontakta" href={`#${ID_CONTACT}`} />
 			</div>
 
 			<div class="grid gap-4 lg:grid-cols-2">

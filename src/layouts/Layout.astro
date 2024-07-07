@@ -1,212 +1,219 @@
 ---
 import "@fontsource-variable/inter";
 import "@fontsource-variable/oswald";
-import { Image } from "astro:assets";
 
 export enum Nav {
-  Home = "Hem",
-  Orphanage = "Barnhemmet",
-  Trips = "Resor",
-  Gallery = "Galleri",
-  Contact = "Kontakta",
+	Home = "Hem",
+	Orphanage = "Barnhemmet",
+	Trips = "Resor",
+	Gallery = "Galleri",
+	Contact = "Kontakta",
 }
 
+export const ROUTE_HOME = "/";
+export const ROUTE_ORPHANAGE = "/barnhemmet";
+export const ROUTE_TRIPS = "/resor";
+export const ROUTE_GALLERY = "/galleri";
+
+export const ID_CONTACT = "kontakta";
+export const ID_DONATE = "donera";
+
 interface Props {
-  title: string;
-  nav: Nav;
+	title: string;
+	nav: Nav;
 }
 
 const { title, nav } = Astro.props;
 ---
 
 <script>
-  const nav = document.querySelector("nav");
-  const navButton = nav?.querySelector("button");
+	const nav = document.querySelector("nav");
+	const navButton = nav?.querySelector("button");
 
-  const menu = "menu";
+	const menu = "menu";
 
-  function toggleScrolled() {
-    const scrolled = "scrolled";
-    if (window.scrollY === 0 && !navButton?.classList.contains(menu)) {
-      nav?.classList.remove(scrolled);
-    } else {
-      nav?.classList.add(scrolled);
-    }
-  }
+	function toggleScrolled() {
+		const scrolled = "scrolled";
+		if (window.scrollY === 0 && !navButton?.classList.contains(menu)) {
+			nav?.classList.remove(scrolled);
+		} else {
+			nav?.classList.add(scrolled);
+		}
+	}
 
-  addEventListener("scroll", (_event) => {
-    toggleScrolled();
-  });
+	addEventListener("scroll", (_event) => {
+		toggleScrolled();
+	});
 
-  nav?.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
+	nav?.addEventListener("click", (event) => {
+		event.stopPropagation();
+	});
 
-  navButton?.addEventListener("click", (_event) => {
-    navButton.classList.toggle(menu);
-    toggleScrolled();
-  });
+	navButton?.addEventListener("click", (_event) => {
+		navButton.classList.toggle(menu);
+		toggleScrolled();
+	});
 
-  document.addEventListener("click", (_event) => {
-    navButton?.classList.remove(menu);
-    toggleScrolled();
-  });
+	document.addEventListener("click", (_event) => {
+		navButton?.classList.remove(menu);
+		toggleScrolled();
+	});
 
-  toggleScrolled();
+	toggleScrolled();
 </script>
 
 <html lang="sv">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="description"
-      content="Vi är volontärer inom hjälporganisationen OperationChange som hjälper gamla och barn på barnhem i Ukraina."
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="description"
+			content="Vi är volontärer inom hjälporganisationen OperationChange som hjälper gamla och barn på barnhem i Ukraina."
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
 
-    <meta name="robots" content="noindex" />
-    <meta name="robots" content="nofollow" />
-    <meta name="robots" content="noarchive" />
-    <meta name="robots" content="noimageindex" />
-    <meta name="robots" content="notranslate" />
-    <meta name="robots" content="nositelinkssearchbox" />
-    <meta name="robots" content="nosnippet" />
-    <meta name="robots" content="max-snippet:0" />
-    <meta name="robots" content="max-image-preview:none" />
-    <meta name="robots" content="max-video-preview:0" />
+		<meta name="robots" content="noindex" />
+		<meta name="robots" content="nofollow" />
+		<meta name="robots" content="noarchive" />
+		<meta name="robots" content="noimageindex" />
+		<meta name="robots" content="notranslate" />
+		<meta name="robots" content="nositelinkssearchbox" />
+		<meta name="robots" content="nosnippet" />
+		<meta name="robots" content="max-snippet:0" />
+		<meta name="robots" content="max-image-preview:none" />
+		<meta name="robots" content="max-video-preview:0" />
 
-    <title>{`${title} - OperationChange Uddevalla`}</title>
+		<title>{`${title} - OperationChange Uddevalla`}</title>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <!-- <link rel="sitemap" href="/sitemap-index.xml" /> -->
-  </head>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- <link rel="sitemap" href="/sitemap-index.xml" /> -->
+	</head>
 
-  <body>
-    <nav class="group/nav fixed z-10 w-full">
-      <div
-        class="border-b-4 border-b-transparent p-4 uppercase transition-colors group-[.scrolled]/nav:scrolled-nav group-[.scrolled]/nav:shadow-xl"
-      >
-        <button class="group peer relative flex h-[32px] w-[32px] md:hidden">
-          <svg
-            class="absolute scale-100 fill-white transition-all group-[.menu]:scale-0 group-[.scrolled]/nav:fill-ukraine-blue"
-            width="32"
-            height="32"
-            viewBox="0 -960 640 640"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="m 0,-320 v -80 h 640 v 80 z m 0,-280 v -80 h 640 v 80 z m 0,-280 v -80 h 640 v 80 z"
-            ></path></svg
-          >
-          <svg
-            class="absolute scale-0 fill-white transition-all group-[.menu]:scale-100 group-[.scrolled]/nav:fill-ukraine-blue"
-            width="32"
-            height="32"
-            viewBox="0 -960 560 560"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="M 56,-400 0,-456 224,-680 0,-904 l 56,-56 224,224 224,-224 56,56 -224,224 224,224 -56,56 -224,-224 z"
-            ></path></svg
-          >
-        </button>
-        <ul
-          class="hidden flex-col items-start gap-4 text-xl peer-[.menu]:mt-4 peer-[.menu]:flex md:flex md:flex-row md:justify-center md:gap-8"
-        >
-          {
-            Object.values(Nav).map((n) => {
-              let href = "/";
-              switch (n) {
-                case Nav.Home:
-                  href = "/";
-                  break;
-                case Nav.Orphanage:
-                  href = "/orphanage";
-                  break;
-                case Nav.Trips:
-                  href = "/trips";
-                  break;
-                case Nav.Gallery:
-                  href = "/gallery";
-                  break;
-                case Nav.Contact:
-                  href = "#contact";
-                  break;
-              }
-              return (
-                <li
-                  class:list={{
-                    "border-b-2 border-b-ukraine-yellow": nav === n,
-                  }}
-                  class="text-white transition-colors group-[.scrolled]/nav:border-b-ukraine-blue group-[.scrolled]/nav:text-black"
-                >
-                  <a
-                    class="hover:text-ukraine-yellow group-[.scrolled]/nav:hover:text-ukraine-blue"
-                    href={href}
-                  >
-                    {n}
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </div>
-    </nav>
+	<body>
+		<nav class="group/nav fixed z-10 w-full">
+			<div
+				class="border-b-4 border-b-transparent p-4 uppercase transition-colors group-[.scrolled]/nav:scrolled-nav group-[.scrolled]/nav:shadow-xl"
+			>
+				<button class="group peer relative flex h-[32px] w-[32px] md:hidden">
+					<svg
+						class="absolute scale-100 fill-white transition-all group-[.menu]:scale-0 group-[.scrolled]/nav:fill-ukraine-blue"
+						width="32"
+						height="32"
+						viewBox="0 -960 640 640"
+						xmlns="http://www.w3.org/2000/svg"
+						><path
+							d="m 0,-320 v -80 h 640 v 80 z m 0,-280 v -80 h 640 v 80 z m 0,-280 v -80 h 640 v 80 z"
+						></path></svg
+					>
+					<svg
+						class="absolute scale-0 fill-white transition-all group-[.menu]:scale-100 group-[.scrolled]/nav:fill-ukraine-blue"
+						width="32"
+						height="32"
+						viewBox="0 -960 560 560"
+						xmlns="http://www.w3.org/2000/svg"
+						><path
+							d="M 56,-400 0,-456 224,-680 0,-904 l 56,-56 224,224 224,-224 56,56 -224,224 224,224 -56,56 -224,-224 z"
+						></path></svg
+					>
+				</button>
+				<ul
+					class="hidden flex-col items-start gap-4 text-xl peer-[.menu]:mt-4 peer-[.menu]:flex md:flex md:flex-row md:justify-center md:gap-8"
+				>
+					{
+						Object.values(Nav).map((n) => {
+							let href = ROUTE_HOME;
+							switch (n) {
+								case Nav.Home:
+									href = ROUTE_HOME;
+									break;
+								case Nav.Orphanage:
+									href = ROUTE_ORPHANAGE;
+									break;
+								case Nav.Trips:
+									href = ROUTE_TRIPS;
+									break;
+								case Nav.Gallery:
+									href = ROUTE_GALLERY;
+									break;
+								case Nav.Contact:
+									href = `#${ID_CONTACT}`;
+									break;
+							}
+							return (
+								<li
+									class:list={{
+										"border-b-2 border-b-ukraine-yellow": nav === n,
+									}}
+									class="text-white transition-colors group-[.scrolled]/nav:border-b-ukraine-blue group-[.scrolled]/nav:text-black"
+								>
+									<a
+										class="hover:text-ukraine-yellow group-[.scrolled]/nav:hover:text-ukraine-blue"
+										href={href}
+									>
+										{n}
+									</a>
+								</li>
+							);
+						})
+					}
+				</ul>
+			</div>
+		</nav>
 
-    <slot />
+		<slot />
 
-    <footer class="bg-gray-800 px-8 py-32 text-white">
-      <div
-        class="mx-auto grid max-w-screen-xl justify-center gap-16 md:grid-cols-2 md:justify-items-center"
-      >
-        <div id="contact">
-          <h2 class="mb-8 font-heading text-5xl">Kontakta</h2>
-          <div class="flex flex-col gap-4 text-xl">
-            <div>
-              <p>
-                <strong>Uddevalla</strong>
-              </p>
-              <p>Bobban Petrovski</p>
-              <p>bobban.petrovski@gmail.com</p>
-              <p>076-893 87 10</p>
-            </div>
-            <div>
-              <p>
-                <strong>Trollhättan</strong>
-              </p>
-              <p>Lars Hagström</p>
-              <p>hagstromlars@hotmail.se</p>
-              <p>070-614 74 52</p>
-            </div>
-          </div>
-        </div>
+		<footer class="bg-gray-800 px-8 py-32 text-white">
+			<div
+				class="mx-auto grid max-w-screen-xl justify-center gap-16 md:grid-cols-2 md:justify-items-center"
+			>
+				<div id={ID_CONTACT}>
+					<h2 class="mb-8 font-heading text-5xl">Kontakta</h2>
+					<div class="flex flex-col gap-4 text-xl">
+						<div>
+							<p>
+								<strong>Uddevalla</strong>
+							</p>
+							<p>Bobban Petrovski</p>
+							<p>bobban.petrovski@gmail.com</p>
+							<p>076-893 87 10</p>
+						</div>
+						<div>
+							<p>
+								<strong>Trollhättan</strong>
+							</p>
+							<p>Lars Hagström</p>
+							<p>hagstromlars@hotmail.se</p>
+							<p>070-614 74 52</p>
+						</div>
+					</div>
+				</div>
 
-        <div id="donate">
-          <h2 class="mb-8 font-heading text-5xl">Ge en gåva</h2>
-          <div class="">
-            <div
-              id="targetaid-banner-container-2cb418bf-cf78-412f-9143-466224ad5e1f"
-              style="display:inline-block;"
-            >
-            </div>
-            <script
-              is:inline
-              type="text/javascript"
-              id="targetaid-banner-script-2cb418bf-cf78-412f-9143-466224ad5e1f"
-              data-widget-container-id="targetaid-banner-container-2cb418bf-cf78-412f-9143-466224ad5e1f"
-              data-width="300"
-              data-height="250"
-              data-url="https://www.targetaid.com/ngo/operationchange-sweden/operationchange-sweden/barnhem-dzhulynka/banner?shape=square"
-              src="https://www.targetaid.com/scripts/widget.js"></script>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </body>
+				<div id={ID_DONATE}>
+					<h2 class="mb-8 font-heading text-5xl">Ge en gåva</h2>
+					<div class="">
+						<div
+							id="targetaid-banner-container-2cb418bf-cf78-412f-9143-466224ad5e1f"
+							style="display:inline-block;"
+						>
+						</div>
+						<script
+							is:inline
+							type="text/javascript"
+							id="targetaid-banner-script-2cb418bf-cf78-412f-9143-466224ad5e1f"
+							data-widget-container-id="targetaid-banner-container-2cb418bf-cf78-412f-9143-466224ad5e1f"
+							data-width="300"
+							data-height="250"
+							data-url="https://www.targetaid.com/ngo/operationchange-sweden/operationchange-sweden/barnhem-dzhulynka/banner?shape=square"
+							src="https://www.targetaid.com/scripts/widget.js"></script>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
 </html>
 
 <style>
-  ::-webkit-scrollbar {
-    display: none;
-  }
+	::-webkit-scrollbar {
+		display: none;
+	}
 </style>
