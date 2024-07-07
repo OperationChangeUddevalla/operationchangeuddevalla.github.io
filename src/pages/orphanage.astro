@@ -8,186 +8,176 @@ import SectionOrphanage from "../components/SectionOrphanage.astro";
 import TabView, { type Tab } from "../components/TabView.astro";
 
 enum Need {
-  Essential = "Nödvändigt",
-  Renovate = "Renoveringsmaterial",
-  Food = "Mat",
-  Data = "Data",
+	Essential = "Nödvändigt",
+	Renovate = "Renoveringsmaterial",
+	Food = "Mat",
+	Data = "Data",
 }
 
 const tabs: Tab[] = Object.values(Need).map((n, i) => {
-  return { title: n, target: i.toString() };
+	return { title: n, target: i.toString() };
 });
 ---
 
 <Layout title="Barnhemmet" nav={Nav.Orphanage}>
-  <main>
-    <Hero
-      title="Dzhulinsky Orphanage House Haivoron"
-      image={import("../assets/gallery/orphanage/orphanage7.webp")}
-    />
+	<main>
+		<Hero
+			title="Dzhulinsky Orphanage House Haivoron"
+			image={import("../assets/gallery/orphanage/orphanage7.webp")}
+		/>
 
-    <SectionOrphanage bg="bg-gray-50" title="Om barnhemmet" loading="eager">
-      <div
-        class="boder-solid mt-8 grid items-center gap-8 border-t border-t-blue-200 pt-8 md:grid-cols-2"
-      >
-        <video
-          class="h-[300px] w-full object-cover md:h-[400px]"
-          controls
-          preload="metadata"
-        >
-          <source src="/orphanage.mp4" />
-        </video>
+		<SectionOrphanage bg="bg-gray-50" title="Om barnhemmet" loading="eager">
+			<div
+				class="boder-solid mt-8 grid gap-8 border-t border-t-blue-200 pt-8 md:grid-cols-2"
+			>
+				<video
+					class="h-[300px] w-full object-cover md:h-[400px]"
+					controls
+					preload="metadata"
+				>
+					<source src="/orphanage.mp4" />
+				</video>
 
-        <div class="flex flex-col gap-4 italic">
-          <q
-            >Vi har fullständigt krig i Ukraina. Vår internatskola/barnhem tar
-            hand om fattiga barn från krigsdrabbade områden i Ukraina. Vi är
-            mycket tacksamma att det finns människor som hjälper oss i vår
-            situation. För närvarande har vi 31 barn hos oss. Vi är tacksamma
-            för samarbetet med er nu och i framtiden.</q
-          >
-          <q
-            >Vår främsta mål på skolan är att skapa en grund för barnen, för
-            deras framtid, så de kan uppnå de framgångar de tänkt sig i sina
-            liv.</q
-          >
-          <q
-            >Vi tackar dig för att du besöker oss och vi tackar alla dina
-            sponsorer för den hjälp ni gör för barnhemmet.</q
-          >
-        </div>
-      </div>
-    </SectionOrphanage>
+				<div class="flex flex-col gap-4">
+					<p class="italic text-gray-600">
+						I Ukraina pågår fullskaligt krig. På vårt barnhem vårdar vi barn
+						från krigets drabbade områden. Det fyller oss med enorm tacksamhet
+						att det finns människor som stöttar oss i denna svåra tid. Vårt
+						främsta mål är att lägga en stabil grund för dessa barns framtid, så
+						att de har möjlighet att förverkliga de drömmar och ambitioner de
+						bär på för sina liv.
+					</p>
+					<p>- Volodomyr, föreståndare för barnhemmet.</p>
+				</div>
+			</div>
+		</SectionOrphanage>
 
-    <Section id="needs" title="Behov">
-      <div slot="after-header" class="py-4 text-center text-xl">
-        <p>
-          För närvarande har barnhemmet 31 barn i olika åldrar, och det finns
-          ett stort behov av följande saker.
-        </p>
-        <p class="mb-4">Stort tack för din hjälp!</p>
-        <Button text="Kontakta" href="#contact" />
-      </div>
+		<Section id="needs" title="Behov">
+			<div slot="after-header" class="py-4 text-center text-xl">
+				<p>Det finns ett stort behov av följande saker.</p>
+				<p class="mb-4">Stort tack för din hjälp!</p>
+				<Button text="Kontakta" href="#contact" />
+			</div>
 
-      <div class="grid gap-4 lg:grid-cols-2">
-        <table class="h-min w-full table-fixed">
-          <thead>
-            <tr class="text-left">
-              {
-                ["Ålder", "Flickor", "Pojkar", "Totalt"].map((head) => (
-                  <th class="overflow-x-scroll bg-slate-200 p-4">{head}</th>
-                ))
-              }
-            </tr>
-          </thead>
-          <tbody>
-            {
-              [
-                ["8", "1", "3", "4"],
-                ["9", "1", "1", "2"],
-                ["10", "1", "2", "3"],
-                ["11", "1", "1", "2"],
-                ["12", "1", "1", "2"],
-                ["13", "1", "5", "6"],
-                ["14", "1", "5", "6"],
-                ["15", "2", "2", "4"],
-                ["16", "1", "1", "2"],
-              ].map((row) => (
-                <tr>
-                  {row.map((item) => (
-                    <td class="bg-slate-50 p-4">{item}</td>
-                  ))}
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+			<div class="grid gap-4 lg:grid-cols-2">
+				<table class="h-min w-full table-fixed">
+					<thead>
+						<tr class="text-left">
+							{
+								["Ålder", "Flickor", "Pojkar", "Totalt"].map((head) => (
+									<th class="overflow-x-scroll bg-slate-200 p-4">{head}</th>
+								))
+							}
+						</tr>
+					</thead>
+					<tbody>
+						{
+							[
+								["8", "1", "3", "4"],
+								["9", "1", "1", "2"],
+								["10", "1", "2", "3"],
+								["11", "1", "1", "2"],
+								["12", "1", "1", "2"],
+								["13", "1", "5", "6"],
+								["14", "1", "5", "6"],
+								["15", "2", "2", "4"],
+								["16", "1", "1", "2"],
+							].map((row) => (
+								<tr>
+									{row.map((item) => (
+										<td class="bg-slate-50 p-4">{item}</td>
+									))}
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
 
-        <div class="h-[600px] overflow-y-scroll bg-slate-50">
-          <TabView tabs={tabs} class="sticky left-0 top-0 bg-slate-200">
-            {
-              Object.values(Need).map((n, i) => {
-                let notDone: string[] = [];
-                let done: string[] = [];
-                switch (n) {
-                  case Need.Essential:
-                    notDone = [
-                      "Balsam",
-                      "Hygienprodukter",
-                      "Kläder",
-                      "Köksutrustning",
-                      "Madrasser (32 st.)",
-                      "Schampo",
-                      "Skor",
-                      "Sköljmedel",
-                      "Tandborstar",
-                      "Toalettpapper",
-                      "Toalett rengöring",
-                      "Tvål",
-                      "Tvättlappar",
-                      "Tvättmedel",
-                    ];
-                    done = ["Sänglinnen (32 st.)"];
-                    break;
-                  case Need.Renovate:
-                    notDone = [
-                      "Laminatgolv",
-                      "Underlagsrulle",
-                      "Golvlister",
-                      "Kakel",
-                      "Klinker",
-                      "Fog",
-                      "Fogmassa",
-                      "Utjämnings cement",
-                      "Diverse rör (15 st.)",
-                      "Kopplingar (15 st.)",
-                      "Avloppsrör (100 st.)",
-                      "Dusch",
-                      "Varmvattenberedare",
-                      "Trälim",
-                      "Handfat",
-                      "Tvättställ",
-                      "Färg",
-                      "Köksskåp",
-                      "Storköksutrustning",
-                    ];
-                    done = [
-                      "Toalettstolar",
-                      "Garderober",
-                      "Brandsläckare",
-                      "Värmepanna",
-                      "Generator",
-                    ];
-                    break;
-                  case Need.Food:
-                    notDone = ["Pasta", "Ris", "Konserver", "Kryddor"];
-                    break;
-                  case Need.Data:
-                    notDone = ["Skrivare", "Laptops"];
-                    break;
-                }
-                return (
-                  <div
-                    data-target={i}
-                    class="tab-view grid gap-8 whitespace-nowrap p-4 md:grid-cols-2"
-                  >
-                    <ul class="list-inside list-disc">
-                      {notDone.map((item) => (
-                        <li>{item}</li>
-                      ))}
-                    </ul>
-                    <ul class="list-inside list-disc list-image-[url(/checkmark.svg)]">
-                      {done.map((item) => (
-                        <li>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })
-            }
-          </TabView>
-        </div>
-      </div>
-    </Section>
-  </main>
+				<div class="h-[600px] overflow-y-scroll bg-slate-50">
+					<TabView tabs={tabs} class="sticky left-0 top-0 bg-slate-200">
+						{
+							Object.values(Need).map((n, i) => {
+								let notDone: string[] = [];
+								let done: string[] = [];
+								switch (n) {
+									case Need.Essential:
+										notDone = [
+											"Balsam",
+											"Hygienprodukter",
+											"Kläder",
+											"Köksutrustning",
+											"Madrasser (32 st.)",
+											"Schampo",
+											"Skor",
+											"Sköljmedel",
+											"Tandborstar",
+											"Toalettpapper",
+											"Toalett rengöring",
+											"Tvål",
+											"Tvättlappar",
+											"Tvättmedel",
+										];
+										done = ["Sänglinnen (32 st.)"];
+										break;
+									case Need.Renovate:
+										notDone = [
+											"Laminatgolv",
+											"Underlagsrulle",
+											"Golvlister",
+											"Kakel",
+											"Klinker",
+											"Fog",
+											"Fogmassa",
+											"Utjämnings cement",
+											"Diverse rör (15 st.)",
+											"Kopplingar (15 st.)",
+											"Avloppsrör (100 st.)",
+											"Dusch",
+											"Varmvattenberedare",
+											"Trälim",
+											"Handfat",
+											"Tvättställ",
+											"Färg",
+											"Köksskåp",
+											"Storköksutrustning",
+										];
+										done = [
+											"Toalettstolar",
+											"Garderober",
+											"Brandsläckare",
+											"Värmepanna",
+											"Generator",
+										];
+										break;
+									case Need.Food:
+										notDone = ["Pasta", "Ris", "Konserver", "Kryddor"];
+										break;
+									case Need.Data:
+										notDone = ["Skrivare", "Laptops"];
+										break;
+								}
+								return (
+									<div
+										data-target={i}
+										class="tab-view grid gap-8 whitespace-nowrap p-4 md:grid-cols-2"
+									>
+										<ul class="list-inside list-disc">
+											{notDone.map((item) => (
+												<li>{item}</li>
+											))}
+										</ul>
+										<ul class="list-inside list-disc list-image-[url(/checkmark.svg)]">
+											{done.map((item) => (
+												<li>{item}</li>
+											))}
+										</ul>
+									</div>
+								);
+							})
+						}
+					</TabView>
+				</div>
+			</div>
+		</Section>
+	</main>
 </Layout>

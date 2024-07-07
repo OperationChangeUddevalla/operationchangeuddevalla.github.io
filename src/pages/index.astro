@@ -8,315 +8,388 @@ import Section from "../components/Section.astro";
 import SectionOrphanage from "../components/SectionOrphanage.astro";
 
 const publicSponsors = [
-  "Bostadskvarteret Tofsmesen i Trollhättan",
-  "Jeanette Eriksson",
-  "Ingrid Persson",
-  "Petter Westerström",
-  "Kjell Olsson",
-  "Solveig Andersson",
-  "Kerstin Eriksson",
-  "Sten Broden",
-  "Anneli Fredriksson",
-  "Anna Kivi",
-  "Laila Löfgren",
-  "Bert Hilmersson",
-  "Larissa Manyrova",
-  "Ann-Britt Hagström",
-  "Beatrice Pettersson",
-  "Ica Matmor Oden",
-  "Matmor Hjortmossen",
-  "Matmor Kungsgatan",
-  "Vårdhemmet Tallbacken",
+	"Bostadskvarteret Tofsmesen i Trollhättan",
+	"Jeanette Eriksson",
+	"Ingrid Persson",
+	"Petter Westerström",
+	"Kjell Olsson",
+	"Solveig Andersson",
+	"Kerstin Eriksson",
+	"Sten Broden",
+	"Anneli Fredriksson",
+	"Anna Kivi",
+	"Laila Löfgren",
+	"Bert Hilmersson",
+	"Larissa Manyrova",
+	"Ann-Britt Hagström",
+	"Beatrice Pettersson",
+	"Ica Matmor Oden",
+	"Matmor Hjortmossen",
+	"Matmor Kungsgatan",
+	"Vårdhemmet Tallbacken",
+	"Trollhättans Oljor",
+	"Gärdhems Goa Gubbar",
 ];
 
 const privateSponsors = [
-  "Peter Westerström",
-  "Dan Nilson",
-  "Denisa Botonjic",
-  "Vera Bergström",
-  "Peter (ABF)",
-  "Kerstin Åkare",
-  "Kerstin Wallsby",
-  "Rikard Joelsson",
-  "Ulrika Lundström",
-  "Isac Svensson",
-  "Ann-Sofi Svensson",
-  "Robert Svensson",
-  "Mujo Alagič",
-  "Lena och Anders Malmqvist",
-  "Alfons Bengtsson",
-  "Lars Karlsson",
-  "Lennart Olsson",
-  "Gunilla Bönqvist",
-  "Kiomars Amina och Vidar Haydar",
-  "Lennart och Gunilla",
-  "Iryna Melnyk",
-  "Iryna Moroz",
-  "Oxana Moisejenko",
-  "Per-Åke Pettersson",
-  "Carola Murås",
+	"Peter Westerström",
+	"Dan Nilson",
+	"Denisa Botonjic",
+	"Vera Bergström",
+	"Peter (ABF)",
+	"Kerstin Åkare",
+	"Kerstin Wallsby",
+	"Rikard Joelsson",
+	"Ulrika Lundström",
+	"Isac Svensson",
+	"Ann-Sofi Svensson",
+	"Robert Svensson",
+	"Mujo Alagič",
+	"Lena och Anders Malmqvist",
+	"Alfons Bengtsson",
+	"Lars Karlsson",
+	"Lennart Olsson",
+	"Gunilla Bönqvist",
+	"Kiomars Amina och Vidar Haydar",
+	"Lennart och Gunilla",
+	"Iryna Melnyk",
+	"Iryna Moroz",
+	"Oxana Moisejenko",
+	"Per-Åke Pettersson",
+	"Carola Murås",
+	"Lars Hallberg",
+	"Lars Karlsson",
+	"Ulla Johansson",
+	"Gerhard Andersson",
+	"Britt-Inger Liedmejer",
+	"Dahn Liedmejer",
+	"Agneta Backelin",
+	"Tutti Dahlqvist",
+	"Janne Karlsson",
+	"Carina Norden",
+	"Marie-Loise Sörqvist",
+	"Lena Boustedt",
+	"Pia Fröberg",
+	"Inger Öhlund",
+	"Lisbeth Siljeblom",
+	"Marika Boman",
+	"Ann-Britt Hagström",
+	"Oksana Bedros",
+	"Monica Hansson",
+	"Mans Hummerhjelm",
+	"Marita Hummerhjelm",
+	"Hålan Bovimark",
+	"Sven Gustavsson",
+	"Anna-Lena Andree",
+	"Anders Hagström",
+	"Mats Lundgren",
+	"Åsa Trollälven",
+	"Per-Åke Prtterson",
+	"Bert Hillmersson",
+	"Anna Kågesson",
+	"Per Augustsson",
+	"Anders Leissner",
+	"Lars Guldbrand",
+	"Elisabeth Fryden",
+	"Per Sjöström",
+	"Inga-Lill Andersson",
+	"Bertil Bahnkopf",
 ];
 ---
 
 <script>
-  if (window.navigator.pdfViewerEnabled) {
-    let t = document.querySelector("#operation-change");
-    t?.classList.add("pdfViewerEnabled");
-  }
+	if (window.navigator.pdfViewerEnabled) {
+		let t = document.querySelector("#operation-change");
+		t?.classList.add("pdfViewerEnabled");
+	}
 </script>
 
 <Layout title="Hem" nav={Nav.Home}>
-  <main>
-    <header class="relative h-screen">
-      <div class="absolute left-0 top-0 flex h-full w-full justify-center">
-        <div
-          class="grid max-w-xl grid-rows-hero items-center px-2 text-center text-shadow"
-        >
-          <div class="row-start-2">
-            <h1 class="flex flex-col items-center gap-4">
-              <img class="h-24 md:h-32" src="/logo-text.svg" alt="" />
-              <div class="text-ukraine-blue">
-                <span class="block text-4xl md:text-5xl">Uddevalla</span>
-                <span class="block text-xl font-light md:text-2xl">
-                  tillsammans med Bollebygd, Trollhättan och Alingsås
-                </span>
-              </div>
-            </h1>
-          </div>
-          <div class="row-start-3 self-start">
-            <p class="mb-8 text-xl text-white md:text-2xl">
-              Vi är volontärer inom hjälporganisationen
-              <strong>OperationChange</strong>
-              som hjälper gamla och barn på barnhem i Ukraina.
-            </p>
-          </div>
-        </div>
-      </div>
+	<main>
+		<header class="relative h-screen">
+			<div class="absolute left-0 top-0 flex h-full w-full justify-center">
+				<div
+					class="grid max-w-xl grid-rows-hero items-center px-2 text-center text-shadow"
+				>
+					<div class="row-start-2">
+						<h1 class="flex flex-col items-center gap-4">
+							<img class="h-24 md:h-32" src="/logo-text.svg" alt="" />
+							<div class="text-ukraine-blue">
+								<span class="block text-4xl md:text-5xl"
+									>Uddevalla - Trollhättan</span
+								>
+							</div>
+						</h1>
+					</div>
+					<div class="row-start-3 self-start">
+						<p class="mb-8 text-xl text-white md:text-2xl">
+							Vi är volontärer inom hjälporganisationen
+							<strong>OperationChange</strong>
+							som hjälper gamla och barn på barnhem i Ukraina.
+						</p>
+					</div>
+				</div>
+			</div>
+			<figure class="relative -z-10 h-full w-full bg-hero-gradient">
+				<Image
+					class="h-full w-full object-cover mix-blend-multiply blur-sm"
+					src={import("../assets/hero.webp")}
+					loading="eager"
+					alt="Hero"
+				/>
+			</figure>
+		</header>
 
-      <figure class="relative -z-10 h-full w-full bg-hero-gradient">
-        <Image
-          class="h-full w-full object-cover mix-blend-multiply blur-sm"
-          src={import("../assets/hero.webp")}
-          loading="eager"
-          alt="Hero"
-        />
-      </figure>
-    </header>
+		<SectionOrphanage
+			bg="bg-gray-50"
+			title="Dzhulinsky Orphanage House Haivoron"
+		/>
 
-    <SectionOrphanage
-      bg="bg-gray-50"
-      title="Dzhulinsky Orphanage House Haivoron"
-    />
+		<Section title="Barnhem i östra Ukraina">
+			<div class="grid gap-8 lg:grid-cols-[auto_min-content]">
+				<div class="flex flex-col gap-4">
+					<p>
+						Sedan sommaren 2023 stöttar <strong>Bobban Petrovski</strong> och OperationChange
+						barnhemmet med kläder, mat och hygienartiklar. Idag ger hemmet tak över
+						huvudet och stöd åt 35 barn till flyktingfamiljer från de ockuperade
+						områdena. Många av barnen lider av trauman från kriget och är i behov
+						av särskild omvårdnad. Volodomyr och hans team gör ett fantastiskt arbete
+						med att ge barnen verktyg att hantera sina upplevelser, och rusta dem
+						för livet som vuxna. Utöver att ge barnen en ordentlig skolgång, ges
+						de även undervisning i grundläggande samhällsstruktur och civila kunskaper
+						i brandsäkerhet, sjukvård, elsäkerhet, och även hur man skyddar sig mot
+						minor, en sorglig men tyvärr nödvändig kunskap för barn att ha i krigets
+						Ukraina. Därför har OperationChange nu startat en insamling till renoveringen,
+						med planerad byggstart i augusti 2024.
+					</p>
+					<p>
+						Arbetet kommer att ledas av en av våra volontärer med lång
+						erfarenhet från byggbranschen.
+					</p>
+					<p><strong>Mål med projektet</strong></p>
+					<ul class="list-inside list-disc">
+						<li>Att förbättra de befintliga hygien- och sanitetsutrymmen.</li>
+						{
+							// prettier-ignore
+							(<li>Att öka maxkapaciteten från 35 till 60 barn för att på ett bra sätt kunna ta emot och förbättra för ytterligare krigsdrabbade barn.</li>)
+						}
+					</ul>
+					<div>
+						<Button text="Bidra" href="/orphanage#needs" />
+					</div>
+				</div>
+				<div class="w-min">
+					<div
+						id="targetaid-widget-container-4d3b2eab-0cb7-45de-9563-7f44a0eaf56f"
+						style="display:inline-block;"
+					>
+					</div>
+					<script
+						is:inline
+						type="text/javascript"
+						id="targetaid-widget-script-4d3b2eab-0cb7-45de-9563-7f44a0eaf56f"
+						data-widget-container-id="targetaid-widget-container-4d3b2eab-0cb7-45de-9563-7f44a0eaf56f"
+						data-url="https://www.targetaid.com/ngo/operationchange-sweden/operationchange-sweden/barnhem-dzhulynka/widget?compact=False&supportProfileKey="
+						data-width="345"
+						data-height="464"
+						src="https://www.targetaid.com/scripts/widget.js"></script>
+					<p class="bg-[#51a119] p-4 text-center text-base text-white">
+						Markera donationen med <strong>Dzhulynka</strong>.
+					</p>
+				</div>
+			</div>
+		</Section>
 
-    <Section title="Bobbans resor">
-      <div class="grid grid-rows-[min-content] gap-8 md:grid-cols-[60%_auto]">
-        <div class="flex flex-col gap-4">
-          <p class="text-2xl font-bold">
-            Nästa resa: renovera barnhemmet i Haivoron
-          </p>
-          <p>
-            Nästa resa är det planerat att renovera barnhemmet i Haivoron,
-            vilket öppnar upp för möjligheten att ta hand om mer barn.
-          </p>
-          <p>
-            Reperationen var planerade nu i mars-april (2024), men kan nu behöva
-            flyttas till augusti-septemper.
-          </p>
-          <p>Våra resor är bara möjliga med hjälp av era donationer!</p>
-          <p>Tack för er förståelse och hjälp!</p>
-          <p>
-            Se bilder från Bobbans tidigare resor <Link
-              text="här"
-              href={"trips/#gallery"}
-            />.
-          </p>
-          <div><Button text="Donera" href="#donate" /></div>
-        </div>
-        <Image
-          class="row-start-1 h-80 w-full object-cover md:row-auto md:h-full"
-          src={import("../assets/trips/2023-11_2024-01/2024-01-01/1.webp")}
-          alt=""
-        />
-      </div>
-    </Section>
+		<Section title="Bobbans resor" bg="bg-gray-50">
+			<div class="mb-8">
+				<div class="mb-4 text-center">
+					<Link text="Senaste: 30/06 - 2024" href="/trips#gallery" />
+				</div>
+				<Image
+					class="h-[500px] w-full object-cover"
+					src={import("../assets/trips/2024-06_now/2024-06-30/1.jpeg")}
+					alt=""
+				/>
+			</div>
+		</Section>
 
-    <Section
-      title="Volontär"
-      bg="bg-ukraine-blue"
-      divide={false}
-      class="grid place-items-center gap-8 md:grid-cols-[1fr_2fr]"
-    >
-      <h2 slot="heading" class="text-white">Volontär</h2>
-      <div slot="content" class="text-center text-xl text-white md:text-left">
-        <p class="mb-4">
-          Om du är intresserad av att hjälpa till med renoveringen som volontär
-          och är beredd att tillbringa cirka 3 månader i Ukraina, kontakta oss
-          så hjälper vi dig med ansökan.
-        </p>
-        <Button text="Kontakta" href="#contact" inverse={true} />
-      </div>
-    </Section>
+		<Section
+			title="Volontär"
+			bg="bg-ukraine-blue"
+			divide={false}
+			class="grid place-items-center gap-8 md:grid-cols-[1fr_2fr]"
+		>
+			<h2 slot="heading" class="text-white">Volontär</h2>
+			<div slot="content" class="text-center text-xl text-white md:text-left">
+				<p class="mb-4">
+					Om du är intresserad av att hjälpa till med renoveringen som volontär
+					och är beredd att tillbringa två till tre veckor i Ukraina, kontakta
+					oss så hjälper vi dig med ansökan.
+				</p>
+				<Button text="Kontakta" href="#contact" inverse={true} />
+			</div>
+		</Section>
 
-    <Section bg="bg-gray-50">
-      <h2 slot="heading" class="mb-4">
-        <img
-          loading="lazy"
-          class="mx-auto h-36"
-          src="/logo-text.svg"
-          alt="OperationChange"
-        />
-      </h2>
-      <div id="operation-change" class="group">
-        <div class="grid gap-8 group-[.pdfViewerEnabled]:lg:grid-cols-2">
-          <div class="flex flex-col gap-4">
-            <p>
-              Mer än femhundra dagar har nu gått sedan den fullskaliga
-              invasionen av Ukraina. OperationChange är en
-              välgörenhetsorganisation, född ur OperationAid. Med förankring i
-              den svenska gräsrotsrörelsen arbetar vi outtröttligt för att ge
-              stöd och hjälp till behövande i drabbade områden, samt för att
-              stödja lokala initiativ i deras arbete. Volontärerna på plats i
-              Ukraina ser till att hjälpen når fram och tillgodoser de behov som
-              finns.
-            </p>
-            <div>
-              <p>Vi fokuserar på tre områden:</p>
-              <ul class="list-inside list-disc">
-                <li>
-                  <strong>Relief</strong> - Omedelbar, direkt humanitär hjälp.
-                </li>
-                <li>
-                  <strong>Motståndskraft</strong> - Stöd för återhämtning och uthållighet.
-                </li>
-                <li>
-                  <strong>Återuppbyggnad</strong> - Långsiktigt hållbar utveckling.
-                </li>
-              </ul>
-            </div>
-            <p>
-              Om du vill stödja vårt arbete, kontakta info@operation-change.org
-              för att få information om behoven och våra insamlingsställen.
-            </p>
-            <p>
-              Tack vare ert stöd kan vi fortsätta hjälpa det ukrainska folket på
-              plats!
-            </p>
-            <p>
-              För mer information se vår hemsida
-              <Link
-                text="operation-change.org"
-                href="https://www.operation-change.org"
-              />.
-            </p>
-            <div>
-              <p>Behov:</p>
-              <ul class="list-inside list-disc">
-                <li>
-                  <Link
-                    text="Sjukvårdsmaterial"
-                    href="/operation-change/Sjukvårdsmaterial-Q3-2023.pdf"
-                  />.
-                </li>
-                <li>
-                  <Link
-                    text="Övrigt"
-                    href="/operation-change/Insamlingslista-Q3-2023.pdf"
-                  />.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div
-            class="flex group-[.pdfViewerEnabled]:h-[500px] group-[.pdfViewerEnabled]:lg:h-auto"
-          >
-            <object
-              title="Nyhetsbrev"
-              aria-label="Nyhetsbrev"
-              aria-labelledby=""
-              class="w-full"
-              type="application/pdf"
-              data="/operation-change/newsletter_feb_2024.pdf?#navpanes=0&statusbar=0&messages=0"
-            >
-              <Link
-                text="Nyhetsbrev"
-                href="/operation-change/newsletter_feb_2024.pdf"
-              />.
-            </object>
-          </div>
-        </div>
-      </div>
-    </Section>
+		<Section bg="bg-gray-50">
+			<h2 slot="heading" class="mb-4">
+				<img
+					loading="lazy"
+					class="mx-auto h-36"
+					src="/logo-text.svg"
+					alt="OperationChange"
+				/>
+			</h2>
+			<div id="operation-change" class="group">
+				<div class="grid gap-8 group-[.pdfViewerEnabled]:lg:grid-cols-2">
+					<div class="flex flex-col gap-4">
+						<p>
+							Mer än femhundra dagar har nu gått sedan den fullskaliga
+							invasionen av Ukraina. OperationChange är en
+							välgörenhetsorganisation, född ur OperationAid. Med förankring i
+							den svenska gräsrotsrörelsen arbetar vi outtröttligt för att ge
+							stöd och hjälp till behövande i drabbade områden, samt för att
+							stödja lokala initiativ i deras arbete. Volontärerna på plats i
+							Ukraina ser till att hjälpen når fram och tillgodoser de behov som
+							finns.
+						</p>
+						<div>
+							<p>Vi fokuserar på tre områden:</p>
+							<ul class="list-inside list-disc">
+								<li>
+									<strong>Relief</strong> - Omedelbar, direkt humanitär hjälp.
+								</li>
+								<li>
+									<strong>Motståndskraft</strong> - Stöd för återhämtning och uthållighet.
+								</li>
+								<li>
+									<strong>Återuppbyggnad</strong> - Långsiktigt hållbar utveckling.
+								</li>
+							</ul>
+						</div>
+						<p>
+							Om du vill stödja vårt arbete, kontakta info@operation-change.org
+							för att få information om behoven och våra insamlingsställen.
+						</p>
+						<p>
+							Tack vare ert stöd kan vi fortsätta hjälpa det ukrainska folket på
+							plats!
+						</p>
+						<p>
+							För mer information se vår hemsida
+							<Link
+								text="operation-change.org"
+								href="https://www.operation-change.org"
+							/>.
+						</p>
+						<div>
+							<p>Behov:</p>
+							<ul class="list-inside list-disc">
+								<li>
+									<Link
+										text="Sjukvårdsmaterial"
+										href="/operation-change/Sjukvårdsmaterial-Q3-2023.pdf"
+									/>.
+								</li>
+								<li>
+									<Link
+										text="Övrigt"
+										href="/operation-change/Insamlingslista-Q3-2023.pdf"
+									/>.
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div
+						class="flex group-[.pdfViewerEnabled]:h-[500px] group-[.pdfViewerEnabled]:lg:h-auto"
+					>
+						<object
+							title="Nyhetsbrev"
+							aria-label="Nyhetsbrev"
+							aria-labelledby=""
+							class="w-full"
+							type="application/pdf"
+							data="/operation-change/Nyhetsbrev-Juni-2024.pdf?#navpanes=0&statusbar=0&messages=0"
+						>
+							<Link
+								text="Nyhetsbrev"
+								href="/operation-change/Nyhetsbrev-Juni-2024.pdf"
+							/>.
+						</object>
+					</div>
+				</div>
+			</div>
+		</Section>
 
-    <Section title="Sponsorer" bg="bg-blue-50">
-      <div class="mb-4">
-        <div class="mb-4 flex flex-wrap justify-center gap-4">
-          <a
-            class="flex w-fit max-w-md place-items-center gap-6 rounded border-2 border-solid border-[#ed1c24]/25 bg-[#ed1c24]/25 p-4 shadow-md hover:border-[#ed1c24]/75"
-            href="https://www.vansterpartiet.se/"
-          >
-            <img
-              loading="lazy"
-              class="w-16 md:h-24 md:w-24"
-              src="/sponsors/v.svg"
-              alt="Vänsterpartiet"
-            />
-            <div>
-              <p class="text-base text-gray-600">
-                Vänsterpartiet och deras medlemmar har bidragit med
-              </p>
-              <p class="text-3xl">12000 kr</p>
-            </div>
-          </a>
-          <a
-            class="flex w-fit max-w-md place-items-center gap-6 rounded border-2 border-solid border-[#50bf61]/25 bg-[#50bf61]/25 p-4 shadow-md hover:border-[#50bf61]/75"
-            href="https://veteranpoolen.se/"
-          >
-            <img
-              loading="lazy"
-              class="w-16 md:h-24 md:w-24"
-              src="/sponsors/vp.svg"
-              alt="Veteranpoolen"
-            />
-            <div>
-              <p class="text-base text-gray-600">
-                Veteranpoolen och deras medlemmar har bidragit med
-              </p>
-              <p class="text-3xl">3000 kr</p>
-            </div>
-          </a>
-          <a
-            class="flex w-fit max-w-md rounded border-2 border-solid border-[#d80811]/25 bg-[#d80811]/25 p-4 shadow-md hover:border-[#d80811]/75"
-            href="https://www.abf.se/"
-          >
-            <img
-              loading="lazy"
-              class="w-16 md:h-24 md:w-24"
-              src="/sponsors/abf.svg"
-              alt="ABF"
-            />
-          </a>
-          <a
-            class="flex w-fit max-w-md rounded border-2 border-solid border-[#00539b]/25 bg-[#00539b]/25 p-4 shadow-md hover:border-[#00539b]/75"
-            href="https://lionsuddevalla.se/"
-          >
-            <Image
-              class="w-16 object-contain md:h-24 md:w-24"
-              width={96}
-              height={96}
-              src="/sponsors/lu.png"
-              alt="Lions Uddevalla"
-            />
-          </a>
-        </div>
-        <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-center">
-          {publicSponsors.map((sponsor) => <p>{sponsor}</p>)}
-        </div>
-      </div>
-      <div
-        class="flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-t-blue-200 pt-4 text-center"
-      >
-        {privateSponsors.map((sponsor) => <p>{sponsor}</p>)}
-      </div>
-    </Section>
-  </main>
+		<Section title="Sponsorer" bg="bg-blue-50">
+			<div class="mb-4">
+				<div class="mb-4 flex flex-wrap justify-center gap-4">
+					<a
+						class="flex w-fit max-w-md place-items-center gap-6 rounded border-2 border-solid border-[#ed1c24]/25 bg-[#ed1c24]/25 p-4 shadow-md hover:border-[#ed1c24]/75"
+						href="https://www.vansterpartiet.se/"
+					>
+						<img
+							loading="lazy"
+							class="w-16 md:h-24 md:w-24"
+							src="/sponsors/v.svg"
+							alt="Vänsterpartiet"
+						/>
+						<div>
+							<p class="text-base text-gray-600">
+								Vänsterpartiet och deras medlemmar har bidragit med
+							</p>
+							<p class="text-3xl">12000 kr</p>
+						</div>
+					</a>
+					<a
+						class="flex w-fit max-w-md place-items-center gap-6 rounded border-2 border-solid border-[#50bf61]/25 bg-[#50bf61]/25 p-4 shadow-md hover:border-[#50bf61]/75"
+						href="https://veteranpoolen.se/"
+					>
+						<img
+							loading="lazy"
+							class="w-16 md:h-24 md:w-24"
+							src="/sponsors/vp.svg"
+							alt="Veteranpoolen"
+						/>
+						<div>
+							<p class="text-base text-gray-600">
+								Veteranpoolen och deras medlemmar har bidragit med
+							</p>
+							<p class="text-3xl">3000 kr</p>
+						</div>
+					</a>
+					<a
+						class="flex w-fit max-w-md rounded border-2 border-solid border-[#d80811]/25 bg-[#d80811]/25 p-4 shadow-md hover:border-[#d80811]/75"
+						href="https://www.abf.se/"
+					>
+						<img
+							loading="lazy"
+							class="w-16 md:h-24 md:w-24"
+							src="/sponsors/abf.svg"
+							alt="ABF"
+						/>
+					</a>
+					<a
+						class="flex w-fit max-w-md rounded border-2 border-solid border-[#00539b]/25 bg-[#00539b]/25 p-4 shadow-md hover:border-[#00539b]/75"
+						href="https://lionsuddevalla.se/"
+					>
+						<Image
+							class="w-16 object-contain md:h-24 md:w-24"
+							width={96}
+							height={96}
+							src="/sponsors/lu.png"
+							alt="Lions Uddevalla"
+						/>
+					</a>
+				</div>
+				<div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-center">
+					{publicSponsors.map((sponsor) => <p>{sponsor}</p>)}
+				</div>
+			</div>
+			<div
+				class="flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-t-blue-200 pt-4 text-center"
+			>
+				{privateSponsors.map((sponsor) => <p>{sponsor}</p>)}
+			</div>
+		</Section>
+	</main>
 </Layout>
