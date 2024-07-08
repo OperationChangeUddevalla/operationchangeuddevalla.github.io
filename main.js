@@ -399,8 +399,8 @@ function galleryGridCreate(name, images, isLoad = false) {
 	return galleryItem;
 }
 
-galleryGridCreate("OperationChange Utdelning", imagesDistribution, true);
-galleryGridCreate("Barnhem", imagesOrphanage);
+galleryGridCreate("Barnhemmet", imagesOrphanage, true);
+galleryGridCreate("OperationChange Utdelning", imagesDistribution);
 galleryGridCreate("Ukraina", imagesUkraine);
 galleryGridCreate("Djur", imagesAnimal);
 
