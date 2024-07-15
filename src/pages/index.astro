@@ -1,19 +1,16 @@
 ---
 import { Image } from "astro:assets";
-import Layout, {
-	ID_CONTACT,
-	ROUTE_ORPHANAGE,
-	ROUTE_TRIPS,
-} from "../layouts/Layout.astro";
+import Layout, { ID_CONTACT, ROUTE_TRIPS } from "../layouts/Layout.astro";
 import { Nav } from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import RenovateWidget from "../components/RenovateWidget.astro";
 import Link from "../components/Link.astro";
 import Section from "../components/Section.astro";
 import SectionOrphanage from "../components/SectionOrphanage.astro";
-import { ID_NEEDS } from "./barnhemmet.astro";
 import { ID_GALLERY } from "../components/MediaGallery.astro";
 
 export const ID_OPERATION_CHANGE = "operation-change";
+export const ID_RENOVATE = "renovering";
 
 const publicSponsors = [
 	"Bostadskvarteret Tofsmesen i Trollhättan",
@@ -153,22 +150,23 @@ const privateSponsors = [
 			title="Dzhulinsky Orphanage House Haivoron"
 		/>
 
-		<Section title="Barnhem i östra Ukraina">
-			<div class="grid gap-8 lg:grid-cols-[auto_min-content]">
+		<Section title="Projekt: renovering av barnhemmet">
+			<div class="grid gap-4 lg:grid-cols-[auto_min-content]">
 				<div class="flex flex-col gap-4">
 					<p>
-						Sedan sommaren 2023 stöttar <strong>Bobban Petrovski</strong> och OperationChange
-						barnhemmet med kläder, mat och hygienartiklar. Idag ger hemmet tak över
-						huvudet och stöd åt 35 barn till flyktingfamiljer från de ockuperade
-						områdena. Många av barnen lider av trauman från kriget och är i behov
-						av särskild omvårdnad. Volodomyr och hans team gör ett fantastiskt arbete
-						med att ge barnen verktyg att hantera sina upplevelser, och rusta dem
-						för livet som vuxna. Utöver att ge barnen en ordentlig skolgång, ges
-						de även undervisning i grundläggande samhällsstruktur och civila kunskaper
-						i brandsäkerhet, sjukvård, elsäkerhet, och även hur man skyddar sig mot
-						minor, en sorglig men tyvärr nödvändig kunskap för barn att ha i krigets
-						Ukraina. Därför har OperationChange nu startat en insamling till renoveringen,
-						med planerad byggstart i augusti 2024.
+						Sedan sommaren 2023 stöttar Bobban, Lasse och OperationChange
+						barnhemmet med kläder, mat och hygienartiklar. Idag ger hemmet tak
+						över huvudet och stöd åt 35 barn till flyktingfamiljer från de
+						ockuperade områdena. Många av barnen lider av trauman från kriget
+						och är i behov av särskild omvårdnad. Volodomyr och hans team gör
+						ett fantastiskt arbete med att ge barnen verktyg att hantera sina
+						upplevelser, och rusta dem för livet som vuxna. Utöver att ge barnen
+						en ordentlig skolgång, ges de även undervisning i grundläggande
+						samhällsstruktur och civila kunskaper i brandsäkerhet, sjukvård,
+						elsäkerhet, och även hur man skyddar sig mot minor, en sorglig men
+						tyvärr nödvändig kunskap för barn att ha i krigets Ukraina. Därför
+						har OperationChange nu startat en insamling till renoveringen, med
+						planerad byggstart i augusti 2024.
 					</p>
 					<p>
 						Arbetet kommer att ledas av en av våra volontärer med lång
@@ -182,33 +180,12 @@ const privateSponsors = [
 							(<li>Att öka maxkapaciteten från 35 till 60 barn för att på ett bra sätt kunna ta emot och förbättra för ytterligare krigsdrabbade barn.</li>)
 						}
 					</ul>
-					<div>
-						<Button text="Bidra" href={`${ROUTE_ORPHANAGE}#${ID_NEEDS}`} />
-					</div>
 				</div>
-				<div class="w-min">
-					<div
-						id="targetaid-widget-container-4d3b2eab-0cb7-45de-9563-7f44a0eaf56f"
-						style="display:inline-block;"
-					>
-					</div>
-					<script
-						is:inline
-						type="text/javascript"
-						id="targetaid-widget-script-4d3b2eab-0cb7-45de-9563-7f44a0eaf56f"
-						data-widget-container-id="targetaid-widget-container-4d3b2eab-0cb7-45de-9563-7f44a0eaf56f"
-						data-url="https://www.targetaid.com/ngo/operationchange-sweden/operationchange-sweden/barnhem-dzhulynka/widget?compact=False&supportProfileKey="
-						data-width="345"
-						data-height="464"
-						src="https://www.targetaid.com/scripts/widget.js"></script>
-					<p class="bg-[#51a119] p-4 text-center text-base text-white">
-						Markera donationen med <strong>Dzhulynka</strong>.
-					</p>
-				</div>
+				<RenovateWidget />
 			</div>
 		</Section>
 
-		<Section title="Bobbans resor" bg="bg-gray-50">
+		<Section title="Bobban och Lasses resor" bg="bg-gray-50">
 			<div class="mb-8">
 				<div class="mb-4 text-center">
 					<Link
@@ -233,9 +210,9 @@ const privateSponsors = [
 			<h2 slot="heading" class="text-white">Volontär</h2>
 			<div slot="content" class="text-center text-xl text-white md:text-left">
 				<p class="mb-4">
-					Om du är intresserad av att hjälpa till med renoveringen som volontär
-					och är beredd att tillbringa två till tre veckor i Ukraina, kontakta
-					oss så hjälper vi dig med ansökan.
+					Om du vill hjälpa till med renoveringen av barnhemmet som volontär och
+					är beredd att tillbringa två till tre veckor i Ukraina, kontakta oss
+					så hjälper vi dig med ansökan.
 				</p>
 				<Button text="Kontakta" href={`#${ID_CONTACT}`} inverse={true} />
 			</div>
@@ -319,11 +296,11 @@ const privateSponsors = [
 							aria-labelledby=""
 							class="w-full"
 							type="application/pdf"
-							data="/operation-change/Nyhetsbrev-Juni-2024.pdf?#navpanes=0&statusbar=0&messages=0"
+							data="/operation-change/Nyhetsbrev-Juli-2024.pdf?#navpanes=0&statusbar=0&messages=0"
 						>
 							<Link
 								text="Nyhetsbrev"
-								href="/operation-change/Nyhetsbrev-Juni-2024.pdf"
+								href="/operation-change/Nyhetsbrev-Juli-2024.pdf"
 							/>.
 						</object>
 					</div>

@@ -1,157 +1,158 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Nav } from "../layouts/Layout.astro";
-import Button from "../components/Button.astro";
 import MediaGallery from "../components/MediaGallery.astro";
 import Hero from "../components/Hero.astro";
 import Media from "../components/Media.astro";
 import Section from "../components/Section.astro";
 import mediaFile from "../assets/media.json";
+import RenovateWidget from "../components/RenovateWidget.astro";
 
 interface Media {
-  type: string;
-  name?: string;
-  contents?: Media[];
+	type: string;
+	name?: string;
+	contents?: Media[];
 }
 
 function findMediaContents(
-  path: string[],
-  depth: number,
-  media: Media,
+	path: string[],
+	depth: number,
+	media: Media,
 ): Media[] | undefined {
-  if (media.contents === undefined) {
-    return undefined;
-  }
+	if (media.contents === undefined) {
+		return undefined;
+	}
 
-  depth += 1;
+	depth += 1;
 
-  for (const m of media.contents) {
-    if (m.type === "directory" && m.name === path[path.length - 1]) {
-      return m.contents;
-    }
+	for (const m of media.contents) {
+		if (m.type === "directory" && m.name === path[path.length - 1]) {
+			return m.contents;
+		}
 
-    if (m.type === "directory" && m.name === path[depth]) {
-      return findMediaContents(path, depth, m);
-    }
-  }
+		if (m.type === "directory" && m.name === path[depth]) {
+			return findMediaContents(path, depth, m);
+		}
+	}
 }
 
 function getMediaContents(
-  path: string,
-  media: typeof mediaFile,
+	path: string,
+	media: typeof mediaFile,
 ): Media[] | undefined {
-  return findMediaContents(path.split("/"), 0, media[0]);
+	return findMediaContents(path.split("/"), 0, media[0]);
 }
 ---
 
 <Layout title="Resor" nav={Nav.Trips}>
-  <main>
-    <Hero
-      title="Bobbans resor"
-      image={import("../assets/trips/2023-11_2024-01/2024-01-01/1.webp")}
-    />
+	<main>
+		<Hero
+			title="Bobban och Lasses resor"
+			image={import("../assets/trips/2023-11_2024-01/2024-01-01/1.webp")}
+		/>
 
-    <Section bg="bg-gray-50" title="Nästa resa: renovera barnhemmet i Haivoron">
-      <div class="flex flex-col gap-4">
-        <p class="text-2xl font-bold">Vi behöver er hjälp!</p>
-        <p>
-          Nästa resa är det planerat att renovera barnhemmet i Haivoron, vilket
-          öppnar upp för möjligheten att ta hand om mer barn.
-        </p>
-        <p>
-          Reperationen var planerade nu i mars-april (2024), men kan behöva
-          flyttas till augusti-septemper.
-        </p>
-        <p>Våra resor är bara möjliga med hjälp av era donationer!</p>
-        <p>Tack för er förståelse och hjälp!</p>
-        <div><Button text="Donera" href="#donate" /></div>
-      </div>
-    </Section>
+		<Section bg="bg-gray-50" title="Nästa resa: renovering av barnhemmet">
+			<div class="grid gap-4 lg:grid-cols-[auto_min-content]">
+				<div class="flex flex-col gap-4">
+					<p class="text-2xl font-bold">Vi behöver er hjälp!</p>
+					<p>
+						Nästa resa är det planerat att renovera barnhemmet, vilket öppnar
+						möjligheten att ta hand om fler barn.
+					</p>
+					<p>
+						OperationChange har startat en insamling till renoveringen, med
+						planerad byggstart i augusti 2024.
+					</p>
+					<p>Tack för er hjälp!</p>
+				</div>
+				<RenovateWidget />
+			</div>
+		</Section>
 
-    <MediaGallery
-      galleries={[
-        {
-          title: "Jun 2024 - nu",
-          assets: [
-            {
-              path: "/src/assets/trips/2024-06_now/2024-06-30/",
-              title: "30/06 - 2024",
-            },
-          ],
-        },
-        {
-          title: "Renoveringsprojektet",
-          assets: [{ path: "/src/assets/trips/renovate/" }],
-        },
-        {
-          title: "Nov 2023 - Jan 2024",
-          assets: [
-            {
-              path: "/src/assets/trips/2023-11_2024-01/2024-01-01/",
-              title: "1/1 - 2024",
-            },
-            {
-              path: "/src/assets/trips/2023-11_2024-01/2023-12-24/",
-              title: "24/12 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-11_2024-01/2023-11-04/",
-              title: "4/11 - 2023",
-            },
-          ],
-        },
-        {
-          title: "Aug 2023 - Oct 2023",
-          assets: [
-            {
-              path: "/src/assets/trips/2023-08_2023-10/final.webp",
-              title:
-                "Även denna resa är slut. Nu tar vi ny sats i insamlingen, behovet har inte avtagit, snarare tvärtom. Bobban.",
-              span: true,
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-10-10/",
-              title: "10/10 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-10-06/",
-              title: "6/10 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-10-02/",
-              title: "2/10 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-09-30/",
-              title: "30/9 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-09-29/",
-              title: "29/9 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-09-27/",
-              title: "27/9 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-09-23/",
-              title: "23/9 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-09-22/",
-              title: "22/9 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-09-07/",
-              title: "7/9 - 2023",
-            },
-            {
-              path: "/src/assets/trips/2023-08_2023-10/2023-08-27/",
-              title: "27/8 - 2023",
-            },
-          ],
-        },
-      ]}
-    />
-  </main>
+		<MediaGallery
+			galleries={[
+				{
+					title: "Jun 2024 - nu",
+					assets: [
+						{
+							path: "/src/assets/trips/2024-06_now/2024-06-30/",
+							title: "30/06 - 2024",
+						},
+					],
+				},
+				{
+					title: "Renoveringsprojektet",
+					assets: [{ path: "/src/assets/trips/renovate/" }],
+				},
+				{
+					title: "Nov 2023 - Jan 2024",
+					assets: [
+						{
+							path: "/src/assets/trips/2023-11_2024-01/2024-01-01/",
+							title: "1/1 - 2024",
+						},
+						{
+							path: "/src/assets/trips/2023-11_2024-01/2023-12-24/",
+							title: "24/12 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-11_2024-01/2023-11-04/",
+							title: "4/11 - 2023",
+						},
+					],
+				},
+				{
+					title: "Aug 2023 - Oct 2023",
+					assets: [
+						{
+							path: "/src/assets/trips/2023-08_2023-10/final.webp",
+							title:
+								"Även denna resa är slut. Nu tar vi ny sats i insamlingen, behovet har inte avtagit, snarare tvärtom. Bobban.",
+							span: true,
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-10-10/",
+							title: "10/10 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-10-06/",
+							title: "6/10 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-10-02/",
+							title: "2/10 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-09-30/",
+							title: "30/9 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-09-29/",
+							title: "29/9 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-09-27/",
+							title: "27/9 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-09-23/",
+							title: "23/9 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-09-22/",
+							title: "22/9 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-09-07/",
+							title: "7/9 - 2023",
+						},
+						{
+							path: "/src/assets/trips/2023-08_2023-10/2023-08-27/",
+							title: "27/8 - 2023",
+						},
+					],
+				},
+			]}
+		/>
+	</main>
 </Layout>

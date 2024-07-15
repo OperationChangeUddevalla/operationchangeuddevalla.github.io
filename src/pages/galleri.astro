@@ -6,35 +6,35 @@ import Hero from "../components/Hero.astro";
 ---
 
 <Layout title="Galleri" nav={Nav.Gallery}>
-  <main>
-    <Hero
-      title="Galleri"
-      image={import("../assets/gallery/distribution/distribution07.webp")}
-    />
+	<main>
+		<Hero
+			title="Galleri"
+			image={import("../assets/gallery/distribution/distribution07.webp")}
+		/>
 
-    <MediaGallery
-      galleries={[
-        {
-          title: "Utdelning",
-          assets: [{ path: "/src/assets/gallery/distribution/" }],
-        },
-        {
-          title: "Barnhemmet",
-          assets: [{ path: "/src/assets/gallery/orphanage/" }],
-        },
-        {
-          title: "Ukraina",
-          assets: [{ path: "/src/assets/gallery/ukraine/" }],
-        },
-        {
-          title: "Djur",
-          assets: [{ path: "/src/assets/gallery/animals/" }],
-        },
-        {
-          title: "Filmer",
-          assets: [{ path: "/src/assets/gallery/videos/" }],
-        },
-      ]}
-    />
-  </main>
+		<MediaGallery
+			galleries={[
+				{
+					title: "Barnhemmet",
+					assets: [{ path: "/src/assets/gallery/orphanage/" }],
+				},
+				{
+					title: "Utdelning",
+					assets: [{ path: "/src/assets/gallery/distribution/" }],
+				},
+				{
+					title: "Ukraina",
+					assets: [{ path: "/src/assets/gallery/ukraine/" }],
+				},
+				{
+					title: "Djur",
+					assets: [{ path: "/src/assets/gallery/animals/" }],
+				},
+				{
+					title: "Filmer",
+					assets: [{ path: "/src/assets/gallery/videos/" }],
+				},
+			]}
+		/>
+	</main>
 </Layout>

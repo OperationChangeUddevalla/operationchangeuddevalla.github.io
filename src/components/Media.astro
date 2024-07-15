@@ -3,16 +3,16 @@ import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 interface Props {
-  path: string;
+	path: string;
 }
 
 const { path } = Astro.props;
 
 const imageAssets = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/*.{avif,png,webp,jpeg,jpg,svg}",
+	"/src/assets/**/*.{avif,png,webp,jpeg,jpg,svg}",
 );
 const videoAssets = import.meta.glob<{ default: string }>(
-  "/src/assets/**/*.mp4",
+	"/src/assets/**/*.mp4",
 );
 
 const re = new RegExp(path);
@@ -22,28 +22,28 @@ const re = new RegExp(path);
 ---
 
 <Fragment>
-  {
-    Object.keys(imageAssets).map((image) => {
-      if (re.test(image)) {
-        return (
-          <Image
-            src={imageAssets[image]()}
-            alt=""
-            class="h-full w-full object-cover"
-          />
-        );
-      }
-    })
-  }
-  {
-    Object.keys(videoAssets).map(async (video) => {
-      if (re.test(video)) {
-        return (
-          <video preload="metadata" controls class="h-full w-full object-cover">
-            <source src={(await videoAssets[video]()).default} />
-          </video>
-        );
-      }
-    })
-  }
+	{
+		Object.keys(imageAssets).map((image) => {
+			if (re.test(image)) {
+				return (
+					<Image
+						src={imageAssets[image]()}
+						alt=""
+						class="h-full w-full object-cover"
+					/>
+				);
+			}
+		})
+	}
+	{
+		Object.keys(videoAssets).map(async (video) => {
+			if (re.test(video)) {
+				return (
+					<video preload="metadata" controls class="h-full w-full object-cover">
+						<source src={(await videoAssets[video]()).default} />
+					</video>
+				);
+			}
+		})
+	}
 </Fragment>

@@ -30,12 +30,13 @@ const tabs: Tab[] = Object.values(Need).map((n, i) => {
 
 		<SectionOrphanage bg="bg-gray-50" title="Om barnhemmet" loading="eager">
 			<div
-				class="boder-solid mt-8 grid gap-8 border-t border-t-blue-200 pt-8 md:grid-cols-2"
+				class="boder-solid mt-4 grid gap-4 border-t border-t-blue-200 pt-4 md:grid-cols-2"
 			>
 				<video
 					class="h-[300px] w-full object-cover md:h-[400px]"
 					controls
 					preload="metadata"
+					poster="/orphanage-poster.jpg"
 				>
 					<source src="/orphanage.mp4" />
 				</video>
@@ -49,7 +50,7 @@ const tabs: Tab[] = Object.values(Need).map((n, i) => {
 						att de har möjlighet att förverkliga de drömmar och ambitioner de
 						bär på för sina liv.
 					</p>
-					<p>- Volodomyr, föreståndare för barnhemmet.</p>
+					<p>- Föreståndare för barnhemmet.</p>
 				</div>
 			</div>
 		</SectionOrphanage>

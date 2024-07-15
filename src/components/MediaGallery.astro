@@ -4,6 +4,8 @@ import Section from "../components/Section.astro";
 import TabView from "../components/TabView.astro";
 import type { Tab } from "../components/TabView.astro";
 
+export const ID_GALLERY = "galleri";
+
 interface Gallery {
 	title: string;
 	assets: { path: string; title?: string; span?: boolean }[];
@@ -12,8 +14,6 @@ interface Gallery {
 interface Props {
 	galleries: Gallery[];
 }
-
-export const ID_GALLERY = "galleri";
 
 const { galleries } = Astro.props;
 
