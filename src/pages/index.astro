@@ -7,6 +7,7 @@ import RenovateWidget from "../components/RenovateWidget.astro";
 import Link from "../components/Link.astro";
 import Section from "../components/Section.astro";
 import SectionOrphanage from "../components/SectionOrphanage.astro";
+import MediaCarousel from "../components/MediaCarousel.astro";
 import { ID_GALLERY } from "../components/MediaGallery.astro";
 
 export const ID_OPERATION_CHANGE = "operation-change";
@@ -189,14 +190,13 @@ const privateSponsors = [
 			<div class="mb-8">
 				<div class="mb-4 text-center">
 					<Link
-						text="Senaste: 17/07 - 2024"
+						text="Senaste: 2/9 - 2024"
 						href={`${ROUTE_TRIPS}#${ID_GALLERY}`}
 					/>
 				</div>
-				<Image
-					class="h-[600px] w-full object-cover"
-					src={import("../assets/trips/2024-06_now/2024-07-17/artikel.jpeg")}
-					alt=""
+				<MediaCarousel
+					path="../assets/trips/2024-06_now/2024-09-02/"
+					height={600}
 				/>
 			</div>
 		</Section>

@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets";
+import Media from "../components/Media.astro";
+import type { ImageAssets, VideoAssets } from "../components/Media.astro";
+
+interface Props {
+	path: string;
+	height: number;
+}
+
+const { path, height } = Astro.props;
+---
+
+<script>
+	class MediaCarousel extends HTMLElement {
+		constructor() {
+			super();
+
+			let index = 0;
+
+			const mediaElements: NodeListOf<HTMLElement> =
+				this.querySelectorAll(".media");
+
+			function setActiveMediaElement(
+				mediaElements: NodeListOf<HTMLElement>,
+				index: number,
+			): void {
+				mediaElements.forEach((media, i) => {
+					if (i === index) {
+						media.classList.remove("hidden");
+					} else {
+						media.classList.add("hidden");
+					}
+				});
+			}
+
+			const previous: HTMLElement | null =
+				document.querySelector("button.previous");
+			previous?.addEventListener("click", () => {
+				index = index - 1 < 0 ? mediaElements.length - 1 : index - 1;
+				setActiveMediaElement(mediaElements, index);
+			});
+
+			const next: HTMLElement | null = document.querySelector("button.next");
+			next?.addEventListener("click", () => {
+				index = (index + 1) % mediaElements.length;
+				setActiveMediaElement(mediaElements, index);
+			});
+
+			setActiveMediaElement(mediaElements, 0);
+
+			if (mediaElements.length < 2) {
+				this.querySelector(".buttons")?.classList.add("hidden");
+			}
+		}
+	}
+
+	customElements.define("media-carousel", MediaCarousel);
+</script>
+
+<media-carousel class="group relative block">
+	<div
+		class="buttons pointer-events-none absolute flex h-full w-full items-center justify-between text-6xl text-white"
+	>
+		<div class="group/button h-1/2 w-1/4">
+			<button
+				class="previous pointer-events-auto flex h-full w-full items-center justify-start px-4 opacity-0 text-shadow group-hover/button:opacity-100 group-hover:opacity-50"
+			>
+				<span>{"<"}</span>
+			</button>
+		</div>
+		<div class="group/button h-1/2 w-1/4">
+			<button
+				class="next pointer-events-auto flex h-full w-full items-center justify-end px-4 opacity-0 text-shadow group-hover/button:opacity-100 group-hover:opacity-50"
+				><span>{">"}</span>
+			</button>
+		</div>
+	</div>
+
+	<Media path={path}>
+		{
+			(images: ImageAssets, videos: VideoAssets) => (
+				<div class={`h-[${height}px]`}>
+					{Object.values(images).map((image) => {
+						return (
+							<Image
+								src={image()}
+								alt=""
+								class="media h-full w-full object-cover"
+							/>
+						);
+					})}
+					{Object.values(videos).map(async (video) => {
+						return (
+							<video
+								preload="metadata"
+								controls
+								class="media h-full w-full object-cover"
+							>
+								<source src={(await video()).default} />
+							</video>
+						);
+					})}
+				</div>
+			)
+		}
+	</Media>
+</media-carousel>

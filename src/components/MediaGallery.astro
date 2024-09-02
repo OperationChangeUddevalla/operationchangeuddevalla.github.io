@@ -8,7 +8,12 @@ export const ID_GALLERY = "galleri";
 
 interface Gallery {
 	title: string;
-	assets: { path: string; title?: string; span?: boolean }[];
+	assets: {
+		path: string;
+		title?: string;
+		usePathTailAsTitle?: boolean;
+		span?: boolean;
+	}[];
 }
 
 interface Props {
@@ -17,30 +22,32 @@ interface Props {
 
 const { galleries } = Astro.props;
 
-const t: Tab[] = galleries.map((g, i) => {
-	return { title: g.title, target: i.toString() };
+const tabs: Tab[] = galleries.map((gallery, i) => {
+	return { title: gallery.title, target: i.toString() };
 });
+
+const pathTail = /\/([^\/]+)\/$/;
 ---
 
 <Section id={ID_GALLERY} divide={false}>
-	<TabView tabs={t} class="mb-12 border-b border-b-blue-200">
+	<TabView tabs={tabs} class="mb-12 border-b border-b-blue-200">
 		{
-			galleries.map((g, i) => (
+			galleries.map((gallery, i) => (
 				<div data-target={i} class="tab-view flex flex-col gap-16">
-					{g.assets.map((a) => (
+					{gallery.assets.map((asset) => (
 						<div>
-							{a.title && (
+							{(asset.title || asset.usePathTailAsTitle) && (
 								<p class="mb-4 border-b border-b-slate-200 p-4 text-center">
-									{a.title}
+									{asset.title ?? asset.path.match(pathTail)?.[1]}
 								</p>
 							)}
 							<div
 								class="grid auto-rows-[400px] gap-2 md:auto-rows-[500px]"
 								class:list={
-									a.span ? "grid-cols-1" : "md:grid-cols-2 lg:grid-cols-3"
+									asset.span ? "grid-cols-1" : "md:grid-cols-2 lg:grid-cols-3"
 								}
 							>
-								<Media path={a.path} />
+								<Media path={asset.path} />
 							</div>
 						</div>
 					))}
