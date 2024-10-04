@@ -256,6 +256,8 @@ img {
 
 .sponsor__img {
 	height: 60px;
+	width: 100px;
+	object-fit: contain;
 }
 
 .hero__figure {
