@@ -47,6 +47,23 @@ const { path, height } = Astro.props;
 				setActiveMediaElement(mediaElements, index);
 			});
 
+			function hover(element: HTMLElement | null) {
+				element?.addEventListener("mouseover", (e) => {
+					if (e.target === element) {
+						element?.classList.add("group-hover:opacity-100");
+						element?.classList.remove("group-hover:opacity-50");
+					}
+				});
+				element?.addEventListener("mouseleave", (e) => {
+					if (e.target === element) {
+						element?.classList.add("group-hover:opacity-50");
+						element?.classList.remove("group-hover:opacity-100");
+					}
+				});
+			}
+			hover(previous);
+			hover(next);
+
 			setActiveMediaElement(mediaElements, 0);
 
 			if (mediaElements.length < 2) {
@@ -62,16 +79,16 @@ const { path, height } = Astro.props;
 	<div
 		class="buttons pointer-events-none absolute flex h-full w-full items-center justify-between text-6xl text-white"
 	>
-		<div class="group/button h-1/2 w-1/4">
+		<div class="h-1/2 w-1/4">
 			<button
-				class="previous pointer-events-auto flex h-full w-full items-center justify-start px-4 opacity-0 text-shadow group-hover/button:opacity-100 group-hover:opacity-50"
+				class="previous pointer-events-auto flex h-full w-full items-center justify-start px-4 opacity-0 text-shadow group-hover:opacity-50"
 			>
 				<span>{"<"}</span>
 			</button>
 		</div>
-		<div class="group/button h-1/2 w-1/4">
+		<div class="h-1/2 w-1/4">
 			<button
-				class="next pointer-events-auto flex h-full w-full items-center justify-end px-4 opacity-0 text-shadow group-hover/button:opacity-100 group-hover:opacity-50"
+				class="next pointer-events-auto flex h-full w-full items-center justify-end px-4 opacity-0 text-shadow group-hover:opacity-50"
 				><span>{">"}</span>
 			</button>
 		</div>

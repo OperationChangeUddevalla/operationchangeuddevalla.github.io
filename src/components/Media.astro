@@ -29,14 +29,13 @@ const videoAssets = import.meta.glob<{ default: string }>(
 let filteredImages = Object.keys(imageAssets).filter((image) =>
 	pathFilter.test(image),
 );
+let filteredVideos = Object.keys(videoAssets).filter((video) =>
+	pathFilter.test(video),
+);
 
 let pathFilteredImages: ImageAssets = {};
 filteredImages.forEach(
 	(image) => (pathFilteredImages[image] = imageAssets[image]),
-);
-
-let filteredVideos = Object.keys(videoAssets).filter((video) =>
-	pathFilter.test(video),
 );
 let pathFilteredVideos: VideoAssets = {};
 filteredVideos.forEach(
