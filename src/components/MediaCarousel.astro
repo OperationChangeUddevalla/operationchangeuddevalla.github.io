@@ -5,7 +5,7 @@ import type { ImageAssets, VideoAssets } from "../components/Media.astro";
 
 interface Props {
 	path: string;
-	height: number;
+	height: string;
 }
 
 const { path, height } = Astro.props;
@@ -97,7 +97,7 @@ const { path, height } = Astro.props;
 	<Media path={path}>
 		{
 			(images: ImageAssets, videos: VideoAssets) => (
-				<div class={`h-[${height}px]`}>
+				<div class:list={height}>
 					{Object.values(images).map((image) => {
 						return (
 							<Image
