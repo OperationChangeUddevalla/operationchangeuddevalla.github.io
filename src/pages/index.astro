@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import Layout, { ID_CONTACT, ROUTE_TRIPS } from "../layouts/Layout.astro";
 import { Nav } from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
-import RenovateWidget from "../components/RenovateWidget.astro";
 import Link from "../components/Link.astro";
 import Section from "../components/Section.astro";
 import SectionOrphanage from "../components/SectionOrphanage.astro";
@@ -159,10 +158,7 @@ const privateSponsors = [
 			</figure>
 		</header>
 
-		<SectionOrphanage
-			bg="bg-gray-50"
-			title="Dzhulinsky Orphanage House Haivoron"
-		/>
+		<SectionOrphanage bg="bg-gray-50" title="Dzhulinsky Orphanage House" />
 
 		<Section title="Projekt: renovering av barnhemmet">
 			<div class="grid gap-4 lg:grid-cols-[auto_min-content]">
@@ -195,7 +191,6 @@ const privateSponsors = [
 						}
 					</ul>
 				</div>
-				<RenovateWidget />
 			</div>
 		</Section>
 
@@ -231,94 +226,6 @@ const privateSponsors = [
 			</div>
 		</Section>
 
-		<Section bg="bg-gray-50">
-			<h2 slot="heading" class="mb-4">
-				<img
-					loading="lazy"
-					class="mx-auto h-36"
-					src="/logo-text.svg"
-					alt="OperationChange"
-				/>
-			</h2>
-			<div id={ID_OPERATION_CHANGE} class="group">
-				<div class="grid gap-8 group-[.pdfViewerEnabled]:lg:grid-cols-2">
-					<div class="flex flex-col gap-4">
-						<p>
-							OperationChange är en obunden välgörenhetsorganisation. Med
-							förankring i den svenska gräsrotsrörelsen arbetar vi outtröttligt
-							för att ge stöd och hjälp till behövande i drabbade områden, samt
-							för att stödja lokala initiativ i deras arbete. Volontärerna på
-							plats i Ukraina ser till att hjälpen når fram och tillgodoser de
-							behov som finns.
-						</p>
-						<div>
-							<p>Vi fokuserar på tre områden:</p>
-							<ul class="list-inside list-disc">
-								<li>
-									<strong>Relief</strong> - Omedelbar, direkt humanitär hjälp.
-								</li>
-								<li>
-									<strong>Motståndskraft</strong> - Stöd för återhämtning och uthållighet.
-								</li>
-								<li>
-									<strong>Återuppbyggnad</strong> - Långsiktigt hållbar utveckling.
-								</li>
-							</ul>
-						</div>
-						<p>
-							Om du vill stödja vårt arbete, kontakta info@operation-change.org
-							för att få information om behoven och våra insamlingsställen.
-						</p>
-						<p>
-							Tack vare ert stöd kan vi fortsätta hjälpa det ukrainska folket på
-							plats!
-						</p>
-						<p>
-							För mer information se vår hemsida
-							<Link
-								text="operation-change.org"
-								href="https://www.operation-change.org"
-							/>.
-						</p>
-						<div>
-							<p>Behov:</p>
-							<ul class="list-inside list-disc">
-								<li>
-									<Link
-										text="Sjukvårdsmaterial (pdf)"
-										href="/operation-change/Sjukvårdsmaterial-Q3-2023.pdf"
-									/>
-								</li>
-								<li>
-									<Link
-										text="Övrigt (pdf)"
-										href="/operation-change/Insamlingslista-Q3-2024.pdf"
-									/>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div
-						class="flex group-[.pdfViewerEnabled]:h-[500px] group-[.pdfViewerEnabled]:lg:h-auto"
-					>
-						<object
-							title="Nyhetsbrev"
-							aria-label="Nyhetsbrev"
-							aria-labelledby=""
-							class="w-full"
-							type="application/pdf"
-							data="/operation-change/Nyhetsbrev-Okt-2024.pdf?#navpanes=0&statusbar=0&messages=0"
-						>
-							<Button
-								text="Nyhetsbrev (pdf)"
-								href="/operation-change/Nyhetsbrev-Okt-2024.pdf"
-							/>
-						</object>
-					</div>
-				</div>
-			</div>
-		</Section>
-
 		<Section title="Sponsorer" bg="bg-blue-50">
 			<div class="mb-4 flex place-content-center">
 				<a
@@ -334,8 +241,8 @@ const privateSponsors = [
 						alt="Facebook-gruppen Stöd Ukraina"
 					/>
 					<div>
-						<p class="text-3xl">Stöd Ukraina</p>
-						<p class="text-base text-gray-600">Trollhättan</p>
+						<p class="text-3xl">Stöd Ukraina Gruppen</p>
+						<p class="text-base text-gray-600">Uddevalla - Trollhättan</p>
 					</div>
 				</a>
 			</div>
@@ -352,10 +259,7 @@ const privateSponsors = [
 							alt="Vänsterpartiet"
 						/>
 						<div>
-							<p class="text-base text-gray-600">
-								Vänsterpartiet Uddevalla och deras medlemmar har bidragit med
-							</p>
-							<p class="text-3xl">12000 kr</p>
+							<p class="text-base text-gray-600">Vänsterpartiet Uddevalla</p>
 						</div>
 					</a>
 					<a
@@ -368,12 +272,6 @@ const privateSponsors = [
 							src="/sponsors/vp.svg"
 							alt="Veteranpoolen"
 						/>
-						<div>
-							<p class="text-base text-gray-600">
-								Veteranpoolen och deras medlemmar har bidragit med
-							</p>
-							<p class="text-3xl">3000 kr</p>
-						</div>
 					</a>
 					<a
 						class="flex w-fit max-w-md rounded border-2 border-solid border-[#0d0d0d]/25 bg-[#ffffff] p-4 shadow-md hover:border-[#0d0d0d]/75"

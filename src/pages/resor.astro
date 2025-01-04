@@ -4,9 +4,7 @@ import { Nav } from "../layouts/Layout.astro";
 import MediaGallery from "../components/MediaGallery.astro";
 import Hero from "../components/Hero.astro";
 import Media from "../components/Media.astro";
-import Section from "../components/Section.astro";
 import mediaFile from "../assets/media.json";
-import RenovateWidget from "../components/RenovateWidget.astro";
 
 interface Media {
 	type: string;
@@ -50,24 +48,6 @@ function getMediaContents(
 			title="Bobban och Lasses resor"
 			image={import("../assets/trips/2023-11_2024-01/2024-01-01/1.webp")}
 		/>
-
-		<Section bg="bg-gray-50" title="Nästa resa: renovering av barnhemmet">
-			<div class="grid gap-4 lg:grid-cols-[auto_min-content]">
-				<div class="flex flex-col gap-4">
-					<p class="text-2xl font-bold">Vi behöver er hjälp!</p>
-					<p>
-						Nästa resa är det planerat att renovera barnhemmet, vilket öppnar
-						möjligheten att ta hand om fler barn.
-					</p>
-					<p>
-						OperationChange har startat en insamling till renoveringen, med
-						planerad byggstart i augusti 2024.
-					</p>
-					<p>Tack för er hjälp!</p>
-				</div>
-				<RenovateWidget />
-			</div>
-		</Section>
 
 		<MediaGallery
 			galleries={[
