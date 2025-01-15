@@ -4,6 +4,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://www.operationchange-uddevalla.org",
+	site: "https://www.sugaid.org",
 	integrations: [tailwind(), sitemap()]
 });
