@@ -53,6 +53,23 @@ const tabs: Tab[] = Object.values(Need).map((n, i) => {
 					<p>- Föreståndare för barnhemmet.</p>
 				</div>
 			</div>
+
+			<div
+				class="boder-solid mt-4 grid gap-4 border-t border-t-blue-200 pt-4 md:grid-cols-2"
+			>
+				<video
+					class="h-[300px] w-full object-cover md:h-[400px]"
+					controls
+					preload="metadata"
+				>
+					<source src="/orphanage2.mp4" />
+				</video>
+
+				<div class="flex flex-col gap-4">
+					<p class="italic text-gray-600"></p>
+					<p></p>
+				</div>
+			</div>
 		</SectionOrphanage>
 
 		<Section id={ID_NEEDS} title="Behov">
