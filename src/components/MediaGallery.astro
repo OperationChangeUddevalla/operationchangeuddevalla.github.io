@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Media from "../components/Media.astro";
 import Section from "../components/Section.astro";
 import TabView from "../components/TabView.astro";
+import type { ImageAssets, VideoAssets } from "../components/Media.astro";
 import type { Tab } from "../components/TabView.astro";
 
 export const ID_GALLERY = "galleri";
@@ -13,6 +15,7 @@ interface Gallery {
 		title?: string;
 		usePathTailAsTitle?: boolean;
 		span?: boolean;
+		imageConfig?: { class: string; contain?: boolean }[];
 	}[];
 }
 
@@ -47,7 +50,38 @@ const pathTail = /\/([^\/]+)\/$/;
 									asset.span ? "grid-cols-1" : "md:grid-cols-2 lg:grid-cols-3"
 								}
 							>
-								<Media path={asset.path} />
+								<Media path={asset.path}>
+									{(images: ImageAssets, videos: VideoAssets) => (
+										<Fragment>
+											{Object.values(images).map((image, i) => {
+												return (
+													<Image
+														src={image()}
+														alt=""
+														class="h-full w-full"
+														class:list={[
+															asset.imageConfig?.[i]?.class,
+															asset.imageConfig?.[i]?.contain
+																? "object-contain"
+																: "object-cover",
+														]}
+													/>
+												);
+											})}
+											{Object.values(videos).map(async (video) => {
+												return (
+													<video
+														preload="metadata"
+														controls
+														class="h-full w-full object-cover"
+													>
+														<source src={(await video()).default} />
+													</video>
+												);
+											})}
+										</Fragment>
+									)}
+								</Media>
 							</div>
 						</div>
 					))}
