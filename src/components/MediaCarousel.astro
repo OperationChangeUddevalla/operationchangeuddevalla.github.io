@@ -6,9 +6,10 @@ import type { ImageAssets, VideoAssets } from "../components/Media.astro";
 interface Props {
 	path: string;
 	height: string;
+	first?: string;
 }
 
-const { path, height } = Astro.props;
+const { path, height, first } = Astro.props;
 ---
 
 <script>
@@ -94,32 +95,44 @@ const { path, height } = Astro.props;
 		</div>
 	</div>
 
-	<Media path={path}>
+	<div class:list={height}>
 		{
-			(images: ImageAssets, videos: VideoAssets) => (
-				<div class:list={height}>
-					{Object.values(images).map((image) => {
-						return (
-							<Image
-								src={image()}
-								alt=""
-								class="media h-full w-full object-cover"
-							/>
-						);
-					})}
-					{Object.values(videos).map(async (video) => {
-						return (
-							<video
-								preload="metadata"
-								controls
-								class="media h-full w-full object-cover"
-							>
-								<source src={(await video()).default} />
-							</video>
-						);
-					})}
-				</div>
+			first && (
+				<Image
+					src={import(first)}
+					alt=""
+					class="media h-full w-full object-cover"
+				/>
 			)
 		}
-	</Media>
+
+		<Media path={path}>
+			{
+				(images: ImageAssets, videos: VideoAssets) => (
+					<Fragment>
+						{Object.values(images).map((image) => {
+							return (
+								<Image
+									src={image()}
+									alt=""
+									class="media h-full w-full object-cover"
+								/>
+							);
+						})}
+						{Object.values(videos).map(async (video) => {
+							return (
+								<video
+									preload="auto"
+									controls
+									class="media h-full w-full object-cover"
+								>
+									<source src={(await video()).default} />
+								</video>
+							);
+						})}
+					</Fragment>
+				)
+			}
+		</Media>
+	</div>
 </media-carousel>
