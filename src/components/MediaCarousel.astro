@@ -6,10 +6,9 @@ import type { ImageAssets, VideoAssets } from "../components/Media.astro";
 interface Props {
 	path: string;
 	height: string;
-	first?: string;
 }
 
-const { path, height, first } = Astro.props;
+const { path, height } = Astro.props;
 ---
 
 <script>
@@ -96,15 +95,7 @@ const { path, height, first } = Astro.props;
 	</div>
 
 	<div class:list={height}>
-		{
-			first && (
-				<Image
-					src={import(first)}
-					alt=""
-					class="media h-full w-full object-cover"
-				/>
-			)
-		}
+		<slot />
 
 		<Media path={path}>
 			{
