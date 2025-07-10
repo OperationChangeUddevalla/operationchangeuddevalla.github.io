@@ -193,12 +193,12 @@ const privateSponsors = [
 			<div class="mb-8 text-center">
 				<div class="mb-4 text-center">
 					<Link
-						text="Senaste: 02/07 - 2025"
+						text="Senaste: 10/07 - 2025"
 						href={`${ROUTE_TRIPS}#${ID_GALLERY}`}
 					/>
 				</div>
 				<MediaCarousel
-					path="../assets/trips/2025-04_now/2025-07-02/"
+					path="../assets/trips/2025-04_now/2025-07-10/"
 					height="h-[800px]"
 				>
 					<Image
@@ -228,7 +228,7 @@ const privateSponsors = [
 		</Section>
 
 		<Section title="Sponsorer" bg="bg-blue-50">
-			<div class="mb-4 flex place-content-center">
+			<div class="flex flex-wrap place-content-center gap-4 pb-8 pt-4">
 				<a
 					class="flex w-fit max-w-md place-items-center gap-6 rounded border-2 border-solid border-[#0866ff]/25 bg-[#0866ff]/25 p-4 shadow-md hover:border-[#0866ff]/75"
 					href="https://www.facebook.com/groups/25916426878004538/"
@@ -243,80 +243,89 @@ const privateSponsors = [
 					/>
 					<div>
 						<p class="text-3xl">Stöd Ukraina Gruppen</p>
-						<p class="text-base text-gray-600">Uddevalla - Trollhättan</p>
+						<p class="text-base text-gray-600">Uddevalla</p>
 					</div>
 				</a>
+				<a
+					class="flex w-fit max-w-md rounded border-2 border-solid border-[#00539b]/25 bg-[#00539b]/25 p-4 shadow-md hover:border-[#00539b]/75"
+					href="https://lionsuddevalla.se/"
+				>
+					<Image
+						class="w-16 object-contain md:h-24 md:w-24"
+						width={96}
+						height={96}
+						src="/sponsors/lu.png"
+						alt="Lions Uddevalla"
+					/>
+				</a>
 			</div>
-			<div class="mb-4 border-t border-t-blue-200 pt-4">
-				<div class="mb-4 flex flex-wrap justify-center gap-4">
-					<a
-						class="flex w-fit max-w-md place-items-center gap-6 rounded border-2 border-solid border-[#ed1c24]/25 bg-[#ed1c24]/25 p-4 shadow-md hover:border-[#ed1c24]/75"
-						href="https://www.vansterpartiet.se/"
-					>
-						<img
-							loading="lazy"
-							class="w-16 md:h-24 md:w-24"
-							src="/sponsors/v.svg"
-							alt="Vänsterpartiet"
-						/>
-						<div>
-							<p class="text-base text-gray-600">Vänsterpartiet Uddevalla</p>
-						</div>
-					</a>
-					<a
-						class="flex w-fit max-w-md place-items-center gap-6 rounded border-2 border-solid border-[#50bf61]/25 bg-[#50bf61]/25 p-4 shadow-md hover:border-[#50bf61]/75"
-						href="https://veteranpoolen.se/"
-					>
-						<img
-							loading="lazy"
-							class="w-16 md:h-24 md:w-24"
-							src="/sponsors/vp.svg"
-							alt="Veteranpoolen"
-						/>
-					</a>
-					<a
-						class="flex w-fit max-w-md rounded border-2 border-solid border-[#0d0d0d]/25 bg-[#ffffff] p-4 shadow-md hover:border-[#0d0d0d]/75"
-						href="https://www.proxnet.mk/mk/"
-					>
-						<img
-							loading="lazy"
-							class="w-16 object-contain md:h-24 md:w-24"
-							width={96}
-							height={96}
-							src="/sponsors/proxnet.jpg"
-							alt="PROXNet"
-						/>
-					</a>
-					<a
-						class="flex w-fit max-w-md rounded border-2 border-solid border-[#d80811]/25 bg-[#d80811]/25 p-4 shadow-md hover:border-[#d80811]/75"
-						href="https://www.abf.se/"
-					>
-						<img
-							loading="lazy"
-							class="w-16 md:h-24 md:w-24"
-							src="/sponsors/abf.svg"
-							alt="ABF"
-						/>
-					</a>
-					<a
-						class="flex w-fit max-w-md rounded border-2 border-solid border-[#00539b]/25 bg-[#00539b]/25 p-4 shadow-md hover:border-[#00539b]/75"
-						href="https://lionsuddevalla.se/"
-					>
-						<Image
-							class="w-16 object-contain md:h-24 md:w-24"
-							width={96}
-							height={96}
-							src="/sponsors/lu.png"
-							alt="Lions Uddevalla"
-						/>
-					</a>
-				</div>
-				<div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-center">
-					{publicSponsors.map((sponsor) => <p>{sponsor}</p>)}
-				</div>
-			</div>
+
 			<div
-				class="flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-t-blue-200 pt-4 text-center"
+				class="flex flex-wrap justify-center gap-4 border-t border-t-blue-200 p-8"
+			>
+				<a
+					class="flex w-fit max-w-md place-items-center gap-6 rounded border-2 border-solid border-[#ed1c24]/25 bg-[#ed1c24]/25 p-4 shadow-md hover:border-[#ed1c24]/75"
+					href="https://www.vansterpartiet.se/"
+				>
+					<img
+						loading="lazy"
+						class="w-16 md:h-24 md:w-24"
+						src="/sponsors/v.svg"
+						alt="Vänsterpartiet"
+					/>
+					<div>
+						<p class="text-base text-gray-600">Vänsterpartiet Uddevalla</p>
+					</div>
+				</a>
+				<a
+					class="flex w-fit max-w-md place-items-center gap-6 rounded border-2 border-solid border-[#50bf61]/25 bg-[#50bf61]/25 p-4 shadow-md hover:border-[#50bf61]/75"
+					href="https://veteranpoolen.se/"
+				>
+					<img
+						loading="lazy"
+						class="w-16 md:h-24 md:w-24"
+						src="/sponsors/vp.svg"
+						alt="Veteranpoolen"
+					/>
+				</a>
+				<a
+					class="flex w-fit max-w-md rounded border-2 border-solid border-[#0d0d0d]/25 bg-[#ffffff] p-4 shadow-md hover:border-[#0d0d0d]/75"
+					href="https://www.proxnet.mk/mk/"
+				>
+					<img
+						loading="lazy"
+						class="w-16 object-contain md:h-24 md:w-24"
+						width={96}
+						height={96}
+						src="/sponsors/proxnet.jpg"
+						alt="PROXNet"
+					/>
+				</a>
+				<a
+					class="flex w-fit max-w-md rounded border-2 border-solid border-[#d80811]/25 bg-[#d80811]/25 p-4 shadow-md hover:border-[#d80811]/75"
+					href="https://www.abf.se/"
+				>
+					<img
+						loading="lazy"
+						class="w-16 md:h-24 md:w-24"
+						src="/sponsors/abf.svg"
+						alt="ABF"
+					/>
+				</a>
+			</div>
+
+			<p class="border-t border-t-blue-200 p-8 text-center">
+				🩵💛 Bengt Kallebo 🩵💛
+			</p>
+
+			<div
+				class="flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-t-blue-200 p-8 text-center"
+			>
+				{publicSponsors.map((sponsor) => <p>{sponsor}</p>)}
+			</div>
+
+			<div
+				class="flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-t-blue-200 pt-8 text-center"
 			>
 				{privateSponsors.map((sponsor) => <p>{sponsor}</p>)}
 			</div>
