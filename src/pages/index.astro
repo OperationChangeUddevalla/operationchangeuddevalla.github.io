@@ -137,12 +137,13 @@ const privateSponsors = [
 							</div>
 						</h1>
 					</div>
-					<div class="row-start-3 self-start">
-						<p class="mb-8 text-xl text-white md:text-2xl">
-							Vi är volontärer inom hjälporganisationen
-							<strong>OperationChange</strong>
-							som hjälper gamla och barn på barnhem i Ukraina.
-						</p>
+					<div class="row-start-3 flex justify-center self-start">
+						<img
+							class="w-32 md:w-48"
+							src="sponsors/lu.png"
+							alt="Lions Uddevalla"
+							width="192"
+						/>
 					</div>
 				</div>
 			</div>
@@ -200,10 +201,17 @@ const privateSponsors = [
 						href={`${ROUTE_TRIPS}#${ID_GALLERY}`}
 					/>
 				</div>
+
 				<MediaCarousel
 					path="../assets/trips/2025-09_now/2025-09-15/"
 					height="h-[800px]"
-				/>
+				>
+					<Image
+						src={import("../assets/trips/2025-04_2025-08/2025-04-25/01.jpg")}
+						alt=""
+						class="media h-full w-full object-cover"
+					/>
+				</MediaCarousel>
 			</div>
 		</Section>
 
