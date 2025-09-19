@@ -6,6 +6,7 @@ import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
 import Section from "../components/Section.astro";
 import SectionOrphanage from "../components/SectionOrphanage.astro";
+import OrphanageText from "../components/OrphanageText.astro";
 import MediaCarousel from "../components/MediaCarousel.astro";
 import { ID_GALLERY } from "../components/MediaGallery.astro";
 
@@ -157,7 +158,9 @@ const privateSponsors = [
 			</figure>
 		</header>
 
-		<SectionOrphanage bg="bg-gray-50" title="Dzhulinsky Orphanage House" />
+		<SectionOrphanage bg="bg-gray-50" title="Dzhulinsky Orphanage House">
+			<OrphanageText slot="text" />
+		</SectionOrphanage>
 
 		<Section title="Projekt: renovering av barnhemmet">
 			<div class="grid gap-4 lg:grid-cols-[auto_min-content]">
