@@ -5,6 +5,7 @@ import "@fontsource-variable/oswald";
 export enum Nav {
 	Home = "Hem",
 	Orphanage = "Barnhemmet",
+	SocialCenter = "Sociala Centret",
 	Trips = "Resor",
 	Gallery = "Galleri",
 	Contact = "Kontakta",
@@ -12,6 +13,7 @@ export enum Nav {
 
 export const ROUTE_HOME = "/";
 export const ROUTE_ORPHANAGE = "/barnhemmet";
+export const ROUTE_SOCIAL_CENTER = "/sociala-centret";
 export const ROUTE_TRIPS = "/resor";
 export const ROUTE_GALLERY = "/galleri";
 
@@ -117,6 +119,9 @@ const { title, nav } = Astro.props;
 									break;
 								case Nav.Orphanage:
 									href = ROUTE_ORPHANAGE;
+									break;
+								case Nav.SocialCenter:
+									href = ROUTE_SOCIAL_CENTER;
 									break;
 								case Nav.Trips:
 									href = ROUTE_TRIPS;

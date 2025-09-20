@@ -2,8 +2,7 @@
 import { Image } from "astro:assets";
 import Section from "../components/Section.astro";
 import Button from "../components/Button.astro";
-import { ID_NEEDS } from "../pages/barnhemmet.astro";
-import { ROUTE_ORPHANAGE } from "../layouts/Layout.astro";
+import { ID_CONTACT } from "../layouts/Layout.astro";
 
 interface Props {
 	bg: string;
@@ -26,7 +25,7 @@ const { bg, title, loading = "lazy" } = Astro.props;
 	<div class="flex flex-col gap-4">
 		<slot name="text" />
 		<div>
-			<Button text="Bidra" href={`${ROUTE_ORPHANAGE}#${ID_NEEDS}`} />
+			<Button text="Bidra" href={`#${ID_CONTACT}`} />
 		</div>
 	</div>
 	<slot />
