@@ -15,7 +15,7 @@ interface Gallery {
 		title?: string;
 		usePathTailAsTitle?: boolean;
 		span?: boolean;
-		imageConfig?: { class: string; contain?: boolean }[];
+		imageConfig?: Map<number, { class: string; contain?: boolean }>;
 	}[];
 }
 
@@ -60,8 +60,8 @@ const pathTail = /\/([^\/]+)\/$/;
 														alt=""
 														class="h-full w-full"
 														class:list={[
-															asset.imageConfig?.[i]?.class,
-															asset.imageConfig?.[i]?.contain
+															asset.imageConfig?.get(i)?.class,
+															asset.imageConfig?.get(i)?.contain
 																? "object-contain"
 																: "object-cover",
 														]}
