@@ -1,10 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import Layout, {
-	ID_CONTACT,
-	ROUTE_SOCIAL_CENTER,
-	ROUTE_TRIPS,
-} from "../layouts/Layout.astro";
+import Layout, { ID_CONTACT, ROUTE_TRIPS } from "../layouts/Layout.astro";
 import { Nav } from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
@@ -190,6 +186,13 @@ const privateSponsors = [
 			<slot />
 		</Section>
 
+		<Section bg="bg-ukraine-blue" divide={false} class="">
+			<h2 slot="heading" class="text-center font-heading text-white">
+				Nästa resa i början av November
+			</h2>
+			<p slot="content"></p>
+		</Section>
+
 		<Section title="Bobban och Olgas resor" bg="bg-white">
 			<div class="mb-8 text-center">
 				<div class="mb-4 text-center">
@@ -218,7 +221,7 @@ const privateSponsors = [
 			divide={false}
 			class="grid place-items-center gap-8 md:grid-cols-[1fr_2fr]"
 		>
-			<h2 slot="heading" class="text-white">Volontär</h2>
+			<h2 slot="heading" class="font-heading text-white">Volontär</h2>
 			<div slot="content" class="text-center text-xl text-white md:text-left">
 				<p class="mb-4">
 					Är du intresserad av att hjälpa till med transport till Ukraina, hör
