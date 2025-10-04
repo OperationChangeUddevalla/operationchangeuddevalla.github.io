@@ -314,11 +314,25 @@ const privateSponsors = [
 			<slot />
 		</Section>
 
-		<Section bg="bg-ukraine-blue" divide={false} class="">
-			<h2 slot="heading" class="text-center font-heading text-white">
-				Nästa resa i början av November
+		<Section
+			bg="bg-ukraine-blue"
+			divide={false}
+			class="grid sm:grid-cols-2 sm:justify-items-end"
+		>
+			<h2
+				slot="heading"
+				class="pb-8 text-center font-heading text-white sm:pb-0 sm:pr-8"
+			>
+				<span class="block">Nästa resa</span>
+				<span class="block">till</span>
+				<span class="block">Ukraina</span>
 			</h2>
-			<p slot="content"></p>
+			<div
+				slot="content"
+				class="flex items-center justify-self-center bg-white p-8 font-heading text-5xl text-ukraine-blue sm:justify-self-start"
+			>
+				<p>November</p>
+			</div>
 		</Section>
 
 		<Section title="Bobban och Olgas resor" bg="bg-white">
