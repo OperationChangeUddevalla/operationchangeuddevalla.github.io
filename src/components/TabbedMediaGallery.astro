@@ -1,0 +1,30 @@
+---
+import Section from "../components/Section.astro";
+import TabView from "../components/TabView.astro";
+import type { Tab } from "../components/TabView.astro";
+import type { Gallery } from "./MediaGallery.astro";
+import MediaGallery from "./MediaGallery.astro";
+
+export const ID_GALLERY = "galleri";
+
+interface TabbedGallery {
+	title: string;
+	galleries: Gallery[];
+}
+
+interface Props {
+	tabbed_galleries: TabbedGallery[];
+}
+
+const { tabbed_galleries: galleries } = Astro.props;
+
+const tabs: Tab[] = galleries.map((gallery, i) => {
+	return { title: gallery.title, target: i.toString() };
+});
+---
+
+<Section id={ID_GALLERY} divide={false}>
+	<TabView tabs={tabs} class="mb-12 border-b border-b-blue-200">
+		<MediaGallery galleries={galleries.flatMap((g) => g.galleries)} />
+	</TabView>
+</Section>

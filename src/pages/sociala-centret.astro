@@ -1,8 +1,30 @@
 ---
+import Hero from "../components/Hero.astro";
+import MediaGallery from "../components/MediaGallery.astro";
+import Section from "../components/Section.astro";
 import Layout from "../layouts/Layout.astro";
 import { Nav } from "../layouts/Layout.astro";
 ---
 
 <Layout title="Sociala Centret" nav={Nav.SocialCenter}>
-	<main></main>
+	<main>
+		<Hero
+			title="Sociala Centret Dnipro"
+			image={import("../assets/social-center.jpg")}
+		/>
+
+		<Section title="Hjälpcenter för evakuerade familjer och veteraner">
+			<MediaGallery
+				galleries={[
+					{
+						assets: [
+							{
+								path: "/src/assets/social-center/",
+							},
+						],
+					},
+				]}
+			/>
+		</Section>
+	</main>
 </Layout>

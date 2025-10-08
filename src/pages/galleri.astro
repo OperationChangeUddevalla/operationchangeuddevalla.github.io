@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Nav } from "../layouts/Layout.astro";
-import MediaGallery from "../components/MediaGallery.astro";
+import TabbedMediaGallery from "../components/TabbedMediaGallery.astro";
 import Hero from "../components/Hero.astro";
 ---
 
@@ -12,27 +12,47 @@ import Hero from "../components/Hero.astro";
 			image={import("../assets/gallery/distribution/distribution07.webp")}
 		/>
 
-		<MediaGallery
-			galleries={[
+		<TabbedMediaGallery
+			tabbed_galleries={[
 				{
 					title: "Barnhemmet",
-					assets: [{ path: "/src/assets/gallery/orphanage/" }],
+					galleries: [
+						{
+							assets: [{ path: "/src/assets/gallery/orphanage/" }],
+						},
+					],
 				},
 				{
 					title: "Utdelning",
-					assets: [{ path: "/src/assets/gallery/distribution/" }],
+					galleries: [
+						{
+							assets: [{ path: "/src/assets/gallery/distribution/" }],
+						},
+					],
 				},
 				{
 					title: "Ukraina",
-					assets: [{ path: "/src/assets/gallery/ukraine/" }],
+					galleries: [
+						{
+							assets: [{ path: "/src/assets/gallery/ukraine/" }],
+						},
+					],
 				},
 				{
 					title: "Djur",
-					assets: [{ path: "/src/assets/gallery/animals/" }],
+					galleries: [
+						{
+							assets: [{ path: "/src/assets/gallery/animals/" }],
+						},
+					],
 				},
 				{
 					title: "Filmer",
-					assets: [{ path: "/src/assets/gallery/videos/" }],
+					galleries: [
+						{
+							assets: [{ path: "/src/assets/gallery/videos/" }],
+						},
+					],
 				},
 			]}
 		/>

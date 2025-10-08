@@ -1,15 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import Media from "../components/Media.astro";
-import Section from "../components/Section.astro";
-import TabView from "../components/TabView.astro";
-import type { ImageAssets, VideoAssets } from "../components/Media.astro";
-import type { Tab } from "../components/TabView.astro";
+import Media, { type ImageAssets, type VideoAssets } from "./Media.astro";
 
-export const ID_GALLERY = "galleri";
-
-interface Gallery {
-	title: string;
+export interface Gallery {
 	assets: {
 		path: string;
 		title?: string;
@@ -25,68 +18,62 @@ interface Props {
 
 const { galleries } = Astro.props;
 
-const tabs: Tab[] = galleries.map((gallery, i) => {
-	return { title: gallery.title, target: i.toString() };
-});
-
-const pathTail = /\/([^\/]+)\/$/;
+export const PATH_TAIL = /\/([^\/]+)\/$/;
 ---
 
-<Section id={ID_GALLERY} divide={false}>
-	<TabView tabs={tabs} class="mb-12 border-b border-b-blue-200">
-		{
-			galleries.map((gallery, i) => (
-				<div data-target={i} class="tab-view flex flex-col gap-16">
-					{gallery.assets.map((asset) => (
-						<div>
-							{(asset.title || asset.usePathTailAsTitle) && (
-								<p class="mb-4 border-b border-b-slate-200 p-4 text-center">
-									{asset.title ?? asset.path.match(pathTail)?.[1]}
-								</p>
-							)}
-							<div
-								class="grid auto-rows-[400px] gap-2 md:auto-rows-[500px]"
-								class:list={
-									asset.span ? "grid-cols-1" : "md:grid-cols-2 lg:grid-cols-3"
-								}
-							>
-								<Media path={asset.path}>
-									{(images: ImageAssets, videos: VideoAssets) => (
-										<Fragment>
-											{Object.values(images).map((image, i) => {
-												return (
-													<Image
-														src={image()}
-														alt=""
-														class="h-full w-full"
-														class:list={[
-															asset.imageConfig?.get(i)?.class,
-															asset.imageConfig?.get(i)?.contain
-																? "object-contain"
-																: "object-cover",
-														]}
-													/>
-												);
-											})}
-											{Object.values(videos).map(async (video) => {
-												return (
-													<video
-														preload="metadata"
-														controls
-														class="h-full w-full object-cover"
-													>
-														<source src={(await video()).default} />
-													</video>
-												);
-											})}
-										</Fragment>
-									)}
-								</Media>
-							</div>
+<Fragment>
+	{
+		galleries.map((gallery, i) => (
+			<div data-target={i} class="tab-view flex flex-col gap-16">
+				{gallery.assets.map((asset) => (
+					<div>
+						{(asset.title || asset.usePathTailAsTitle) && (
+							<p class="mb-4 border-b border-b-slate-200 p-4 text-center">
+								{asset.title ?? asset.path.match(PATH_TAIL)?.[1]}
+							</p>
+						)}
+						<div
+							class="grid auto-rows-[400px] gap-2 md:auto-rows-[500px]"
+							class:list={
+								asset.span ? "grid-cols-1" : "md:grid-cols-2 lg:grid-cols-3"
+							}
+						>
+							<Media path={asset.path}>
+								{(images: ImageAssets, videos: VideoAssets) => (
+									<Fragment>
+										{Object.values(images).map((image, i) => {
+											return (
+												<Image
+													src={image()}
+													alt=""
+													class="h-full w-full"
+													class:list={[
+														asset.imageConfig?.get(i)?.class,
+														asset.imageConfig?.get(i)?.contain
+															? "object-contain"
+															: "object-cover",
+													]}
+												/>
+											);
+										})}
+										{Object.values(videos).map(async (video) => {
+											return (
+												<video
+													preload="metadata"
+													controls
+													class="h-full w-full object-cover"
+												>
+													<source src={(await video()).default} />
+												</video>
+											);
+										})}
+									</Fragment>
+								)}
+							</Media>
 						</div>
-					))}
-				</div>
-			))
-		}
-	</TabView>
-</Section>
+					</div>
+				))}
+			</div>
+		))
+	}
+</Fragment>

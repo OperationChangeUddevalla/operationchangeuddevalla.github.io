@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Nav } from "../layouts/Layout.astro";
-import MediaGallery from "../components/MediaGallery.astro";
 import Hero from "../components/Hero.astro";
 import Media from "../components/Media.astro";
 import mediaFile from "../assets/media.json";
+import TabbedMediaGallery from "../components/TabbedMediaGallery.astro";
 
 interface Media {
 	type: string;
@@ -49,342 +49,370 @@ function getMediaContents(
 			image={import("../assets/trips/2023-11_2024-01/2024-01-01/1.webp")}
 		/>
 
-		<MediaGallery
-			galleries={[
+		<TabbedMediaGallery
+			tabbed_galleries={[
 				{
 					title: "Sep 2025 - nu",
-					assets: [
+					galleries: [
 						{
-							path: "/src/assets/trips/2025-09_now/2025-09-30/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-09_now/2025-09-26/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-09_now/2025-09-25/",
-							usePathTailAsTitle: true,
-							imageConfig: new Map([[6, { class: "col-span-2" }]]),
-						},
-						{
-							path: "/src/assets/trips/2025-09_now/2025-09-23/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-09_now/2025-09-22/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-09_now/2025-09-19/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-09_now/2025-09-15/",
-							usePathTailAsTitle: true,
+							assets: [
+								{
+									path: "/src/assets/trips/2025-09_now/2025-09-30/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-09_now/2025-09-26/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-09_now/2025-09-25/",
+									usePathTailAsTitle: true,
+									imageConfig: new Map([[6, { class: "col-span-2" }]]),
+								},
+								{
+									path: "/src/assets/trips/2025-09_now/2025-09-23/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-09_now/2025-09-22/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-09_now/2025-09-19/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-09_now/2025-09-15/",
+									usePathTailAsTitle: true,
+								},
+							],
 						},
 					],
 				},
 				{
 					title: "Apr 2025 - Aug 2025",
-					assets: [
+					galleries: [
 						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-08-12/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-07-20/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-07-18/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-07-15/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-07-13/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-07-10/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-07-02/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-06-22/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-06-20/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2025-04_2025-08/2025-04-25/",
-							usePathTailAsTitle: true,
-							imageConfig: new Map([
-								[0, { class: "md:col-span-2 lg:col-span-3" }],
-								[1, { class: "md:col-span-2", contain: true }],
-							]),
+							assets: [
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-08-12/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-07-20/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-07-18/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-07-15/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-07-13/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-07-10/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-07-02/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-06-22/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-06-20/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2025-04_2025-08/2025-04-25/",
+									usePathTailAsTitle: true,
+									imageConfig: new Map([
+										[0, { class: "md:col-span-2 lg:col-span-3" }],
+										[1, { class: "md:col-span-2", contain: true }],
+									]),
+								},
+							],
 						},
 					],
 				},
 				{
 					title: "Nov 2024 - Jan 2025",
-					assets: [
+					galleries: [
 						{
-							path: "/src/assets/trips/2024-11_2025-01/2025-01-14/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-12-16/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-12-15/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-12-13/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-12-11/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-12-09/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-12-03/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-11-29/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-11-27/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-11-26/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-11-22/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-11-18/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-11-17/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-11-16/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-11_2025-01/2024-11-12/",
-							usePathTailAsTitle: true,
+							assets: [
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2025-01-14/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-12-16/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-12-15/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-12-13/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-12-11/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-12-09/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-12-03/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-11-29/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-11-27/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-11-26/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-11-22/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-11-18/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-11-17/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-11-16/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-11_2025-01/2024-11-12/",
+									usePathTailAsTitle: true,
+								},
+							],
 						},
 					],
 				},
 				{
 					title: "Jun 2024 - Okt 2024",
-					assets: [
+					galleries: [
 						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-11-04/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-10-22/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-10-02/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-09-19/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-09-14/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-09-12/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-09-09/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-09-09/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-09-04/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-09-02/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-30/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-28/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-24/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-22/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-21/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-20/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-18/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-14/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-13/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-12/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-09/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-07/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-08-05/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-07-30/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-07-28/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-07-28/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-07-17/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2024-06_2024-10/2024-06-30/",
-							usePathTailAsTitle: true,
+							assets: [
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-11-04/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-10-22/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-10-02/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-09-19/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-09-14/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-09-12/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-09-09/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-09-09/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-09-04/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-09-02/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-30/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-28/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-24/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-22/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-21/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-20/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-18/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-14/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-13/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-12/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-09/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-07/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-08-05/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-07-30/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-07-28/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-07-28/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-07-17/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2024-06_2024-10/2024-06-30/",
+									usePathTailAsTitle: true,
+								},
+							],
 						},
 					],
 				},
 				{
 					title: "Renoveringsprojektet",
-					assets: [{ path: "/src/assets/trips/renovate/" }],
+					galleries: [
+						{
+							assets: [{ path: "/src/assets/trips/renovate/" }],
+						},
+					],
 				},
 				{
 					title: "Nov 2023 - Jan 2024",
-					assets: [
+					galleries: [
 						{
-							path: "/src/assets/trips/2023-11_2024-01/2024-01-01/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-11_2024-01/2023-12-24/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-11_2024-01/2023-11-04/",
-							usePathTailAsTitle: true,
+							assets: [
+								{
+									path: "/src/assets/trips/2023-11_2024-01/2024-01-01/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-11_2024-01/2023-12-24/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-11_2024-01/2023-11-04/",
+									usePathTailAsTitle: true,
+								},
+							],
 						},
 					],
 				},
 				{
 					title: "Aug 2023 - Oct 2023",
-					assets: [
+					galleries: [
 						{
-							path: "/src/assets/trips/2023-08_2023-10/final.webp",
-							title:
-								"Även denna resa är slut. Nu tar vi ny sats i insamlingen, behovet har inte avtagit, snarare tvärtom. Bobban.",
-							span: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-10-10/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-10-06/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-10-02/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-09-30/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-09-29/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-09-27/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-09-23/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-09-22/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-09-07/",
-							usePathTailAsTitle: true,
-						},
-						{
-							path: "/src/assets/trips/2023-08_2023-10/2023-08-27/",
-							usePathTailAsTitle: true,
+							assets: [
+								{
+									path: "/src/assets/trips/2023-08_2023-10/final.webp",
+									title:
+										"Även denna resa är slut. Nu tar vi ny sats i insamlingen, behovet har inte avtagit, snarare tvärtom. Bobban.",
+									span: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-10-10/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-10-06/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-10-02/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-09-30/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-09-29/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-09-27/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-09-23/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-09-22/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-09-07/",
+									usePathTailAsTitle: true,
+								},
+								{
+									path: "/src/assets/trips/2023-08_2023-10/2023-08-27/",
+									usePathTailAsTitle: true,
+								},
+							],
 						},
 					],
 				},
