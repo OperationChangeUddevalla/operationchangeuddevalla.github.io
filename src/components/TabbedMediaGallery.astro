@@ -13,10 +13,11 @@ interface TabbedGallery {
 }
 
 interface Props {
-	tabbed_galleries: TabbedGallery[];
+	tabbedGalleries: TabbedGallery[];
+	initialTab?: number;
 }
 
-const { tabbed_galleries: galleries } = Astro.props;
+const { tabbedGalleries: galleries, initialTab } = Astro.props;
 
 const tabs: Tab[] = galleries.map((gallery, i) => {
 	return { title: gallery.title, target: i.toString() };
@@ -24,7 +25,11 @@ const tabs: Tab[] = galleries.map((gallery, i) => {
 ---
 
 <Section id={ID_GALLERY} divide={false}>
-	<TabView tabs={tabs} class="mb-12 border-b border-b-blue-200">
+	<TabView
+		tabs={tabs}
+		class="mb-12 border-b border-b-blue-200"
+		initial={initialTab}
+	>
 		<MediaGallery galleries={galleries.flatMap((g) => g.galleries)} />
 	</TabView>
 </Section>

@@ -7,9 +7,10 @@ export interface Tab {
 interface Props {
 	tabs: Tab[];
 	class: string;
+	initial?: number;
 }
 
-const { tabs, class: className } = Astro.props;
+const { tabs, class: className, initial } = Astro.props;
 ---
 
 <script>
@@ -42,14 +43,14 @@ const { tabs, class: className } = Astro.props;
 				});
 			});
 
-			setActiveTab(buttons[0]);
+			setActiveTab(buttons[parseInt(this.dataset.initial ?? "0")]);
 		}
 	}
 
 	customElements.define("tab-view", TabView);
 </script>
 
-<tab-view>
+<tab-view data-initial={initial}>
 	<ul class={`${className} flex gap-8 p-4 overflow-x-scroll whitespace-nowrap`}>
 		{
 			tabs.map((tab) => (
