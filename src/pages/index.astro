@@ -178,6 +178,28 @@ const privateSponsors = [
 	"Magnus Emanuelsson",
 	"Ethel Ingela Elisabeth Augustsson",
 ];
+
+const dateSponsors = [
+	"Eva-Marie Nyström",
+	"Åsa Eriksson",
+	"Olof och Susanne Nilsson",
+	"Margareta och Kjell-Ove Arvidsson",
+	"Emelie Brander",
+	"Elisabeth Friberg",
+	"Nathalie Carlborg",
+	"Karin och Tommy Nejdmo",
+	"Eivor och Johan Klingborg ",
+	"Jonna Larsson",
+	"West Coast Gasol",
+	"Mike Billett",
+	"Makarna Roland och Carole Dahlströms dödsbo",
+	"Anonym givare 6000:-",
+	"Håkan Ekberg",
+	"Oksana Bedros",
+	"Liselotte Harlish",
+	"Odd Fellow, Vänersborg ",
+	"Mari-Louise Perälä och Jan Olsson",
+];
 ---
 
 <script>
@@ -568,9 +590,19 @@ const privateSponsors = [
 			</div>
 
 			<div
-				class="flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-t-blue-200 pt-8 text-center"
+				class="flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-t-blue-200 p-8 text-center"
 			>
 				{privateSponsors.map((sponsor) => <p>{sponsor}</p>)}
+			</div>
+
+			<div class="border-t border-t-blue-200 pt-8 text-center">
+				<p class="mb-4">Från 17/10 - 3/11</p>
+				<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+					{dateSponsors.map((sponsor) => <p>{sponsor}</p>)}
+				</div>
+				<p class="mt-4">
+					Samt ALLA andra, som på något sätt hjälpt oss att hjälpa
+				</p>
 			</div>
 		</Section>
 	</main>
