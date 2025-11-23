@@ -178,28 +178,6 @@ const privateSponsors = [
 	"Magnus Emanuelsson",
 	"Ethel Ingela Elisabeth Augustsson",
 ];
-
-const dateSponsors = [
-	"Eva-Marie Nyström",
-	"Åsa Eriksson",
-	"Olof och Susanne Nilsson",
-	"Margareta och Kjell-Ove Arvidsson",
-	"Emelie Brander",
-	"Elisabeth Friberg",
-	"Nathalie Carlborg",
-	"Karin och Tommy Nejdmo",
-	"Eivor och Johan Klingborg ",
-	"Jonna Larsson",
-	"West Coast Gasol",
-	"Mike Billett",
-	"Makarna Roland och Carole Dahlströms dödsbo",
-	"Anonym givare 6000:-",
-	"Håkan Ekberg",
-	"Oksana Bedros",
-	"Liselotte Harlish",
-	"Odd Fellow, Vänersborg ",
-	"Mari-Louise Perälä och Jan Olsson",
-];
 ---
 
 <script>
@@ -425,7 +403,7 @@ const dateSponsors = [
 				slot="content"
 				class="flex items-center justify-self-center bg-white p-8 font-heading text-5xl text-ukraine-blue sm:justify-self-start"
 			>
-				<p>23/11/2025</p>
+				<p>Mars 2026</p>
 			</div>
 		</Section>
 
@@ -433,13 +411,13 @@ const dateSponsors = [
 			<div class="mb-4 text-center">
 				<div class="mb-4 text-center">
 					<Link
-						text="Senaste: Oktober 2025"
+						text="Senaste: November 2025"
 						href={`${ROUTE_TRIPS}#${ID_GALLERY}`}
 					/>
 				</div>
 
 				<MediaCarousel
-					path="../assets/trips/2025-10_now/2025-11-14/"
+					path="../assets/trips/2025-10_2025-11/2025-11-14/"
 					height="h-[800px]"
 				>
 					<Image
@@ -595,14 +573,70 @@ const dateSponsors = [
 				{privateSponsors.map((sponsor) => <p>{sponsor}</p>)}
 			</div>
 
-			<div class="border-t border-t-blue-200 pt-8 text-center">
+			<div class="border-t border-t-blue-200 p-8 text-center">
 				<p class="mb-4">Från 17/10 - 3/11</p>
 				<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-					{dateSponsors.map((sponsor) => <p>{sponsor}</p>)}
+					{
+						[
+							"Eva-Marie Nyström",
+							"Åsa Eriksson",
+							"Olof och Susanne Nilsson",
+							"Margareta och Kjell-Ove Arvidsson",
+							"Emelie Brander",
+							"Elisabeth Friberg",
+							"Nathalie Carlborg",
+							"Karin och Tommy Nejdmo",
+							"Eivor och Johan Klingborg ",
+							"Jonna Larsson",
+							"West Coast Gasol",
+							"Mike Billett",
+							"Makarna Roland och Carole Dahlströms dödsbo",
+							"Anonym givare 6000:-",
+							"Håkan Ekberg",
+							"Oksana Bedros",
+							"Liselotte Harlish",
+							"Odd Fellow, Vänersborg ",
+							"Mari-Louise Perälä och Jan Olsson",
+						].map((sponsor) => <p>{sponsor}</p>)
+					}
 				</div>
 				<p class="mt-4">
 					Samt ALLA andra, som på något sätt hjälpt oss att hjälpa
 				</p>
+			</div>
+
+			<div class="border-t border-t-blue-200 pt-8 text-center">
+				<p class="mb-4">Från 5/11 - 22/11</p>
+				<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+					{
+						[
+							"Birgitta och Kjell Simberg",
+							"Karolin Wahlström",
+							"Liz Åkerlund-Malm",
+							"Yu-Ping Hsu",
+							"Lars Jonsson",
+							"Cecilia Skylvik",
+							"Anna Kågesson",
+							"Cim-Emmelie Hjerpe",
+							"Mikael Persson",
+							"Lilian Hedström",
+							"Mikael Wåleman",
+							"Bosse och Ulla Johansson",
+							"Tore Hansson",
+							"Anna Palmgren",
+							"Mia Bengtsson",
+							"Ingela Andersson",
+							"Annika Eklind",
+							"Sofia Mann",
+							"Ruth Nilsson",
+							"Inger Jansson",
+							"Torgny Nylén-Andersson",
+							"Pernilla Björck",
+							"Bo och Ulla Johansson",
+							"Tore Hansson",
+						].map((sponsor) => <p>{sponsor}</p>)
+					}
+				</div>
 			</div>
 		</Section>
 	</main>
