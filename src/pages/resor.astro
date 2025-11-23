@@ -50,13 +50,17 @@ function getMediaContents(
 		/>
 
 		<TabbedMediaGallery
-			initialTab={1}
 			tabbedGalleries={[
 				{
 					title: "Nov 2025 - nu",
 					galleries: [
 						{
-							assets: [],
+							assets: [
+								{
+									path: "/src/assets/trips/2025-11_now/2025-11-23/",
+									usePathTailAsTitle: true,
+								},
+							],
 						},
 					],
 				},
