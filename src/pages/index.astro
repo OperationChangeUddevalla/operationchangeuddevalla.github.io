@@ -393,17 +393,26 @@ const privateSponsors = [
 		>
 			<h2
 				slot="heading"
-				class="pb-8 text-center font-heading text-white sm:pb-0 sm:pr-8"
+				class="flex h-full flex-col gap-4 text-center font-heading text-white sm:gap-0"
 			>
-				<span class="block">Resa</span>
-				<span class="block font-bold">#37</span>
-				<span class="block">startar</span>
+				<div class="flex grow flex-col justify-center">
+					<span class="block">Resa</span>
+					<span class="block font-bold">#37</span>
+					<span class="block">startar</span>
+				</div>
+				<div
+					class="flex grow items-center justify-center justify-self-center bg-white p-8 font-heading text-5xl text-ukraine-blue sm:justify-self-start"
+				>
+					<p>15/3 - 2026</p>
+				</div>
 			</h2>
-			<div
-				slot="content"
-				class="flex items-center justify-self-center bg-white p-8 font-heading text-5xl text-ukraine-blue sm:justify-self-start"
-			>
-				<p>15/3 - 2026</p>
+			<div slot="content" class="sm:justify-self-start">
+				<Image
+					class="h-[300px] w-full object-cover sm:h-[400px] sm:object-contain"
+					src={import("../assets/next-trip.jpg")}
+					alt=""
+					height={400}
+				/>
 			</div>
 		</Section>
 
@@ -549,6 +558,7 @@ const privateSponsors = [
 
 			<div class="border-t border-t-blue-200 p-8 text-center">
 				<p>🩵💛❤️ Leif och Elisabet Solvang 🩵💛❤️</p>
+				<p>🩵💛 Anders Anden 🩵💛</p>
 				<p>🩵💛❤️ Familjen Blennermark 🩵💛❤️</p>
 				<p>🩵💛 Bengt Kallebo 🩵💛</p>
 				<p>Ukrainska föreningen i Vänersborg</p>
