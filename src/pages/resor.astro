@@ -2,44 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Nav } from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Media from "../components/Media.astro";
-import mediaFile from "../assets/media.json";
 import TabbedMediaGallery from "../components/TabbedMediaGallery.astro";
-
-interface Media {
-	type: string;
-	name?: string;
-	contents?: Media[];
-}
-
-function findMediaContents(
-	path: string[],
-	depth: number,
-	media: Media,
-): Media[] | undefined {
-	if (media.contents === undefined) {
-		return undefined;
-	}
-
-	depth += 1;
-
-	for (const m of media.contents) {
-		if (m.type === "directory" && m.name === path[path.length - 1]) {
-			return m.contents;
-		}
-
-		if (m.type === "directory" && m.name === path[depth]) {
-			return findMediaContents(path, depth, m);
-		}
-	}
-}
-
-function getMediaContents(
-	path: string,
-	media: typeof mediaFile,
-): Media[] | undefined {
-	return findMediaContents(path.split("/"), 0, media[0]);
-}
 ---
 
 <Layout title="Resor" nav={Nav.Trips}>
@@ -577,7 +540,7 @@ function getMediaContents(
 									usePathTailAsTitle: true,
 								},
 								{
-									path: "/src/assets/trips/2024-06_2024-10/2024-09-09/",
+									path: "/src/assets/trips/2024-06_2024-10/2024-09-07/",
 									usePathTailAsTitle: true,
 								},
 								{
@@ -642,10 +605,6 @@ function getMediaContents(
 								},
 								{
 									path: "/src/assets/trips/2024-06_2024-10/2024-07-30/",
-									usePathTailAsTitle: true,
-								},
-								{
-									path: "/src/assets/trips/2024-06_2024-10/2024-07-28/",
 									usePathTailAsTitle: true,
 								},
 								{

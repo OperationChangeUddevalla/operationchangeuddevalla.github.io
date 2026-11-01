@@ -10,9 +10,6 @@ import OrphanageText from "../components/OrphanageText.astro";
 import MediaCarousel from "../components/MediaCarousel.astro";
 import { ID_GALLERY } from "../components/TabbedMediaGallery.astro";
 
-export const ID_OPERATION_CHANGE = "operation-change";
-export const ID_RENOVATE = "renovering";
-
 const publicSponsors = [
 	"Bostadskvarteret Tofsmesen i Trollhättan",
 	"Ica Matmor Oden",
@@ -179,13 +176,6 @@ const privateSponsors = [
 	"Ethel Ingela Elisabeth Augustsson",
 ];
 ---
-
-<script>
-	if (window.navigator.pdfViewerEnabled) {
-		let t = document.querySelector("#operation-change");
-		t?.classList.add("pdfViewerEnabled");
-	}
-</script>
 
 <Layout title="Hem" nav={Nav.Home}>
 	<main>
