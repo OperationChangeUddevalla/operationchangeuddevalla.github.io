@@ -105,11 +105,11 @@ const { title, nav } = Astro.props;
 	<body>
 		<nav class="group/nav fixed z-10 w-full">
 			<div
-				class="border-b-4 border-b-transparent p-4 uppercase transition-colors group-[.scrolled]/nav:scrolled-nav group-[.scrolled]/nav:shadow-xl"
+				class="group-[.scrolled]/nav:scrolled-nav border-b-4 border-b-transparent p-4 uppercase transition-colors group-[.scrolled]/nav:shadow-xl"
 			>
-				<button class="group peer relative flex h-[32px] w-[32px] md:hidden">
+				<button class="group peer relative flex h-8 w-8 cursor-pointer md:hidden">
 					<svg
-						class="absolute scale-100 fill-white transition-all group-[.menu]:scale-0 group-[.scrolled]/nav:fill-ukraine-blue"
+						class="group-[.scrolled]/nav:fill-ukraine-blue absolute scale-100 fill-white transition-all group-[.menu]:scale-0"
 						width="32"
 						height="32"
 						viewBox="0 -960 640 640"
@@ -119,7 +119,7 @@ const { title, nav } = Astro.props;
 						></path></svg
 					>
 					<svg
-						class="absolute scale-0 fill-white transition-all group-[.menu]:scale-100 group-[.scrolled]/nav:fill-ukraine-blue"
+						class="group-[.scrolled]/nav:fill-ukraine-blue absolute scale-0 fill-white transition-all group-[.menu]:scale-100"
 						width="32"
 						height="32"
 						viewBox="0 -960 560 560"
@@ -158,9 +158,9 @@ const { title, nav } = Astro.props;
 							return (
 								<li
 									class:list={{
-										"border-b-2 border-b-ukraine-yellow": nav === n,
+										"border-b-ukraine-yellow border-b-2": nav === n,
 									}}
-									class="text-white transition-colors group-[.scrolled]/nav:border-b-ukraine-blue group-[.scrolled]/nav:text-black"
+									class="group-[.scrolled]/nav:border-b-ukraine-blue text-white transition-colors group-[.scrolled]/nav:text-black"
 								>
 									<a
 										class="hover:text-ukraine-yellow group-[.scrolled]/nav:hover:text-ukraine-blue"
@@ -177,7 +177,7 @@ const { title, nav } = Astro.props;
 		</nav>
 
 		<div
-			class="floating-donate fixed bottom-2 right-2 z-10 hidden flex-row gap-2 text-center text-sm text-white transition-opacity sm:flex md:text-base 2xl:flex-col [@media(max-height:1024px)]:flex-row"
+			class="floating-donate fixed right-2 bottom-2 z-10 hidden flex-row gap-2 text-center text-sm text-white transition-opacity sm:flex md:text-base 2xl:flex-col [@media(max-height:1024px)]:flex-row"
 		>
 			<div class="flex flex-col bg-gray-700 p-2">
 				<img loading="lazy" class="w-32" src="/swish.jpg" alt="Donera" />
@@ -191,10 +191,10 @@ const { title, nav } = Astro.props;
 
 		<footer class="bg-gray-800 px-8 py-32 text-white">
 			<div
-				class="mx-auto grid max-w-screen-xl justify-center gap-16 md:grid-cols-2 md:justify-items-center"
+				class="mx-auto grid max-w-7xl justify-center gap-16 md:grid-cols-2 md:justify-items-center"
 			>
 				<div id={ID_CONTACT}>
-					<h2 class="mb-8 font-heading text-5xl">Kontakta</h2>
+					<h2 class="font-heading mb-8 text-5xl">Kontakta</h2>
 					<div class="flex flex-col gap-8 text-xl">
 						<div>
 							<p class="font-bold">Bobban Petrovski</p>
@@ -229,7 +229,7 @@ const { title, nav } = Astro.props;
 				</div>
 
 				<div id={ID_DONATE}>
-					<h2 class="mb-8 font-heading text-5xl">Ge en gåva</h2>
+					<h2 class="font-heading mb-8 text-5xl">Ge en gåva</h2>
 					<div>
 						<img loading="lazy" class="w-56" src="/swish.jpg" alt="Donera" />
 						<p

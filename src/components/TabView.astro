@@ -55,7 +55,7 @@ const { tabs, class: className, initial } = Astro.props;
 		{
 			tabs.map((tab) => (
 				<li>
-					<button data-target={tab.target} class="border-b-ukraine-blue">
+					<button data-target={tab.target} class="cursor-pointer border-b-ukraine-blue">
 						{tab.title}
 					</button>
 				</li>
