@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+	--color-ukraine-blue: #006fc7;
+	--color-ukraine-yellow: #f5d41b;
+	--font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+	--font-heading: "Oswald Variable", ui-sans-serif, system-ui, sans-serif;
+	--background-image-hero-gradient: radial-gradient(circle, #333 0%, #777 80%, #999 100%);
+	--grid-template-rows-hero: 1fr 3fr 2fr;
+}
+
+@utility text-shadow {
+	text-shadow: 2px 2px 10px black;
+}
+
+@utility scrolled-nav {
+	background-color: white;
+	border-bottom-color: var(--color-ukraine-blue);
+}
