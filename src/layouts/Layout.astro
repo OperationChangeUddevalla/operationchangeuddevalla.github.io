@@ -1,6 +1,5 @@
 ---
-import "@fontsource-variable/inter";
-import "@fontsource-variable/oswald";
+import { Font } from "astro:assets";
 import "../styles/global.css";
 
 export enum Nav {
@@ -95,6 +94,9 @@ const { title, nav } = Astro.props;
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+
+		<Font cssVariable="--font-inter" preload={[{ subset: "latin" }]} />
+		<Font cssVariable="--font-oswald" preload={[{ subset: "latin" }]} />
 
 		<title>{`${title} - Stöd Ukraina Gruppen`}</title>
 
