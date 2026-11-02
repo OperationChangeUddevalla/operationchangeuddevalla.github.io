@@ -1,0 +1,27 @@
+<script>
+	const donate = document.querySelector("#donera");
+	const floatingDonate = document.querySelector(".floating-donate");
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				floatingDonate?.classList.add("opacity-0", "pointer-events-none");
+			} else {
+				floatingDonate?.classList.remove("opacity-0", "pointer-events-none");
+			}
+		});
+	});
+	if (donate) {
+		observer.observe(donate);
+	}
+</script>
+
+<div
+	class="floating-donate fixed right-2 bottom-2 z-10 hidden flex-row gap-2 text-center text-sm text-white transition-opacity sm:flex md:text-base 2xl:flex-col [@media(max-height:1024px)]:flex-row"
+>
+	<div class="flex flex-col bg-gray-700 p-2">
+		<img loading="lazy" class="w-32" src="/swish.jpg" alt="Donera" />
+		<div class="flex h-full max-w-32 items-center justify-center p-2">
+			<p>Barnhemmet Ukraina</p>
+		</div>
+	</div>
+</div>

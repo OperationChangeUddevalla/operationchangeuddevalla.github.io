@@ -1,0 +1,56 @@
+---
+import { ID_CONTACT, ID_DONATE } from "../routes";
+---
+
+<footer class="bg-gray-800 px-8 py-32 text-white">
+	<div
+		class="mx-auto grid max-w-7xl justify-center gap-16 md:grid-cols-2 md:justify-items-center"
+	>
+		<div id={ID_CONTACT}>
+			<h2 class="font-heading mb-8 text-5xl">Kontakta</h2>
+			<div class="flex flex-col gap-8 text-xl">
+				<div>
+					<p class="font-bold">Bobban Petrovski</p>
+					<p>bobban.petrovski@gmail.com</p>
+					<p>076-893 87 10</p>
+				</div>
+				<div>
+					<p class="font-bold">Olga Podushkina</p>
+					<p>Dnipro</p>
+					<p>arhteatr@gmail.com</p>
+					<p>+38 067-562 56 48</p>
+				</div>
+				<div>
+					<p class="font-bold">Kjell Olsson</p>
+					<p>Lions Uddevalla</p>
+					<p>info@lionsuddevalla.se</p>
+				</div>
+				<div>
+					<p class="font-bold">Lasse Hagström</p>
+					<p>Trollhättan</p>
+					<p>Uddevalla</p>
+					<p>Vänersborg</p>
+					<p>070-614 74 52</p>
+				</div>
+				<div>
+					<p class="font-bold">Elisabet Solvang</p>
+					<p>Trollhättan</p>
+					<p>Vänersborg</p>
+					<p>070-829 37 57</p>
+				</div>
+			</div>
+		</div>
+
+		<div id={ID_DONATE}>
+			<h2 class="font-heading mb-8 text-5xl">Ge en gåva</h2>
+			<div>
+				<img loading="lazy" class="w-56" src="/swish.jpg" alt="Donera" />
+				<p
+					class="mt-2 max-w-56 bg-gray-700 p-4 text-center text-base text-white"
+				>
+					Barnhemmet Ukraina
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>

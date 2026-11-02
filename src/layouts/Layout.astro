@@ -1,90 +1,24 @@
 ---
 import { Font } from "astro:assets";
 import "../styles/global.css";
-
-export enum Nav {
-	Home = "Hem",
-	Orphanage = "Barnhemmet",
-	SocialCenter = "Sociala Centret",
-	Trips = "Resor",
-	Gallery = "Galleri",
-	Contact = "Kontakta",
-}
-
-export const ROUTE_HOME = "/";
-export const ROUTE_ORPHANAGE = "/barnhemmet";
-export const ROUTE_SOCIAL_CENTER = "/sociala-centret";
-export const ROUTE_TRIPS = "/resor";
-export const ROUTE_GALLERY = "/galleri";
-
-export const ID_CONTACT = "kontakta";
-export const ID_DONATE = "donera";
+import Nav from "../components/Nav.astro";
+import FloatingDonate from "../components/FloatingDonate.astro";
+import Footer from "../components/Footer.astro";
+import type { Nav as NavItem } from "../routes";
 
 interface Props {
 	title: string;
-	nav: Nav;
+	nav: NavItem;
 }
 
 const { title, nav } = Astro.props;
 ---
 
-<script>
-	const nav = document.querySelector("nav");
-	const navButton = nav?.querySelector("button");
-
-	const menu = "menu";
-
-	function toggleScrolled() {
-		const scrolled = "scrolled";
-		if (window.scrollY === 0 && !navButton?.classList.contains(menu)) {
-			nav?.classList.remove(scrolled);
-		} else {
-			nav?.classList.add(scrolled);
-		}
-	}
-
-	addEventListener("scroll", (_event) => {
-		toggleScrolled();
-	});
-
-	nav?.addEventListener("click", (event) => {
-		event.stopPropagation();
-	});
-
-	navButton?.addEventListener("click", (_event) => {
-		navButton.classList.toggle(menu);
-		toggleScrolled();
-	});
-
-	document.addEventListener("click", (_event) => {
-		navButton?.classList.remove(menu);
-		toggleScrolled();
-	});
-
-	toggleScrolled();
-
-	const donate = document.querySelector("#donera");
-	const floatingDonate = document.querySelector(".floating-donate");
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				floatingDonate?.classList.add("opacity-0", "pointer-events-none");
-			} else {
-				floatingDonate?.classList.remove("opacity-0", "pointer-events-none");
-			}
-		});
-	});
-	if (donate) {
-		observer.observe(donate);
-	}
-</script>
-
 <script
 	is:inline
 	data-goatcounter="https://sugaid.goatcounter.com/count"
 	async
-	src="//gc.zgo.at/count.js"
-></script>
+	src="//gc.zgo.at/count.js"></script>
 
 <html lang="sv">
 	<head>
@@ -106,150 +40,10 @@ const { title, nav } = Astro.props;
 	</head>
 
 	<body>
-		<nav class="group/nav fixed z-10 w-full">
-			<div
-				class="group-[.scrolled]/nav:scrolled-nav border-b-4 border-b-transparent p-4 uppercase transition-colors group-[.scrolled]/nav:shadow-xl"
-			>
-				<button
-					class="group peer relative flex h-8 w-8 cursor-pointer md:hidden"
-				>
-					<svg
-						class="group-[.scrolled]/nav:fill-ukraine-blue absolute scale-100 fill-white transition-all group-[.menu]:scale-0"
-						width="32"
-						height="32"
-						viewBox="0 -960 640 640"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							d="m 0,-320 v -80 h 640 v 80 z m 0,-280 v -80 h 640 v 80 z m 0,-280 v -80 h 640 v 80 z"
-						>
-						</path>
-					</svg>
-					<svg
-						class="group-[.scrolled]/nav:fill-ukraine-blue absolute scale-0 fill-white transition-all group-[.menu]:scale-100"
-						width="32"
-						height="32"
-						viewBox="0 -960 560 560"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							d="M 56,-400 0,-456 224,-680 0,-904 l 56,-56 224,224 224,-224 56,56 -224,224 224,224 -56,56 -224,-224 z"
-						>
-						</path>
-					</svg>
-				</button>
-				<ul
-					class="hidden flex-col items-start gap-4 text-xl peer-[.menu]:mt-4 peer-[.menu]:flex md:flex md:flex-row md:justify-center md:gap-8"
-				>
-					{
-						Object.values(Nav).map((n) => {
-							let href = ROUTE_HOME;
-							switch (n) {
-								case Nav.Home:
-									href = ROUTE_HOME;
-									break;
-								case Nav.Orphanage:
-									href = ROUTE_ORPHANAGE;
-									break;
-								case Nav.SocialCenter:
-									href = ROUTE_SOCIAL_CENTER;
-									break;
-								case Nav.Trips:
-									href = ROUTE_TRIPS;
-									break;
-								case Nav.Gallery:
-									href = ROUTE_GALLERY;
-									break;
-								case Nav.Contact:
-									href = `#${ID_CONTACT}`;
-									break;
-							}
-							return (
-								<li
-									class:list={{
-										"border-b-ukraine-yellow border-b-2": nav === n,
-									}}
-									class="group-[.scrolled]/nav:border-b-ukraine-blue text-white transition-colors group-[.scrolled]/nav:text-black"
-								>
-									<a
-										class="hover:text-ukraine-yellow group-[.scrolled]/nav:hover:text-ukraine-blue"
-										href={href}
-									>
-										{n}
-									</a>
-								</li>
-							);
-						})
-					}
-				</ul>
-			</div>
-		</nav>
-
-		<div
-			class="floating-donate fixed right-2 bottom-2 z-10 hidden flex-row gap-2 text-center text-sm text-white transition-opacity sm:flex md:text-base 2xl:flex-col [@media(max-height:1024px)]:flex-row"
-		>
-			<div class="flex flex-col bg-gray-700 p-2">
-				<img loading="lazy" class="w-32" src="/swish.jpg" alt="Donera" />
-				<div class="flex h-full max-w-32 items-center justify-center p-2">
-					<p>Barnhemmet Ukraina</p>
-				</div>
-			</div>
-		</div>
-
+		<Nav nav={nav} />
+		<FloatingDonate />
 		<slot />
-
-		<footer class="bg-gray-800 px-8 py-32 text-white">
-			<div
-				class="mx-auto grid max-w-7xl justify-center gap-16 md:grid-cols-2 md:justify-items-center"
-			>
-				<div id={ID_CONTACT}>
-					<h2 class="font-heading mb-8 text-5xl">Kontakta</h2>
-					<div class="flex flex-col gap-8 text-xl">
-						<div>
-							<p class="font-bold">Bobban Petrovski</p>
-							<p>bobban.petrovski@gmail.com</p>
-							<p>076-893 87 10</p>
-						</div>
-						<div>
-							<p class="font-bold">Olga Podushkina</p>
-							<p>Dnipro</p>
-							<p>arhteatr@gmail.com</p>
-							<p>+38 067-562 56 48</p>
-						</div>
-						<div>
-							<p class="font-bold">Kjell Olsson</p>
-							<p>Lions Uddevalla</p>
-							<p>info@lionsuddevalla.se</p>
-						</div>
-						<div>
-							<p class="font-bold">Lasse Hagström</p>
-							<p>Trollhättan</p>
-							<p>Uddevalla</p>
-							<p>Vänersborg</p>
-							<p>070-614 74 52</p>
-						</div>
-						<div>
-							<p class="font-bold">Elisabet Solvang</p>
-							<p>Trollhättan</p>
-							<p>Vänersborg</p>
-							<p>070-829 37 57</p>
-						</div>
-					</div>
-				</div>
-
-				<div id={ID_DONATE}>
-					<h2 class="font-heading mb-8 text-5xl">Ge en gåva</h2>
-					<div>
-						<img loading="lazy" class="w-56" src="/swish.jpg" alt="Donera" />
-						<p
-							class="mt-2 max-w-56 bg-gray-700 p-4 text-center text-base text-white"
-						>
-							Barnhemmet Ukraina
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
+		<Footer />
 		<style>
 			::-webkit-scrollbar {
 				display: none;
