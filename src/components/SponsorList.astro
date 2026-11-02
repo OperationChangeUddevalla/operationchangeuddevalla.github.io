@@ -1,0 +1,17 @@
+---
+interface Props {
+	names: string[];
+	label?: string;
+	note?: string;
+}
+
+const { names, label, note } = Astro.props;
+---
+
+<div class="border-t border-t-blue-200 p-8 text-center">
+	{label && <p class="mb-4">{label}</p>}
+	<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+		{names.map((name) => <p>{name}</p>)}
+	</div>
+	{note && <p class="mt-4">{note}</p>}
+</div>

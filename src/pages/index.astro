@@ -9,220 +9,18 @@ import SectionOrphanage from "../components/SectionOrphanage.astro";
 import OrphanageText from "../components/OrphanageText.astro";
 import MediaCarousel from "../components/MediaCarousel.astro";
 import { ID_GALLERY } from "../components/TabbedMediaGallery.astro";
-
-const publicSponsors = [
-	"Bostadskvarteret Tofsmesen i Trollhättan",
-	"Ica Matmor Oden",
-	"Matmor Hjortmossen",
-	"Matmor Kungsgatan",
-	"Vårdhemmet Tallbacken",
-	"Trollhättans Oljor",
-	"Gärdhems Goa Gubbar",
-	"Jeanette Eriksson",
-	"Ingrid Persson",
-	"Petter Westerström",
-	"Kjell Olsson",
-	"Solveig Andersson",
-	"Kerstin Eriksson",
-	"Sten Broden",
-	"Anneli Fredriksson",
-	"Anna Kivi",
-	"Laila Löfgren",
-	"Bert Hilmersson",
-	"Larissa Manyrova",
-	"Ann-Britt Hagström",
-	"Beatrice Pettersson",
-];
-
-const privateSponsors = [
-	"Peter Westerström",
-	"Dan Nilson",
-	"Denisa Botonjic",
-	"Vera Bergström",
-	"Peter (ABF)",
-	"Kerstin Åkare",
-	"Kerstin Wallsby",
-	"Rikard Joelsson",
-	"Ulrika Lundström",
-	"Isac Svensson",
-	"Ann-Sofi Svensson",
-	"Robert Svensson",
-	"Mujo Alagič",
-	"Lena och Anders Malmqvist",
-	"Alfons Bengtsson",
-	"Lars Karlsson",
-	"Lennart Olsson",
-	"Gunilla Bönqvist",
-	"Kiomars Amina och Vidar Haydar",
-	"Lennart och Gunilla",
-	"Iryna Melnyk",
-	"Iryna Moroz",
-	"Oxana Moisejenko",
-	"Per-Åke Pettersson",
-	"Carola Murås",
-	"Lars Hallberg",
-	"Lars Karlsson",
-	"Ulla Johansson",
-	"Gerhard Andersson",
-	"Britt-Inger Liedmejer",
-	"Dahn Liedmejer",
-	"Agneta Backelin",
-	"Tutti Dahlqvist",
-	"Janne Karlsson",
-	"Carina Norden",
-	"Marie-Loise Sörqvist",
-	"Lena Boustedt",
-	"Pia Fröberg",
-	"Inger Öhlund",
-	"Lisbeth Siljeblom",
-	"Marika Boman",
-	"Ann-Britt Hagström",
-	"Oksana Bedros",
-	"Monica Hansson",
-	"Mans Hummerhjelm",
-	"Marita Hummerhjelm",
-	"Hålan Bovimark",
-	"Sven Gustavsson",
-	"Anna-Lena Andree",
-	"Anders Hagström",
-	"Mats Lundgren",
-	"Åsa Trollälven",
-	"Per-Åke Prtterson",
-	"Bert Hillmersson",
-	"Anna Kågesson",
-	"Per Augustsson",
-	"Anders Leissner",
-	"Lars Guldbrand",
-	"Elisabeth Fryden",
-	"Per Sjöström",
-	"Inga-Lill Andersson",
-	"Bertil Bahnkopf",
-	"Tyrone Tippa Eliasson",
-	"Solvej Andersson",
-	"Elisabet Solvang",
-	"Kicki Svärdh",
-	"Håkan Smedja",
-	"Fam Blennermark",
-	"Hermann Thorleifsson",
-	"Agneta Ericson",
-	"Linda Calderon",
-	"Joakim Holm",
-	"Ove Schöndell",
-	"Anne Pettersson",
-	"Kristina Gasslander",
-	"Björkens äldreboende",
-	"Ann-Sofie Nyblom",
-	"Bea Pettersson",
-	"Madelen Apell",
-	"Lena Ericson",
-	"Annica Andersson",
-	"Lars och Inga Hertin",
-	"Ulrika Rydstöm",
-	"Berit Hansson",
-	"Caroline Ottosson",
-	"Kaisa Parviainen",
-	"Lina Magnusson",
-	"Marie-Louise och Jan Olsson",
-	"Anette Ohlsson",
-	"Pernilla Breding",
-	"Susanne Claesson",
-	"Annika Karlsson-Fröjd",
-	"Britt-Marie Åberg Walkeby",
-	"Liza Gustavsson",
-	"Måns Waldenström",
-	"Annika Gustafsson",
-	"Jenny Johansson",
-	"Anna och Viktor Solvang",
-	"Mia Westerblad",
-	"Fida Said Wetterlundh",
-	"Ruth Antonsson Roos",
-	"Katarina Berg",
-	"Karin Lund",
-	"Ethel Ingela",
-	"Elisabeth Augustsson",
-	"Ulrika Petersson",
-	"Rita Andersson",
-	"Gisela Holtersson",
-	"Mona Granath",
-	"Håkan Löfqvist",
-	"Laila Johansson",
-	"Karin Nilsson",
-	"Anna Kristina Carlstedt",
-	"Zandra Sahlin",
-	"Stanislav Kuptsov",
-	"Linnea Berggren",
-	"Eva Maltinger",
-	"Jan-Olof Andreasson",
-	"Britta Hesse",
-	"Angel Bergh",
-	"Ingela Andersson",
-	"Janet Nyman",
-	"Ulrika Nolåker",
-	"Yvonne Bügler",
-	"Eva-Lena Stahre",
-	"Helena Tunius",
-	"Jolita Dudutiené",
-	"Britt-Marie och Thomas Björnberg",
-	"Eivor Östergren",
-	"Lena Karlsson",
-	"Josefin Bartholmes",
-	"Agneta Andersson",
-	"Doris Sandblom",
-	"Lilian Hedström",
-	"Fariba Pirani",
-	"Olena Boiko",
-	"Ann-Charlotte Solvang",
-	"Magnus Emanuelsson",
-	"Ethel Ingela Elisabeth Augustsson",
-];
+import HomeHero from "../components/HomeHero.astro";
+import SponsorList from "../components/SponsorList.astro";
+import {
+	datedSponsors,
+	privateSponsors,
+	publicSponsors,
+} from "../data/sponsors";
 ---
 
 <Layout title="Hem" nav={Nav.Home}>
 	<main>
-		<header class="relative h-screen">
-			<div class="absolute top-0 left-0 flex h-full w-full justify-center">
-				<div class="grid-rows-hero grid max-w-xl items-center px-2 text-center">
-					<div class="row-start-2">
-						<h1 class="flex flex-col gap-4">
-							<div class="">
-								<span
-									class="text-ukraine-blue text-shadow block text-4xl font-bold md:text-5xl"
-									>Stöd Ukraina Gruppen</span
-								>
-							</div>
-							<span class="text-1xl text-ukraine-blue block md:text-2xl"
-								>i samarbete med</span
-							>
-							<div
-								class="text-ukraine-yellow text-shadow flex flex-col text-2xl md:text-3xl"
-							>
-								<span>Lions Uddevalla</span>
-								<span>Lions Vänersborg</span>
-								<span>Ukrainas vänner Uddevalla</span>
-								<span>Ukrainska Föreningen Fyrbodal</span>
-								<span>Tjernobylkommitten</span>
-							</div>
-						</h1>
-					</div>
-					<div class="row-start-3 flex justify-center self-start">
-						<img
-							class="w-32 md:w-48"
-							src="sponsors/lu_yellow.png"
-							alt="Lions Uddevalla"
-							width="192"
-						/>
-					</div>
-				</div>
-			</div>
-			<figure class="bg-hero-gradient relative -z-10 h-full w-full">
-				<Image
-					class="h-full w-full object-cover mix-blend-multiply blur-sm"
-					src={import("../assets/hero.jpg")}
-					loading="eager"
-					alt="Hero"
-				/>
-			</figure>
-		</header>
+		<HomeHero />
 
 		<SectionOrphanage bg="bg-white" title="Dzhulinsky Orphanage House">
 			<OrphanageText slot="text" />
@@ -541,83 +339,15 @@ const privateSponsors = [
 				<p>EXITE</p>
 			</div>
 
-			<div
-				class="flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-t-blue-200 p-8 text-center"
-			>
-				{publicSponsors.map((sponsor) => <p>{sponsor}</p>)}
-			</div>
+			<SponsorList names={publicSponsors} />
 
-			<div
-				class="flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-t-blue-200 p-8 text-center"
-			>
-				{privateSponsors.map((sponsor) => <p>{sponsor}</p>)}
-			</div>
+			<SponsorList names={privateSponsors} />
 
-			<div class="border-t border-t-blue-200 p-8 text-center">
-				<p class="mb-4">Från 17/10 - 3/11</p>
-				<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-					{
-						[
-							"Eva-Marie Nyström",
-							"Åsa Eriksson",
-							"Olof och Susanne Nilsson",
-							"Margareta och Kjell-Ove Arvidsson",
-							"Emelie Brander",
-							"Elisabeth Friberg",
-							"Nathalie Carlborg",
-							"Karin och Tommy Nejdmo",
-							"Eivor och Johan Klingborg ",
-							"Jonna Larsson",
-							"West Coast Gasol",
-							"Mike Billett",
-							"Makarna Roland och Carole Dahlströms dödsbo",
-							"Anonym givare 6000:-",
-							"Håkan Ekberg",
-							"Oksana Bedros",
-							"Liselotte Harlish",
-							"Odd Fellow, Vänersborg ",
-							"Mari-Louise Perälä och Jan Olsson",
-						].map((sponsor) => <p>{sponsor}</p>)
-					}
-				</div>
-				<p class="mt-4">
-					Samt ALLA andra, som på något sätt hjälpt oss att hjälpa
-				</p>
-			</div>
-
-			<div class="border-t border-t-blue-200 pt-8 text-center">
-				<p class="mb-4">Från 5/11 - 22/11</p>
-				<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-					{
-						[
-							"Birgitta och Kjell Simberg",
-							"Karolin Wahlström",
-							"Liz Åkerlund-Malm",
-							"Yu-Ping Hsu",
-							"Lars Jonsson",
-							"Cecilia Skylvik",
-							"Anna Kågesson",
-							"Cim-Emmelie Hjerpe",
-							"Mikael Persson",
-							"Lilian Hedström",
-							"Mikael Wåleman",
-							"Bosse och Ulla Johansson",
-							"Tore Hansson",
-							"Anna Palmgren",
-							"Mia Bengtsson",
-							"Ingela Andersson",
-							"Annika Eklind",
-							"Sofia Mann",
-							"Ruth Nilsson",
-							"Inger Jansson",
-							"Torgny Nylén-Andersson",
-							"Pernilla Björck",
-							"Bo och Ulla Johansson",
-							"Tore Hansson",
-						].map((sponsor) => <p>{sponsor}</p>)
-					}
-				</div>
-			</div>
+			{
+				datedSponsors.map((d) => (
+					<SponsorList label={d.label} note={d.note} names={d.names} />
+				))
+			}
 		</Section>
 	</main>
 </Layout>
