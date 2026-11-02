@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { ID_CONTACT, ROUTE_TRIPS, Nav } from "../routes";
-import Button from "../components/Button.astro";
+import ButtonLink from "../components/ButtonLink.astro";
 import Link from "../components/Link.astro";
 import Section from "../components/Section.astro";
 import SectionOrphanage from "../components/SectionOrphanage.astro";
@@ -164,15 +164,13 @@ import {
 				<p>
 					Länk till den årliga berättande och finansiella rapporten för
 					organisationen för föregående kalenderår, fritt tillgänglig på
-					Internet:
-					<Link
+					Internet: <Link
 						href="https://dopomogadnipro.com/index.php/component/sppagebuilder/page/265"
 						text="dopomogadnipro.com"
 					/>.
 				</p>
-
 				<div>
-					<Button text="Behov" href="/behov.pdf" />
+					<ButtonLink text="Behov" href="/behov.pdf" />
 				</div>
 			</div>
 			<slot />
@@ -257,7 +255,11 @@ import {
 					Är du intresserad av att hjälpa till med transport till Ukraina, hör
 					av dig till oss.
 				</p>
-				<Button text="Kontakta oss" href={`#${ID_CONTACT}`} inverse={true} />
+				<ButtonLink
+					text="Kontakta oss"
+					href={`#${ID_CONTACT}`}
+					inverse={true}
+				/>
 			</div>
 		</Section>
 

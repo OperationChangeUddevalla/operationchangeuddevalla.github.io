@@ -8,12 +8,13 @@ interface Props {
 const { text, href = "#", inverse = false } = Astro.props;
 ---
 
-<button
-	class="rounded text-2xl cursor-pointer"
+<a
+	class="inline-block cursor-pointer rounded px-8 py-4 text-2xl"
 	class:list={[
 		{ "bg-ukraine-blue text-white": !inverse },
-		{ "bg-white text-ukraine-blue": inverse },
+		{ "text-ukraine-blue bg-white": inverse },
 	]}
+	href={href}
 >
-	<a href={href} class="block px-8 py-4">{text}</a>
-</button>
+	{text}
+</a>
