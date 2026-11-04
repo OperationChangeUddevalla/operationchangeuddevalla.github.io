@@ -190,13 +190,13 @@ const privateSponsors = [
 <Layout title="Hem" nav={Nav.Home}>
 	<main>
 		<header class="relative h-screen">
-			<div class="absolute left-0 top-0 flex h-full w-full justify-center">
-				<div class="grid max-w-xl grid-rows-hero items-center px-2 text-center">
+			<div class="absolute top-0 left-0 flex h-full w-full justify-center">
+				<div class="grid-rows-hero grid max-w-xl items-center px-2 text-center">
 					<div class="row-start-2">
 						<h1 class="flex flex-col gap-4">
 							<div class="">
 								<span
-									class="block text-4xl font-bold text-ukraine-blue text-shadow md:text-5xl"
+									class="text-ukraine-blue text-shadow block text-4xl font-bold md:text-5xl"
 									>Stöd Ukraina Gruppen</span
 								>
 							</div>
@@ -204,7 +204,7 @@ const privateSponsors = [
 								>i samarbete med</span
 							>
 							<div
-								class="flex flex-col text-2xl text-ukraine-yellow text-shadow md:text-3xl"
+								class="text-ukraine-yellow text-shadow flex flex-col text-2xl md:text-3xl"
 							>
 								<span>Lions Uddevalla</span>
 								<span>Lions Vänersborg</span>
@@ -224,7 +224,7 @@ const privateSponsors = [
 					</div>
 				</div>
 			</div>
-			<figure class="relative -z-10 h-full w-full bg-hero-gradient">
+			<figure class="bg-hero-gradient relative -z-10 h-full w-full">
 				<Image
 					class="h-full w-full object-cover mix-blend-multiply blur-sm"
 					src={import("../assets/hero.jpg")}
@@ -241,7 +241,7 @@ const privateSponsors = [
 		<Section bg="bg-gray-50">
 			<h2
 				slot="heading"
-				class="mb-4 text-center font-heading text-ukraine-blue"
+				class="font-heading text-ukraine-blue mb-4 text-center"
 			>
 				<p>Sociala Centret Dnipro</p>
 				<p>Hjälpcenter för evakuerade familjer och veteraner</p>
@@ -397,7 +397,7 @@ const privateSponsors = [
 		>
 			<h2
 				slot="heading"
-				class="flex h-full flex-col gap-4 text-center font-heading text-white sm:gap-0"
+				class="font-heading flex h-full flex-col gap-4 text-center text-white sm:gap-0"
 			>
 				<div class="flex grow flex-col justify-center">
 					<span class="block">Resa</span>
@@ -405,7 +405,7 @@ const privateSponsors = [
 					<span class="block">startar</span>
 				</div>
 				<div
-					class="flex grow items-center justify-center justify-self-center bg-white p-8 font-heading text-5xl text-ukraine-blue sm:justify-self-start"
+					class="font-heading text-ukraine-blue flex grow items-center justify-center justify-self-center bg-white p-8 text-5xl sm:justify-self-start"
 				>
 					<p>25/11 - 2026</p>
 				</div>
@@ -424,13 +424,13 @@ const privateSponsors = [
 			<div class="mb-4 text-center">
 				<div class="mb-4 text-center">
 					<Link
-						text="Senaste: Oktober 2026"
+						text="Senaste: November 2026"
 						href={`${ROUTE_TRIPS}#${ID_GALLERY}`}
 					/>
 				</div>
 
 				<MediaCarousel
-					path="../assets/trips/2026-10_now/2026-10-30/"
+					path="../assets/trips/2026-10_now/2026-11-01/"
 					height="h-[800px]"
 				>
 					<Image
@@ -474,7 +474,7 @@ const privateSponsors = [
 		</Section>
 
 		<Section title="Sponsorer" bg="bg-blue-50">
-			<div class="flex flex-wrap place-content-center gap-4 pb-8 pt-4">
+			<div class="flex flex-wrap place-content-center gap-4 pt-4 pb-8">
 				<a
 					class="flex w-fit max-w-md rounded border-2 border-solid border-[#00539b]/25 bg-[#00539b]/25 p-4 shadow-md hover:border-[#00539b]/75"
 					href="https://www.e-clubhouse.org/sites/vanersborg/"
