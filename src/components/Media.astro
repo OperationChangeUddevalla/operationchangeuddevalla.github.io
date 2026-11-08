@@ -1,90 +1,71 @@
 ---
 import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
-
-export type ImageAssets = typeof imageAssets;
-export type VideoAssets = typeof videoAssets;
+import { getMedia, type Media } from "../lib/media";
 
 interface Props {
-	path: string;
+	media?: Media;
+	path?: string;
+	imageClass?: string;
+	videoClass?: string;
+	fit?: "cover" | "contain";
+	preload?: "metadata" | "auto" | "none";
+	files?: Record<string, { class?: string; contain?: boolean }>;
 }
 
-const { path } = Astro.props;
+const {
+	media: mediaProp,
+	path,
+	imageClass,
+	videoClass,
+	fit = "cover",
+	preload = "metadata",
+	files,
+} = Astro.props;
 
-const pathFilter = new RegExp(path);
-
-const assets = import.meta.glob<{ default: string }>("/src/assets/**/*.*");
-let test = Object.keys(assets).some((asset) => pathFilter.test(asset));
-if (!test) {
-	throw new Error(`${path}`);
+let media: Media;
+if (mediaProp) {
+	media = mediaProp;
+} else if (path) {
+	media = getMedia(path);
+} else {
+	throw new Error("<Media> requires a media or path prop");
 }
 
-const imageAssets = import.meta.glob<{ default: ImageMetadata }>(
-	"/src/assets/**/*.{avif,png,webp,jpeg,jpg,svg}",
-);
-const videoAssets = import.meta.glob<{ default: string }>(
-	"/src/assets/**/*.mp4",
-);
-
-let filteredImages = Object.keys(imageAssets).filter((image) =>
-	pathFilter.test(image),
-);
-let filteredVideos = Object.keys(videoAssets).filter((video) =>
-	pathFilter.test(video),
-);
-
-let pathFilteredImages: ImageAssets = {};
-filteredImages.forEach(
-	(image) => (pathFilteredImages[image] = imageAssets[image]),
-);
-let pathFilteredVideos: VideoAssets = {};
-filteredVideos.forEach(
-	(video) => (pathFilteredVideos[video] = videoAssets[video]),
-);
-
-// https://docs.astro.build/en/recipes/dynamically-importing-images/.
-// https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations.
-// https://github.com/vitejs/vite/issues/4945.
+const basename = (key: string) => key.split("/").pop() ?? "";
+const objectClass = (name: string) =>
+	files?.[name]?.contain || fit === "contain"
+		? "object-contain"
+		: "object-cover";
 ---
 
-{
-	Astro.slots.has("default") && (
-		<Fragment
-			set:html={Astro.slots.render("default", [
-				pathFilteredImages,
-				pathFilteredVideos,
-			])}
-		/>
-	)
-}
-
-{
-	!Astro.slots.has("default") && (
-		<Fragment>
-			{Object.keys(imageAssets).map((image) => {
-				if (pathFilter.test(image)) {
-					return (
-						<Image
-							src={imageAssets[image]()}
-							alt=""
-							class="h-full w-full object-cover"
-						/>
-					);
-				}
-			})}
-			{Object.keys(videoAssets).map(async (video) => {
-				if (pathFilter.test(video)) {
-					return (
-						<video
-							preload="metadata"
-							controls
-							class="h-full w-full object-cover"
-						>
-							<source src={(await videoAssets[video]()).default} />
-						</video>
-					);
-				}
-			})}
-		</Fragment>
-	)
-}
+<Fragment>
+	{
+		Object.entries(media.images).map(([key, loader]) => {
+			const name = basename(key);
+			return (
+				<Image
+					src={loader()}
+					alt={media.meta.files?.[name]?.alt ?? ""}
+					class="h-full w-full"
+					class:list={[imageClass, files?.[name]?.class, objectClass(name)]}
+				/>
+			);
+		})
+	}
+	{
+		Object.entries(media.videos).map(async ([key, loader]) => {
+			const name = basename(key);
+			return (
+				<video
+					preload={preload}
+					controls
+					aria-label={media.meta.files?.[name]?.label}
+					class="h-full w-full"
+					class:list={[videoClass, files?.[name]?.class, objectClass(name)]}
+				>
+					<source src={(await loader()).default} />
+				</video>
+			);
+		})
+	}
+</Fragment>

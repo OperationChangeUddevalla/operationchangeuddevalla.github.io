@@ -1,7 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import Media from "../components/Media.astro";
-import type { ImageAssets, VideoAssets } from "../components/Media.astro";
+import Media from "./Media.astro";
 
 interface Props {
 	path: string;
@@ -81,14 +79,14 @@ const { path, height } = Astro.props;
 	>
 		<div class="h-1/2 w-1/4">
 			<button
-				class="previous pointer-events-auto flex h-full w-full cursor-pointer items-center justify-start px-4 opacity-0 text-shadow group-hover:opacity-50"
+				class="previous text-shadow pointer-events-auto flex h-full w-full cursor-pointer items-center justify-start px-4 opacity-0 group-hover:opacity-50"
 			>
 				<span>{"<"}</span>
 			</button>
 		</div>
 		<div class="h-1/2 w-1/4">
 			<button
-				class="next pointer-events-auto flex h-full w-full cursor-pointer items-center justify-end px-4 opacity-0 text-shadow group-hover:opacity-50"
+				class="next text-shadow pointer-events-auto flex h-full w-full cursor-pointer items-center justify-end px-4 opacity-0 group-hover:opacity-50"
 				><span>{">"}</span>
 			</button>
 		</div>
@@ -97,33 +95,12 @@ const { path, height } = Astro.props;
 	<div class:list={height}>
 		<slot />
 
-		<Media path={path}>
-			{
-				(images: ImageAssets, videos: VideoAssets) => (
-					<Fragment>
-						{Object.values(images).map((image) => {
-							return (
-								<Image
-									src={image()}
-									alt=""
-									class="media h-full w-full object-contain"
-								/>
-							);
-						})}
-						{Object.values(videos).map(async (video) => {
-							return (
-								<video
-									preload="auto"
-									controls
-									class="media h-full w-full object-contain"
-								>
-									<source src={(await video()).default} />
-								</video>
-							);
-						})}
-					</Fragment>
-				)
-			}
-		</Media>
+		<Media
+			path={path}
+			imageClass="media"
+			videoClass="media"
+			fit="contain"
+			preload="auto"
+		/>
 	</div>
 </media-carousel>

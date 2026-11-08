@@ -16,6 +16,9 @@ import {
 	privateSponsors,
 	publicSponsors,
 } from "../data/sponsors";
+import { trips, getDays } from "../lib/trips";
+
+const latestDay = getDays(trips[0].path)[0];
 ---
 
 <Layout title="Hem" nav={Nav.Home}>
@@ -215,10 +218,7 @@ import {
 					/>
 				</div>
 
-				<MediaCarousel
-					path="../assets/trips/2026-10_now/2026-10-30/"
-					height="h-[800px]"
-				>
+				<MediaCarousel path={latestDay} height="h-[800px]">
 					<Image
 						src={import("../assets/trip-cover.jpg")}
 						alt=""

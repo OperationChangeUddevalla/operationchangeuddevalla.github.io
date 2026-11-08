@@ -1,14 +1,13 @@
 ---
-import { Image } from "astro:assets";
-import Media, { type ImageAssets, type VideoAssets } from "./Media.astro";
+import Media from "./Media.astro";
+import { getMedia } from "../lib/media";
 
 export interface Gallery {
 	assets: {
 		path: string;
 		title?: string;
-		usePathTailAsTitle?: boolean;
 		span?: boolean;
-		imageConfig?: Map<number, { class: string; contain?: boolean }>;
+		files?: Record<string, { class?: string; contain?: boolean }>;
 	}[];
 }
 
@@ -17,8 +16,6 @@ interface Props {
 }
 
 const { galleries } = Astro.props;
-
-export const PATH_TAIL = /\/([^\/]+)\/$/;
 ---
 
 <Fragment>
@@ -27,9 +24,9 @@ export const PATH_TAIL = /\/([^\/]+)\/$/;
 			<div data-target={i} class="tab-view flex flex-col gap-16">
 				{gallery.assets.map((asset) => (
 					<div>
-						{(asset.title || asset.usePathTailAsTitle) && (
+						{asset.title && (
 							<p class="mb-4 border-b border-b-slate-200 p-4 text-center">
-								{asset.title ?? asset.path.match(PATH_TAIL)?.[1]}
+								{asset.title}
 							</p>
 						)}
 						<div
@@ -38,38 +35,7 @@ export const PATH_TAIL = /\/([^\/]+)\/$/;
 								asset.span ? "grid-cols-1" : "md:grid-cols-2 lg:grid-cols-3"
 							}
 						>
-							<Media path={asset.path}>
-								{(images: ImageAssets, videos: VideoAssets) => (
-									<Fragment>
-										{Object.values(images).map((image, i) => {
-											return (
-												<Image
-													src={image()}
-													alt=""
-													class="h-full w-full"
-													class:list={[
-														asset.imageConfig?.get(i)?.class,
-														asset.imageConfig?.get(i)?.contain
-															? "object-contain"
-															: "object-cover",
-													]}
-												/>
-											);
-										})}
-										{Object.values(videos).map(async (video) => {
-											return (
-												<video
-													preload="metadata"
-													controls
-													class="h-full w-full object-cover"
-												>
-													<source src={(await video()).default} />
-												</video>
-											);
-										})}
-									</Fragment>
-								)}
-							</Media>
+							<Media media={getMedia(asset.path)} files={asset.files} />
 						</div>
 					</div>
 				))}
