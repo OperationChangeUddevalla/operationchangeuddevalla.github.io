@@ -1,4 +1,9 @@
-import { desc, getLooseFiles, getSubPaths, normalizeDir } from "./media";
+import {
+	descending,
+	getLooseFiles,
+	getSubPaths,
+	normalizeDirectory,
+} from "./media";
 
 export interface Trip {
 	title: string;
@@ -24,16 +29,16 @@ export const trips: Trip[] = [
 ];
 
 export function getDays(tripPath: string): string[] {
-	const dir = normalizeDir(tripPath);
-	const subs = getSubPaths(dir);
-	if (subs.length === 0) {
-		return [dir];
+	const directory = normalizeDirectory(tripPath);
+	const subdirectories = getSubPaths(directory);
+	if (subdirectories.length === 0) {
+		return [directory];
 	}
-	const loose = getLooseFiles(dir);
-	if (loose.length > 0) {
+	const looseFiles = getLooseFiles(directory);
+	if (looseFiles.length > 0) {
 		throw new Error(
-			`Loose media at trip root ${dir}: ${loose.join(", ")} — move into a day folder`,
+			`Loose media at trip root ${directory}: ${looseFiles.join(", ")} — move into a day folder`,
 		);
 	}
-	return subs.sort(desc);
+	return subdirectories.sort(descending);
 }

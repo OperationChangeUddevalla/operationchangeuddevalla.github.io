@@ -1,10 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import { getMedia, type Media } from "../lib/media";
+import { getMedia } from "../lib/media";
 
 interface Props {
-	media?: Media;
-	path?: string;
+	path: string;
 	imageClass?: string;
 	videoClass?: string;
 	fit?: "cover" | "contain";
@@ -13,7 +12,6 @@ interface Props {
 }
 
 const {
-	media: mediaProp,
 	path,
 	imageClass,
 	videoClass,
@@ -22,14 +20,7 @@ const {
 	files,
 } = Astro.props;
 
-let media: Media;
-if (mediaProp) {
-	media = mediaProp;
-} else if (path) {
-	media = getMedia(path);
-} else {
-	throw new Error("<Media> requires a media or path prop");
-}
+const media = getMedia(path);
 
 const basename = (key: string) => key.split("/").pop() ?? "";
 const objectClass = (name: string) =>
@@ -45,7 +36,7 @@ const objectClass = (name: string) =>
 			return (
 				<Image
 					src={loader()}
-					alt={media.meta.files?.[name]?.alt ?? ""}
+					alt={media.metadata.files?.[name]?.alt ?? ""}
 					class="h-full w-full"
 					class:list={[imageClass, files?.[name]?.class, objectClass(name)]}
 				/>
@@ -59,7 +50,7 @@ const objectClass = (name: string) =>
 				<video
 					preload={preload}
 					controls
-					aria-label={media.meta.files?.[name]?.label}
+					aria-label={media.metadata.files?.[name]?.label}
 					class="h-full w-full"
 					class:list={[videoClass, files?.[name]?.class, objectClass(name)]}
 				>

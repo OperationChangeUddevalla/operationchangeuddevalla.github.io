@@ -1,6 +1,5 @@
 ---
 import Media from "./Media.astro";
-import { getMedia } from "../lib/media";
 
 export interface Gallery {
 	assets: {
@@ -35,7 +34,7 @@ const { galleries } = Astro.props;
 								asset.span ? "grid-cols-1" : "md:grid-cols-2 lg:grid-cols-3"
 							}
 						>
-							<Media media={getMedia(asset.path)} files={asset.files} />
+							<Media path={asset.path} files={asset.files} />
 						</div>
 					</div>
 				))}

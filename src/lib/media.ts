@@ -1,6 +1,6 @@
 import type { ImageMetadata } from "astro";
 
-export interface FolderMeta {
+export interface FolderMetadata {
 	files?: Record<string, { alt?: string; label?: string }>;
 }
 
@@ -10,61 +10,63 @@ const imageAssets = import.meta.glob<{ default: ImageMetadata }>(
 const videoAssets = import.meta.glob<{ default: string }>(
 	"/src/assets/**/*.{mp4,webm,mov}",
 );
-const metaFiles = import.meta.glob("/src/assets/**/media.json", {
+const metadataFiles = import.meta.glob("/src/assets/**/media.json", {
 	eager: true,
 	import: "default",
 });
 
-export function normalizeDir(path: string): string {
+const allMediaKeys = [...Object.keys(imageAssets), ...Object.keys(videoAssets)];
+
+export function normalizeDirectory(path: string): string {
 	return path.endsWith("/") ? path : path + "/";
 }
 
-const asc = (a: string, b: string): number => (a < b ? -1 : a > b ? 1 : 0);
-export const desc = (a: string, b: string): number => -asc(a, b);
+const ascending = (a: string, b: string): number =>
+	a < b ? -1 : a > b ? 1 : 0;
+export const descending = (a: string, b: string): number => -ascending(a, b);
 
 export interface Media {
 	images: Record<string, () => Promise<{ default: ImageMetadata }>>;
 	videos: Record<string, () => Promise<{ default: string }>>;
-	meta: FolderMeta;
+	metadata: FolderMetadata;
 }
 
 export function getMedia(path: string): Media {
-	const dir = normalizeDir(path);
+	const directory = normalizeDirectory(path);
 	const images = Object.fromEntries(
 		Object.entries(imageAssets)
-			.filter(([key]) => key.startsWith(dir))
-			.sort(([a], [b]) => asc(a, b)),
+			.filter(([key]) => key.startsWith(directory))
+			.sort(([a], [b]) => ascending(a, b)),
 	);
 	const videos = Object.fromEntries(
 		Object.entries(videoAssets)
-			.filter(([key]) => key.startsWith(dir))
-			.sort(([a], [b]) => asc(a, b)),
+			.filter(([key]) => key.startsWith(directory))
+			.sort(([a], [b]) => ascending(a, b)),
 	);
-	const meta = (metaFiles[dir + "media.json"] ?? {}) as FolderMeta;
+	const metadata = (metadataFiles[directory + "media.json"] ??
+		{}) as FolderMetadata;
 	if (Object.keys(images).length === 0 && Object.keys(videos).length === 0) {
-		throw new Error(`${path}`);
+		throw new Error(`No media found for path: ${path}`);
 	}
-	return { images, videos, meta };
+	return { images, videos, metadata };
 }
 
 export function getSubPaths(path: string): string[] {
-	const dir = normalizeDir(path);
-	const subs = new Set<string>();
-	for (const key of [
-		...Object.keys(imageAssets),
-		...Object.keys(videoAssets),
-	]) {
-		if (!key.startsWith(dir)) continue;
-		const rest = key.slice(dir.length);
+	const directory = normalizeDirectory(path);
+	const subdirectories = new Set<string>();
+	for (const key of allMediaKeys) {
+		if (!key.startsWith(directory)) continue;
+		const rest = key.slice(directory.length);
 		const slash = rest.indexOf("/");
-		if (slash > 0) subs.add(dir + rest.slice(0, slash + 1));
+		if (slash > 0) subdirectories.add(directory + rest.slice(0, slash + 1));
 	}
-	return [...subs];
+	return [...subdirectories];
 }
 
 export function getLooseFiles(path: string): string[] {
-	const dir = normalizeDir(path);
-	return [...Object.keys(imageAssets), ...Object.keys(videoAssets)].filter(
-		(key) => key.startsWith(dir) && !key.slice(dir.length).includes("/"),
+	const directory = normalizeDirectory(path);
+	return allMediaKeys.filter(
+		(key) =>
+			key.startsWith(directory) && !key.slice(directory.length).includes("/"),
 	);
 }
